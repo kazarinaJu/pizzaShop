@@ -32,8 +32,8 @@ final class ImageCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "default")
         imageView.contentMode = .scaleAspectFill
-        imageView.widthAnchor.constraint(equalToConstant: ScreenSize.width * 0.8).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: ScreenSize.width * 0.8).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: ScreenSize.width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: ScreenSize.width).isActive = true
         return imageView
     }()
     
