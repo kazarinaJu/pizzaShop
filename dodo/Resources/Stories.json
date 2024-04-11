@@ -1,0 +1,28 @@
+{
+"stories": [
+    {
+      "id": 4001,
+      "image": "stories1",
+      "readability": false
+}
+    ,
+    {
+      "id": 4002,
+      "image": "stories",
+      "readability": true
+}
+    ,
+    {
+      "id": 4003,
+      "image": "stories2",
+      "readability": true
+}
+    ,
+    {
+      "id": 4004,
+      "image": "stories3",
+      "readability": true
+    }
+  ]
+}
+

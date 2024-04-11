@@ -1,0 +1,72 @@
+{
+"ingredients": [
+        {"id": 2001, "image": "cheese-board", "name": "Сырный бортик", "price": 189},
+        {"id": 2002, "image": "mozarella", "name": "Сливочная моцарелла", "price": 79},
+        {"id": 2003, "image": "cucumber", "name": "Маринованные огурчики", "price": 59},
+        {"id": 2004, "image": "tomato", "name": "Свежие томаты", "price": 59},
+        {"id": 2005, "image": "red-onion", "name": "Красный лук", "price": 59},
+        {"id": 2006, "image": "hala", "name": "Острый халапеньо", "price": 59},
+        {"id": 2007, "image": "mash", "name": "Шампиньоны", "price": 59},
+        {"id": 2008, "image": "italian-herbs", "name": "Итальянские травы", "price": 39}
+    ],
+"categories": [
+        {"id": 1001, "name": "Завтрак", "indexPath": [3, 0]},
+        {"id": 1002, "name": "Пиццы", "indexPath": [3, 3]},
+        {"id": 1003, "name": "Комбо", "indexPath": [3, 6]},
+        {"id": 1004, "name": "Закуски", "indexPath": [3, 9]},
+        {"id": 1005, "name": "Напитки", "indexPath": [3, 0]},
+        {"id": 1006, "name": "Десерты", "indexPath": [3, 0]},
+        {"id": 1007, "name": "Соусы", "indexPath": [3, 0]},
+        {"id": 1008, "name": "Другие товары", "indexPath": [3, 0]}
+    ],
+"sizes": ["Маленькая", "Средняя", "Большая"],
+"dough": ["Традиционное", "Тонкое"],
+"products": [
+        {
+          "id": 3001,
+          "name": "Гавайская",
+            "detail": "Ананасы, Курица, Сыр",
+            "description": "Пицца, приготовленнаяая с использованием белого соуса, сыра, ананасов, курицы и морепродуктов.",
+            "weight": 350,
+            "price": 590,
+            "image": "hawaii",
+            "portion": null,
+            "size": null,
+            "dough": null,
+            "isOnSale": false,
+           "count": 1
+        },
+        {
+           "id": 3002,
+          "name": "Маргарита",
+            
+            "detail": "Помидоры, Базилик, Моцарелла",
+            "description": "Классическая итальянская пицца: сочетание расплавленного сыра, помидоров и пикантный аромат базилика.",
+            "weight": 333,
+            "price": 650,
+            "image": "margarita",
+            "portion": null,
+           
+            "size": null,
+            "dough": null,
+            "isOnSale": true,
+"count": 1
+        },
+        {
+         "id": 3003,
+          "name": "Пепперони",
+        
+            "detail": "Пепперони, Болгарский перец, Сыр",
+            "description": "Классический состав пиццы в котором нет ничего лишнего: пряные колбаски пепперони с легкой перчинкой, сыр моцарелла со сливочным вкусом и нежный томатный соус",
+            "weight": 400,
+            "price": 710,
+            "image": "pepperoni",
+            "portion": 2,
+            
+            "size": "Средняя",
+            "dough": "Традиционное",
+            "isOnSale": true,
+"count": 1
+        }
+    ]
+}
