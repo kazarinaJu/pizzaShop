@@ -16,6 +16,8 @@
 		0502F0932BBC6DD500556C33 /* GeocodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0922BBC6DD500556C33 /* GeocodeService.swift */; };
 		0502F0972BBD816600556C33 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0962BBD816600556C33 /* AddressView.swift */; };
 		0502F0992BBDB74600556C33 /* AddressPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0982BBDB74600556C33 /* AddressPanelView.swift */; };
+		051DD9F12BD12EEF007E1136 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F02BD12EEF007E1136 /* Category.swift */; };
+		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		055D6BFE2B6952A300989B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFD2B6952A300989B70 /* AppDelegate.swift */; };
 		055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFF2B6952A300989B70 /* SceneDelegate.swift */; };
 		055D6C022B6952A300989B70 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C012B6952A300989B70 /* MenuVC.swift */; };
@@ -60,6 +62,23 @@
 		05C0DBD22B95B4EA00546F01 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C0DBD12B95B4EA00546F01 /* CustomStepper.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		051DD9DE2BCEADAA007E1136 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055D6BF22B6952A300989B70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 055D6BF92B6952A300989B70;
+			remoteInfo = dodo;
+		};
+		051DD9EB2BD12C5B007E1136 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055D6BF22B6952A300989B70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 055D6BF92B6952A300989B70;
+			remoteInfo = dodo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0502F08A2BB55DBB00556C33 /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
 		0502F08C2BB5701300556C33 /* CartConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartConfigurator.swift; sourceTree = "<group>"; };
@@ -68,6 +87,10 @@
 		0502F0922BBC6DD500556C33 /* GeocodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeService.swift; sourceTree = "<group>"; };
 		0502F0962BBD816600556C33 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		0502F0982BBDB74600556C33 /* AddressPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPanelView.swift; sourceTree = "<group>"; };
+		051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dodo-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		051DD9F02BD12EEF007E1136 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		051DD9F22BD131D6007E1136 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		055D6BFA2B6952A300989B70 /* dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055D6BFD2B6952A300989B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		055D6BFF2B6952A300989B70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +140,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		051DD9D72BCEADAA007E1136 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DD9E42BD12C5B007E1136 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055D6BF72B6952A300989B70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,10 +184,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		051DD9E82BD12C5B007E1136 /* dodo-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				051DD9F22BD131D6007E1136 /* MenuTests.swift */,
+			);
+			path = "dodo-Tests";
+			sourceTree = "<group>";
+		};
 		055D6BF12B6952A300989B70 = {
 			isa = PBXGroup;
 			children = (
 				055D6BFC2B6952A300989B70 /* dodo */,
+				051DD9E82BD12C5B007E1136 /* dodo-Tests */,
 				055D6BFB2B6952A300989B70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				055D6BFA2B6952A300989B70 /* dodo.app */,
+				051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */,
+				051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +265,7 @@
 			children = (
 				055D6C1F2B69542700989B70 /* Product.swift */,
 				05B0089A2B84F99000FC2821 /* Storie.swift */,
+				051DD9F02BD12EEF007E1136 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +416,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		051DD9D92BCEADAA007E1136 /* dodoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 051DD9E22BCEADAA007E1136 /* Build configuration list for PBXNativeTarget "dodoTests" */;
+			buildPhases = (
+				051DD9D62BCEADAA007E1136 /* Sources */,
+				051DD9D72BCEADAA007E1136 /* Frameworks */,
+				051DD9D82BCEADAA007E1136 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				051DD9DF2BCEADAA007E1136 /* PBXTargetDependency */,
+			);
+			name = dodoTests;
+			productName = dodoTests;
+			productReference = 051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		051DD9E62BD12C5B007E1136 /* dodo-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 051DD9ED2BD12C5B007E1136 /* Build configuration list for PBXNativeTarget "dodo-Tests" */;
+			buildPhases = (
+				051DD9E32BD12C5B007E1136 /* Sources */,
+				051DD9E42BD12C5B007E1136 /* Frameworks */,
+				051DD9E52BD12C5B007E1136 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				051DD9EC2BD12C5B007E1136 /* PBXTargetDependency */,
+			);
+			name = "dodo-Tests";
+			productName = "dodo-Tests";
+			productReference = 051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		055D6BF92B6952A300989B70 /* dodo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 055D6C0E2B6952A400989B70 /* Build configuration list for PBXNativeTarget "dodo" */;
@@ -395,9 +480,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					051DD9D92BCEADAA007E1136 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 055D6BF92B6952A300989B70;
+					};
+					051DD9E62BD12C5B007E1136 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 055D6BF92B6952A300989B70;
+					};
 					055D6BF92B6952A300989B70 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -420,11 +513,27 @@
 			projectRoot = "";
 			targets = (
 				055D6BF92B6952A300989B70 /* dodo */,
+				051DD9D92BCEADAA007E1136 /* dodoTests */,
+				051DD9E62BD12C5B007E1136 /* dodo-Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		051DD9D82BCEADAA007E1136 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DD9E52BD12C5B007E1136 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055D6BF82B6952A300989B70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +547,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		051DD9D62BCEADAA007E1136 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DD9E32BD12C5B007E1136 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055D6BF62B6952A300989B70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,6 +583,7 @@
 				05B4B2212BAC38AC00AA4802 /* MenuPresenter.swift in Sources */,
 				0502F0972BBD816600556C33 /* AddressView.swift in Sources */,
 				05B008782B74C7FA00FC2821 /* DetailVC.swift in Sources */,
+				051DD9F12BD12EEF007E1136 /* Category.swift in Sources */,
 				05C0DBCF2B9087E800546F01 /* Collection+isNotEmpty.swift in Sources */,
 				055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */,
 				055D6C022B6952A300989B70 /* MenuVC.swift in Sources */,
@@ -493,6 +618,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		051DD9DF2BCEADAA007E1136 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 055D6BF92B6952A300989B70 /* dodo */;
+			targetProxy = 051DD9DE2BCEADAA007E1136 /* PBXContainerItemProxy */;
+		};
+		051DD9EC2BD12C5B007E1136 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 055D6BF92B6952A300989B70 /* dodo */;
+			targetProxy = 051DD9EB2BD12C5B007E1136 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		055D6C032B6952A300989B70 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -513,6 +651,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		051DD9E02BCEADAA007E1136 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = Debug;
+		};
+		051DD9E12BCEADAA007E1136 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = Release;
+		};
+		051DD9EE2BD12C5B007E1136 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JK.dodo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = Debug;
+		};
+		051DD9EF2BD12C5B007E1136 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JK.dodo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = Release;
+		};
 		055D6C0C2B6952A400989B70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -565,7 +779,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -622,7 +836,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -638,7 +852,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
@@ -646,7 +860,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -670,7 +884,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
@@ -678,7 +892,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -699,6 +913,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		051DD9E22BCEADAA007E1136 /* Build configuration list for PBXNativeTarget "dodoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051DD9E02BCEADAA007E1136 /* Debug */,
+				051DD9E12BCEADAA007E1136 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		051DD9ED2BD12C5B007E1136 /* Build configuration list for PBXNativeTarget "dodo-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051DD9EE2BD12C5B007E1136 /* Debug */,
+				051DD9EF2BD12C5B007E1136 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		055D6BF52B6952A300989B70 /* Build configuration list for PBXProject "dodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

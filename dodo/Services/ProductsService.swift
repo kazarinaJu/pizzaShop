@@ -6,7 +6,14 @@
 //
 import Foundation
 
-class ProductsService {
+protocol ProductServiceProtocol: AnyObject {
+    func fetchProducts(completion: @escaping ([Product])->Void)
+    func fetchCategories(completion: @escaping ([Category]) -> Void)
+    func fetchIngredients(completion: @escaping ([Ingredient]) -> Void)
+    func fetchSizesAndDough(completion: @escaping ([String]?, [String]?) -> Void)
+}
+
+class ProductsService: ProductServiceProtocol {
     
     func fetchProducts(completion: @escaping ([Product])->Void) {
         let session = URLSession.shared

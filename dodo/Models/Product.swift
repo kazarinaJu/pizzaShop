@@ -41,6 +41,10 @@ struct Product: Codable {
         default: return 0
         }
     }
+    
+    static var empty: Product {
+        return Product(id: 0, name: "", detail: "", description: "", weight: 0, price: 0, image: "", portion: 0, isOnSale: false)
+    }
 }
 
 struct Ingredient: Codable {
@@ -49,8 +53,4 @@ struct Ingredient: Codable {
     let price: Int
 }
 
-struct Category: Codable {
-    let id: UInt
-    let name: String
-    let indexPath: [Int]
-}
+
