@@ -120,7 +120,7 @@ extension MenuVC: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.reuseId, for: indexPath) as! BannerCell
             cell.update(products)
             cell.onCellPriceButtonTapped = { product in
-                self.presenter?.bannerPriceButtonTapped(product)
+                self.bannerCellPriceButtonTapped(product)
             }
             return cell
         case .categories:
@@ -164,4 +164,9 @@ extension MenuVC {
     }
 }
 
-
+//MARK: - Pass Event
+extension MenuVC {
+    func bannerCellPriceButtonTapped(_ product: Product) {
+        presenter?.bannerPriceButtonTapped(product)
+    }
+}

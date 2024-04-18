@@ -23,14 +23,12 @@ protocol MenuPresenterProtocol: AnyObject {
 }
 
 final class MenuPresenter: MenuPresenterProtocol {
-   
-    
-    
+
     weak var view: MenuVCProtocol?
     
 //MARK: Services
     private let storiesService = StoriesService.init()
-    private let productsService = ProductsService.init()
+    var productsService: ProductServiceProtocol?
     private let ordersService = OrdersService.init()
     
     func viewDidLoad() {
@@ -59,7 +57,7 @@ extension MenuPresenter {
 //MARK: - Business Logic
 extension MenuPresenter {
     func fetchProducts() {
-        productsService.fetchProducts { [self] products in
+        productsService?.fetchProducts { [self] products in
             view?.showProducts(products)
         }
     }
@@ -71,7 +69,7 @@ extension MenuPresenter {
     }
 
     func fetchCategories() {
-        productsService.fetchCategories { [self] categories in
+        productsService?.fetchCategories { [self] categories in
             view?.showCategories(categories)
         }
     }
