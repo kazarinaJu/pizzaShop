@@ -16,9 +16,6 @@ protocol DetailPresenterProtocol: AnyObject {
     func sizeControlTapped(_ size: String)
     func doughControlTapped(_ dough: String)
     
-    //Update View
-    //func displayProduct(_ product: Product)
-    
     //Business Logic
     func fetchIngredients()
     func fetchSizesAndDough()
@@ -34,13 +31,12 @@ final class DetailPresenter: DetailPresenterProtocol {
     }
     
 //MARK: Services
-    private let productsService = ProductsService.init()
+    var productsService: ProductsServiceProtocol?
     private let ordersService = OrdersService.init()
     
     func viewDidLoad() {
         fetchIngredients()
         fetchSizesAndDough()
-        //тут надо displayProduct?
     }
 }
 
@@ -53,7 +49,6 @@ extension DetailPresenter {
     func sizeControlTapped(_ size: String) {
         if let product = product {
             self.product?.size = size
-            print("->", self.product?.size)
             view?.showProduct(self.product)
         }
     }
@@ -69,23 +64,19 @@ extension DetailPresenter {
 //MARK: - Business Logic
 extension DetailPresenter {
     func fetchIngredients() {
-        productsService.fetchIngredients { [weak self] ingredients in
+        productsService?.fetchIngredients { [weak self] ingredients in
             self?.view?.showIngredients(ingredients)
         }
     }
     
     func fetchSizesAndDough() {
-        productsService.fetchSizesAndDough { [weak self] sizes, dough in
+        productsService?.fetchSizesAndDough { [weak self] sizes, dough in
             if let sizes = sizes, let dough = dough {
                 self?.view?.showSizes(sizes)
                 self?.view?.showDough(dough)
             }
         }
     }
-//    func displayProduct(_ product: Product) {
-//        self.product = product
-//        view?.showProduct(product)
-//    }
 }
 
 

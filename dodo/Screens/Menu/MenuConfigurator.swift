@@ -11,9 +11,17 @@ final class MenuConfigurator {
     func configure() -> MenuVC {
         let menuVC = MenuVC()
         let menuPresenter = MenuPresenter()
+        
+        
         //обвязка
         menuVC.presenter = menuPresenter
         menuPresenter.view = menuVC
+        
+        //di
+        let networkClient = NetworkClient()
+        let productsService = ProductsService(networkClient: networkClient)
+        menuPresenter.productsService = productsService
+        
         return menuVC
     }
 }
