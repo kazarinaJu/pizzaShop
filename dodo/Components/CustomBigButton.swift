@@ -44,7 +44,7 @@ final class CustomBigButton: UIView {
         customBigtButton.snp.makeConstraints { make in
             make.top.equalTo(self).inset(16)
             make.left.right.equalTo(self)
-            make.bottom.equalTo(self).inset(46)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(12)
         }
     }
     
