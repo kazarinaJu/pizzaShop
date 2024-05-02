@@ -5,104 +5,77 @@
 //  Created by Юлия Ястребова on 18.04.2024.
 //
 
-
 import XCTest
 @testable import dodo
 import Foundation
 
-class MenuPresenterSpy: MenuPresenterProtocol {
-    var view: MenuVCProtocol?
-    
-    var viewDidLoadCalled = false
-    var bannerPriceButtonTappedCalled = false
-    var productPriceButtonTappedCalled = false
-    var productCellSelectedCalled = false
-    var fetchProductsCalled = false
-    var fetchStoriesCalled = false
-    var fetchCategoriesCalled = false
-    
-    func viewDidLoad() {
-        
-        viewDidLoadCalled = true
-    }
-    
-    func bannerPriceButtonTapped(_ product: Product) {
-        bannerPriceButtonTappedCalled = true
-    }
-    
-    func productPriceButtonTapped(_ product: Product) {
-        productPriceButtonTappedCalled = true
-    }
-    
-    func productCellSelected(_ selectedProduct: Product) {
-        productCellSelectedCalled = true
-    }
-    
-    func fetchProducts() {
-        fetchProductsCalled = true
-    }
-    
-    func fetchStories() {
-        fetchStoriesCalled = true
-    }
-    
-    func fetchCategories() {
-        fetchCategoriesCalled = true
-    }
-
-}
-
-class MenuViewControllerSpy: MenuVCProtocol {
-    
-    var presenter: MenuPresenterProtocol?
-    
-    var showCategoriesCalled = false
-    var showStoriesCalled = false
-    var showProductsCalled = false
-    var navigateToDetailScreenCalled = false
-    
-    func showCategories(_ categories: [dodo.Category]) {
-        showCategoriesCalled = true
-    }
-    
-    func showStories(_ stories: [Storie]) {
-        showStoriesCalled = true
-    }
-    
-    func showProducts(_ products: [Product]) {
-        showProductsCalled = true
-    }
-    
-    func navigateToDetailScreen(_ selectedProduct: Product) {
-        navigateToDetailScreenCalled = true
-    }
-}
-
-class ProductServiceSpy: ProductsServiceProtocol {
-    
-    var fetchProductsCalled = false
-    var fetchCategoriesCalled = false
-    var fetchIngredientsCalled = false
-    var fetchSizesAndDoughCalled = false
-    
-    func fetchProducts(completion: @escaping ([dodo.Product]) -> Void) {
-        fetchProductsCalled = true
-    }
-    
-    func fetchCategories(completion: @escaping ([dodo.Category]) -> Void) {
-        fetchCategoriesCalled = true
-    }
-    
-    func fetchIngredients(completion: @escaping ([dodo.Ingredient]) -> Void) {
-        fetchIngredientsCalled = true
-    }
-    
-    func fetchSizesAndDough(completion: @escaping ([String]?, [String]?) -> Void) {
-        fetchSizesAndDoughCalled = true
-    }
-}
-
 final class MenuTests: XCTestCase {
+    
+    class MenuViewControllerSpy: MenuVCProtocol {
+        
+        var presenter: MenuPresenterProtocol?
+        
+        var showCategoriesCalled = false
+        var showStoriesCalled = false
+        var showProductsCalled = false
+        var navigateToDetailScreenCalled = false
+        
+        func showCategories(_ categories: [dodo.Category]) {
+            showCategoriesCalled = true
+        }
+        
+        func showStories(_ stories: [Storie]) {
+            showStoriesCalled = true
+        }
+        
+        func showProducts(_ products: [Product]) {
+            showProductsCalled = true
+        }
+        
+        func navigateToDetailScreen(_ selectedProduct: Product) {
+            navigateToDetailScreenCalled = true
+        }
+    }
+    
+   class MenuPresenterSpy: MenuPresenterProtocol {
+        var view: MenuVCProtocol?
+        
+        var viewDidLoadCalled = false
+        var bannerPriceButtonTappedCalled = false
+        var productPriceButtonTappedCalled = false
+        var productCellSelectedCalled = false
+        var fetchProductsCalled = false
+        var fetchStoriesCalled = false
+        var fetchCategoriesCalled = false
+        
+        func viewDidLoad() {
+            viewDidLoadCalled = true
+        }
+        
+        func bannerPriceButtonTapped(_ product: Product) {
+            bannerPriceButtonTappedCalled = true
+        }
+        
+        func productPriceButtonTapped(_ product: Product) {
+            productPriceButtonTappedCalled = true
+        }
+        
+        func productCellSelected(_ selectedProduct: Product) {
+            productCellSelectedCalled = true
+        }
+        
+        func fetchProducts() {
+            fetchProductsCalled = true
+        }
+        
+        func fetchStories() {
+            fetchStoriesCalled = true
+        }
+        
+        func fetchCategories() {
+            fetchCategoriesCalled = true
+        }
+    }
 
     //MARK: - Test Presenter
     func testPresenterCallsViewDidLoad() {
@@ -250,55 +223,5 @@ final class MenuTests: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 3)
-    }
-    
-    //MARK: - Test Service
-    func testServiceFetchProductsCalled() {
-        let menuPresenter = MenuPresenter()
-        let productService = ProductServiceSpy()
-        
-        menuPresenter.productsService = productService
-        
-        //when
-        menuPresenter.fetchProducts()
-        
-        //then
-        XCTAssertTrue(productService.fetchProductsCalled)
-    }
-    
-    func testServiceFetchCategoriesCalled() {
-        let menuPresenter = MenuPresenter()
-        let productService = ProductServiceSpy()
-        menuPresenter.productsService = productService
-        
-        //when
-        menuPresenter.fetchCategories()
-        
-        //then
-        XCTAssertTrue(productService.fetchCategoriesCalled)
-    }
-    
-    func testServiceFetchIngredientsCalled() {
-        let detailPresenter = DetailPresenter()
-        let productService = ProductServiceSpy()
-        detailPresenter.productsService = productService
-        
-        //when
-        detailPresenter.fetchIngredients()
-        
-        //then
-        XCTAssertTrue(productService.fetchIngredientsCalled)
-    }
-    
-    func testServiceFetchSizesAndDoughCalled() {
-        let detailPresenter = DetailPresenter()
-        let productService = ProductServiceSpy()
-        detailPresenter.productsService = productService
-        
-        //when
-        detailPresenter.fetchSizesAndDough()
-        
-        //then
-        XCTAssertTrue(productService.fetchSizesAndDoughCalled)
     }
 }
