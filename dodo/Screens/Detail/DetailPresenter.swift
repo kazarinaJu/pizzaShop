@@ -32,9 +32,16 @@ final class DetailPresenter: DetailPresenterProtocol {
     
 //MARK: Services
     var productsService: ProductsServiceProtocol?
-    private let ordersService = OrdersService.init()
+    var ordersService: OrdersServiceProtocol?
     
     func viewDidLoad() {
+        
+        //provider.fetchIngredients()
+        //interactor.fetchIngredients()
+        
+        //presenter.fetchedIngredients(ingredients) VIPER
+        //view.showIngredients() VIP (Clean Swift)
+        
         fetchIngredients()
         fetchSizesAndDough()
     }
@@ -43,7 +50,7 @@ final class DetailPresenter: DetailPresenterProtocol {
 //MARK: - Event Handler
 extension DetailPresenter {
     func addToCartButtonTapped(_ product: Product) {
-        ordersService.add(product)
+        ordersService?.add(product)
     }
     
     func sizeControlTapped(_ size: String) {

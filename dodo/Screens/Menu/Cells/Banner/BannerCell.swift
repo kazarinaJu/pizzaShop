@@ -24,7 +24,7 @@ final class BannerCell: UITableViewCell {
             collectionView.reloadData()
         }
     }
-    private let ordersService = OrdersService.init()
+    var ordersService: OrdersServiceProtocol?
     
     private var containerView: UIView = {
         let containerView = UIView()

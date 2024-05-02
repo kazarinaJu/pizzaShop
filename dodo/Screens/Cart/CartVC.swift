@@ -9,8 +9,6 @@ import UIKit
 protocol CartVCProtocol: AnyObject {
     var presenter: CartPresenterProtocol? { get set }
     
-    //func showProductsCountChanged(_ changedProduct: Product)
-    
     func showProducts(_ products: [Product])
     func showCart(_ totalPrice: Int, _ totalProducts: Int)
 }
@@ -61,7 +59,8 @@ final class CartVC: UIViewController, CartVCProtocol {
 extension CartVC {
     func showProducts(_ products: [Product]) {
         self.products = products
-        presenter?.updateCart()
+        //presenter?.updateCart()
+        cartUpdated()
     }
     
     func showCart(_ totalPrice: Int, _ totalProducts: Int) {
@@ -73,7 +72,6 @@ extension CartVC {
         DispatchQueue.main.async {
             self.cartTableView.reloadData()
         }
-        
     }
 }
 
@@ -144,7 +142,8 @@ extension CartVC: UITableViewDataSource {
             let product = products[indexPath.row]
             cell.update(product)
             cell.onProductCountChanged = { changedProduct in
-                self.presenter?.productCountChanged(&self.products, changedProduct)
+                //self.presenter?.productCountChanged(&self.products, changedProduct)
+                self.productCountChangedHappened(changedProduct)
             }
             return cell
         case .detail:
@@ -156,5 +155,16 @@ extension CartVC: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+//MARK: - Pass Event
+extension CartVC {
+    func productCountChangedHappened(_ changedProduct: Product) {
+        presenter?.productCountChanged(&products, changedProduct)
+    }
+    
+    func cartUpdated() {
+        presenter?.updateCart()
     }
 }
