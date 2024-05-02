@@ -7,9 +7,26 @@
 
 import Foundation
 
-class OrdersService {
+protocol OrdersServiceProtocol: AnyObject {
+    func save(_ products: [Product])
+    func fetch() -> [Product]
+    func add(_ product: Product) -> [Product]
+    func delete(_ product: Product) -> [Product]
+    func calculateTotalPrice() -> Int
+    func calculateTotalCount() -> Int
+}
+
+class OrdersService: OrdersServiceProtocol {
+    private let networkClient: NetworkClientProtocol
+    private let decoder: JSONDecoder
+    
+    init(networkClient: NetworkClientProtocol, decoder: JSONDecoder = JSONDecoder()) {
+        self.networkClient = networkClient
+        self.decoder = decoder
+    }
+    
     private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
+   // private let decoder = JSONDecoder()
     
     private let key = "Products"
     

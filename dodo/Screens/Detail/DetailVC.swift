@@ -34,7 +34,7 @@ final class DetailVC: UIViewController, DetailVCProtocol {
     private var dough: [String] = []
 
 //MARK: UI
-    private var addToCartButtonView = CustomBigButton()
+    var addToCartButtonView = CustomBigButton()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -158,10 +158,10 @@ extension DetailVC: UITableViewDataSource {
             }
             
             cell.onDoughControlTapped = { dough in
-                self.presenter?.doughControlTapped(dough)
+                self.doughControlCellTapped(dough)
             }
             cell.onSizeControlTapped = { size in
-                self.presenter?.sizeControlTapped(size)
+                self.sizeControlCellTapped(size)
             }
             return cell
         case .ingredient:
@@ -171,5 +171,16 @@ extension DetailVC: UITableViewDataSource {
             return cell
         default: return UITableViewCell()
         }
+    }
+}
+
+//MARK: - Pass Event
+extension DetailVC {
+    func doughControlCellTapped(_ dough: String) {
+        presenter?.doughControlTapped(dough)
+    }
+    
+    func sizeControlCellTapped(_ size: String) {
+        presenter?.sizeControlTapped(size)
     }
 }

@@ -29,7 +29,7 @@ final class MenuPresenter: MenuPresenterProtocol {
 //MARK: Services
     var storiesService: StoriesServiceProtocol?
     var productsService: ProductsServiceProtocol?
-    private let ordersService = OrdersService.init()
+    var ordersService: OrdersServiceProtocol?
   
     func viewDidLoad() {
         fetchProducts()
@@ -42,11 +42,11 @@ final class MenuPresenter: MenuPresenterProtocol {
 extension MenuPresenter {
     
     func bannerPriceButtonTapped(_ product: Product) {
-        ordersService.add(product)
+        ordersService?.add(product)
     }
     
     func productPriceButtonTapped(_ product: Product) {
-        ordersService.add(product)
+        ordersService?.add(product)
     }
     
     func productCellSelected(_ selectedProduct: Product) {
