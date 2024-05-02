@@ -23,16 +23,14 @@ protocol MenuPresenterProtocol: AnyObject {
 }
 
 final class MenuPresenter: MenuPresenterProtocol {
-   
-    
-    
+
     weak var view: MenuVCProtocol?
     
 //MARK: Services
-    private let storiesService = StoriesService.init()
-    private let productsService = ProductsService.init()
-    private let ordersService = OrdersService.init()
-    
+    var storiesService: StoriesServiceProtocol?
+    var productsService: ProductsServiceProtocol?
+    var ordersService: OrdersServiceProtocol?
+  
     func viewDidLoad() {
         fetchProducts()
         fetchStories()
@@ -44,11 +42,11 @@ final class MenuPresenter: MenuPresenterProtocol {
 extension MenuPresenter {
     
     func bannerPriceButtonTapped(_ product: Product) {
-        ordersService.add(product)
+        ordersService?.add(product)
     }
     
     func productPriceButtonTapped(_ product: Product) {
-        ordersService.add(product)
+        ordersService?.add(product)
     }
     
     func productCellSelected(_ selectedProduct: Product) {
@@ -59,19 +57,21 @@ extension MenuPresenter {
 //MARK: - Business Logic
 extension MenuPresenter {
     func fetchProducts() {
-        productsService.fetchProducts { [self] products in
+        
+        productsService?.fetchProducts { [weak self] products in
+            guard let self else { return }
             view?.showProducts(products)
         }
     }
 
     func fetchStories() {
-        storiesService.fetchStories { [self] stories in
+        storiesService?.fetchStories { [self] stories in
             view?.showStories(stories)
         }
     }
 
     func fetchCategories() {
-        productsService.fetchCategories { [self] categories in
+        productsService?.fetchCategories { [self] categories in
             view?.showCategories(categories)
         }
     }

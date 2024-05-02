@@ -20,13 +20,6 @@ final class MapVC: UIViewController {
     
     let addressPanelView = AddressPanelView()
     
-    lazy var mapView: MKMapView = {
-        var mapView = MKMapView()
-        mapView.delegate = self
-        
-        return mapView
-    }()
-    
     var pinImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.image = UIImage(named: "pin")
@@ -37,12 +30,29 @@ final class MapVC: UIViewController {
         return imageView
     }()
     
+    lazy var mapView: MKMapView = {
+        var mapView = MKMapView()
+        mapView.delegate = self
+        return mapView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        
+        setupKeyboardNotifications()
         showCurrentLocationOnMap()
+        observe()
+    }
+}
+
+//MARK: - Observe Logic
+extension MapVC {
+    func observe() {
+        addressPanelView.onAddressChanged = { [weak self] addressText in
+            guard let self else { return }
+            self.showAddressOnMap(addressText)
+        }
     }
 }
 
@@ -85,12 +95,6 @@ extension MapVC {
         }
     }
     
-    func showLocationOnMap(_ location: CLLocation) {
-        let regionRadius: CLLocationDistance = 500.0
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        mapView.setRegion(region, animated: true)
-    }
-    
     func showAddressOnMap(_ addressText: String) {
         geocodeService.fetchLocationFromAddress(addressText) { [weak self] location in
             guard let self else { return }
@@ -106,6 +110,12 @@ extension MapVC {
                 self?.addressPanelView.update(addressText)
             }
         }
+    }
+    
+    func showLocationOnMap(_ location: CLLocation) {
+        let regionRadius: CLLocationDistance = 500.0
+        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(region, animated: true)
     }
 }
 

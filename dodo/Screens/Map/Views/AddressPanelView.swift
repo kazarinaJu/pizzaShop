@@ -9,6 +9,11 @@ import UIKit
 import SnapKit
 
 final class AddressPanelView: UIView {
+    var onAddressChanged: ((String) -> Void)?
+    
+    var timer: Timer?
+    var delayValue : Double = 2.0
+    
     var addressView = AddressView()
     var saveButton = CustomBigButton()
     
@@ -24,6 +29,7 @@ final class AddressPanelView: UIView {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        observe()
     }
     
     required init?(coder: NSCoder) {
@@ -32,6 +38,27 @@ final class AddressPanelView: UIView {
     
     func update(_ addressText: String) {
         addressView.addressTextField.text = addressText
+    }
+    
+    func observe() {
+        addressView.addressTextField.addTarget(nil, action: #selector(addressTextFieldChanged(_:)), for: .editingChanged)
+    }
+}
+
+//MARK: - Event Handler
+extension AddressPanelView {
+    
+    @objc func addressTextFieldChanged(_ sender: UITextField) {
+        
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(timeInterval: delayValue, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
+    }
+    
+    @objc func timerAction() {
+        if let addressText = addressView.addressTextField.text {
+            onAddressChanged?(addressText)
+        }
     }
 }
 

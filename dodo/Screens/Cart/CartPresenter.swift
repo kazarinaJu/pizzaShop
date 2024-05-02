@@ -28,7 +28,7 @@ final class CartPresenter: CartPresenterProtocol {
     var totalPrice: Int = 0
 
 //MARK: Services
-    private let ordersService = OrdersService.init()
+    var ordersService: OrdersServiceProtocol?
     
     func viewWillAppear() {
         fetchProducts()
@@ -48,24 +48,24 @@ extension CartPresenter {
                 products.remove(at: index)
             }
         }
-        self.ordersService.save(products)
+        self.ordersService?.save(products)
         self.updateCart()
     }
 }
 
 //MARK: - Business Logic
 extension CartPresenter {
-    internal func fetchProducts() {
-        let products = ordersService.fetch()
+    func fetchProducts() {
+        guard let products = ordersService?.fetch() else { return }
         view?.showProducts(products)
     }
     
-    internal func fetchTotalCountAndPrice() {
-        totalPrice = ordersService.calculateTotalPrice()
-        totalProducts = ordersService.calculateTotalCount()
+    func fetchTotalCountAndPrice() {
+        totalPrice = ordersService?.calculateTotalPrice() ?? 0
+        totalProducts = ordersService?.calculateTotalCount() ?? 0
     }
     
-    internal func updateCart() {
+    func updateCart() {
         fetchTotalCountAndPrice()
         view?.showCart(totalPrice, totalProducts)
     }
