@@ -14,6 +14,7 @@ final class NetworkClientStub: NetworkClientProtocol {
         case products
         case categories
         case stories
+        case order
     }
 
     enum StubError: Error {
@@ -64,7 +65,8 @@ final class NetworkClientStub: NetworkClientProtocol {
             } catch {
                 print("Ошибка при чтении данных из файла:", error)
             }
-        default: return Data()
+        case .order:
+            let data = UserDefaults.standard.data(forKey: "Products")
         }
         return Data()
     }
