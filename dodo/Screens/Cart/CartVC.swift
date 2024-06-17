@@ -102,8 +102,8 @@ extension CartVC {
 //MARK: - Observe
 extension CartVC {
     private func observe() { //bind
-        emptyCart.onGoToMenuTapped = {
-            self.tabBarController?.selectedIndex = 0
+        emptyCart.onGoToMenuTapped = { [weak self] in
+            self?.tabBarController?.selectedIndex = 0
         }
     }
 }
@@ -141,9 +141,8 @@ extension CartVC: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderProductCell.reuseID, for: indexPath) as! OrderProductCell
             let product = products[indexPath.row]
             cell.update(product)
-            cell.onProductCountChanged = { changedProduct in
-                //self.presenter?.productCountChanged(&self.products, changedProduct)
-                self.productCountChangedHappened(changedProduct)
+            cell.onProductCountChanged = { [weak self] changedProduct in
+                self?.productCountChangedHappened(changedProduct)
             }
             return cell
         case .detail:

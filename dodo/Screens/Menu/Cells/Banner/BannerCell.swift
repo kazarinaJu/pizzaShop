@@ -102,8 +102,8 @@ extension BannerCell: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionCell.reuseId, for: indexPath) as! BannerCollectionCell
         let product = products[indexPath.row]
         cell.update(product)
-        cell.onPriceButtonTapped = { product in
-            self.onCellPriceButtonTapped?(product)
+        cell.onPriceButtonTapped = { [weak self] product in
+            self?.onCellPriceButtonTapped?(product)
         }
         return cell
     }

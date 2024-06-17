@@ -119,24 +119,24 @@ extension MenuVC: UITableViewDataSource {
         case .banners:
             let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.reuseId, for: indexPath) as! BannerCell
             cell.update(products)
-            cell.onCellPriceButtonTapped = { product in
-                self.bannerCellPriceButtonTapped(product)
+            cell.onCellPriceButtonTapped = { [weak self] product in
+                self?.bannerCellPriceButtonTapped(product)
             }
             return cell
         case .categories:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseId, for: indexPath) as! CategoryCell
             cell.update(categories)
-            cell.onCategoryTapped = { category in
+            cell.onCategoryTapped = { [weak self ]category in
                 let indexPath = IndexPath(row: category.indexPath[1], section: category.indexPath[0])
-                self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
             }
             return cell
         case .products:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
             let product = products[indexPath.row]
             cell.update(product)
-            cell.onPriceButtonTapped = { product in
-                self.productCellPriceButtonTapped(product)
+            cell.onPriceButtonTapped = { [weak self ]product in
+                self?.productCellPriceButtonTapped(product)
             }
             return cell
         default:
