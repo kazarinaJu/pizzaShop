@@ -21,7 +21,7 @@ class StoriesService: StoriesServiceProtocol {
     }
     
     private var storiesUrl: URL {
-        guard let url = URL(string: "https://mocki.io/v1/a7946a78-0178-4eb0-b3ce-3ee0612cc6f0") else {
+        guard let url = URL(string: "https://mocki.io/v1/38fdcbad-2f92-4444-920f-6b33ee3a725c") else {
             preconditionFailure("Unable to construct mostPopularMoviesUrl")
         }
         return url
@@ -29,9 +29,12 @@ class StoriesService: StoriesServiceProtocol {
     
     
     func fetchStories(completion: @escaping ([Storie]) -> Void) {
-        networkClient.fetch(url: storiesUrl) { [self] result in
+        
+        networkClient.fetch(url: storiesUrl) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let data):
+                
                 do {
                     let storieResponse = try decoder.decode(StorieResponse.self, from: data)
                     let stories = storieResponse.stories

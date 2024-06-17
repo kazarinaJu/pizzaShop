@@ -24,7 +24,7 @@ class ProductsService: ProductsServiceProtocol {
     }
     
     private var productsUrl: URL {
-        guard let url = URL(string: "https://mocki.io/v1/aee8fb44-bbd7-432d-9941-91c79b546c2d") else {
+        guard let url = URL(string: "https://mocki.io/v1/91ef3aa0-da24-41e5-a4e1-effe4c66801b") else {
             preconditionFailure("Unable to construct mostPopularMoviesUrl")
         }
         return url
@@ -75,6 +75,7 @@ class ProductsService: ProductsServiceProtocol {
     }
     
     func fetchIngredients(completion: @escaping ([Ingredient]) -> Void) {
+        
         networkClient.fetch(url: productsUrl) { [self] result in
             switch result {
             case .success(let data):
