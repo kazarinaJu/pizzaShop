@@ -12,7 +12,6 @@ final class MenuConfigurator {
         let menuVC = MenuVC()
         let menuPresenter = MenuPresenter()
         
-        
         //обвязка
         menuVC.presenter = menuPresenter
         menuPresenter.view = menuVC
@@ -20,7 +19,11 @@ final class MenuConfigurator {
         //di
         let networkClient = NetworkClient()
         let productsService = ProductsService(networkClient: networkClient)
+        let storiesService = StoriesService(networkClient: networkClient)
+        let orderService = OrdersService(networkClient: networkClient)
         menuPresenter.productsService = productsService
+        menuPresenter.storiesService = storiesService
+        menuPresenter.ordersService = orderService
         
         return menuVC
     }

@@ -54,29 +54,29 @@ extension DetailPresenter {
     }
     
     func sizeControlTapped(_ size: String) {
-        if let product = product {
-            self.product?.size = size
-            view?.showProduct(self.product)
-        }
+        self.product?.size = size
+        view?.showProduct(self.product)
+        
     }
     
     func doughControlTapped(_ dough: String) {
-        if let product = product {
-            self.product?.dough = dough
-            view?.showProduct(product)
-        }
+        self.product?.dough = dough
+        view?.showProduct(product)
     }
 }
 
 //MARK: - Business Logic
 extension DetailPresenter {
     func fetchIngredients() {
+        
         productsService?.fetchIngredients { [weak self] ingredients in
+            
             self?.view?.showIngredients(ingredients)
         }
     }
     
     func fetchSizesAndDough() {
+        
         productsService?.fetchSizesAndDough { [weak self] sizes, dough in
             if let sizes = sizes, let dough = dough {
                 self?.view?.showSizes(sizes)

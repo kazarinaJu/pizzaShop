@@ -14,6 +14,11 @@ final class CartConfigurator {
         cartVC.presenter = cartPresenter
         cartPresenter.view = cartVC
         
+        let networkClient = NetworkClient()
+        let ordersService = OrdersService(networkClient: networkClient)
+        
+        cartPresenter.ordersService = ordersService
+        
         return cartVC
     }
 }

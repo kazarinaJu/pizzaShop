@@ -69,6 +69,7 @@ final class IngredientsCell: UITableViewCell {
     func update(_ ingredients: [Ingredient]) {
         
         guard ingredients.count > 0 else { return }
+        
         self.ingredients = ingredients
         var rowCount = CGFloat(ingredients.count) / 3
         rowCount.round(.up)

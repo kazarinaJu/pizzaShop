@@ -40,7 +40,6 @@ final class MenuPresenter: MenuPresenterProtocol {
 
 //MARK: - Event Handler
 extension MenuPresenter {
-    
     func bannerPriceButtonTapped(_ product: Product) {
         ordersService?.add(product)
     }
@@ -57,7 +56,6 @@ extension MenuPresenter {
 //MARK: - Business Logic
 extension MenuPresenter {
     func fetchProducts() {
-        
         productsService?.fetchProducts { [weak self] products in
             guard let self else { return }
             view?.showProducts(products)
