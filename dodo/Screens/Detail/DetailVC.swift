@@ -28,7 +28,7 @@ final class DetailVC: UIViewController, DetailVCProtocol {
     
     var presenter: DetailPresenterProtocol?
     var product: Product?
-    
+
     private var ingredients: [Ingredient] = []
     private var sizes: [String] = []
     private var dough: [String] = []
@@ -84,9 +84,9 @@ extension DetailVC {
 //MARK: - Observe
 extension DetailVC {
     func observe() {
-        addToCartButtonView.onBigButtonTapped = {
-            guard let product = self.product else { return }
-            self.presenter?.addToCartButtonTapped(product)
+        addToCartButtonView.onBigButtonTapped = { [weak self] in
+            guard let product = self?.product else { return }
+            self?.presenter?.addToCartButtonTapped(product)
         }
     }
 }
@@ -94,6 +94,7 @@ extension DetailVC {
 //MARK: - Layout
 extension DetailVC {
     private func setupViews() {
+        addToCartButtonView.accessibilityIdentifier = "Button"
         view.backgroundColor = .white
         view.addSubview(tableView)
         view.addSubview(addToCartButtonView)
@@ -142,26 +143,30 @@ extension DetailVC: UITableViewDataSource {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ImageCell.reuseID, for: indexPath) as! ImageCell
-            cell.product = product
+            //.cell.product = product
+            
+            cell.update(product)
+            
             return cell
         case .portion:
             let cell = tableView.dequeueReusableCell(withIdentifier: PortionCell.reuseID, for: indexPath) as! PortionCell
             cell.product = product
+            
             cell.clipsToBounds = true
             return cell
         case .segment:
             let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedCell.reuseID, for: indexPath) as! SegmentedCell
             
-            cell.update(sizes: sizes, dough: dough, product: self.product) { size, dough in
-                self.product?.dough = dough
-                self.product?.size = size
+            cell.update(sizes: sizes, dough: dough, product: self.product) { [weak self] size, dough in
+                self?.product?.dough = dough
+                self?.product?.size = size
             }
             
-            cell.onDoughControlTapped = { dough in
-                self.doughControlCellTapped(dough)
+            cell.onDoughControlTapped = { [weak self] dough in
+                self?.doughControlCellTapped(dough)
             }
-            cell.onSizeControlTapped = { size in
-                self.sizeControlCellTapped(size)
+            cell.onSizeControlTapped = { [weak self] size in
+                self?.sizeControlCellTapped(size)
             }
             return cell
         case .ingredient:
