@@ -10,11 +10,7 @@ import SnapKit
 
 final class ImageCell: UITableViewCell {
     
-    var product: Product? {
-            didSet {
-                updateUI()
-            }
-        }
+    var product: Product?
     
     static let reuseID = "DetailCell"
     
@@ -65,14 +61,15 @@ final class ImageCell: UITableViewCell {
         
         setupViews()
         setupConstraints()
-        updateUI()
+     
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func updateUI() {
+    func update(_ product: Product?) {
+        
         guard let product = product else { return }
         
         detailImageView.image = UIImage(named: product.image)

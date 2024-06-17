@@ -10,7 +10,7 @@ import UIKit
 class MainTabVC:UITabBarController {
     
     private var menuController: MenuVC = {
-        let controller = MenuConfigurator().configure() //MenuVC()
+        let controller = MenuConfigurator().configure()
         let tableItem = UITabBarItem(title: "Меню", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
         controller.tabBarItem = tableItem
         return controller
