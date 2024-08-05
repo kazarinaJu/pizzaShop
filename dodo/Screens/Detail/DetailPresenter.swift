@@ -69,20 +69,20 @@ extension DetailPresenter {
 extension DetailPresenter {
     func fetchIngredients() {
         
-        productsService?.fetchIngredients { [weak self] ingredients in
-            
-            self?.view?.showIngredients(ingredients)
-        }
+//        productsService?.fetchIngredients { [weak self] ingredients in
+//            
+//            self?.view?.showIngredients(ingredients)
+//        }
     }
     
     func fetchSizesAndDough() {
         
-        productsService?.fetchSizesAndDough { [weak self] sizes, dough in
-            if let sizes = sizes, let dough = dough {
-                self?.view?.showSizes(sizes)
-                self?.view?.showDough(dough)
-            }
-        }
+//        productsService?.fetchSizesAndDough { [weak self] sizes, dough in
+//            if let sizes = sizes, let dough = dough {
+//                self?.view?.showSizes(sizes)
+//                self?.view?.showDough(dough)
+//            }
+//        }
     }
 }
 

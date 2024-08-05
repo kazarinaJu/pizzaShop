@@ -21,7 +21,7 @@ class StoriesService: StoriesServiceProtocol {
     }
     
     private var storiesUrl: URL {
-        guard let url = URL(string: "https://mocki.io/v1/38fdcbad-2f92-4444-920f-6b33ee3a725c") else {
+        guard let url = URL(string: "http://localhost:3001/stories") else {
             preconditionFailure("Unable to construct mostPopularMoviesUrl")
         }
         return url

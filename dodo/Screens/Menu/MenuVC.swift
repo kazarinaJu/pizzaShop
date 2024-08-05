@@ -70,6 +70,7 @@ extension MenuVC {
     }
     
     func showProducts(_ products: [Product]) {
+        print(Thread.current)
         self.products = products
         tableView.reloadData()
     }

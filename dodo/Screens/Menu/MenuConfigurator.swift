@@ -8,7 +8,7 @@
 import UIKit
 
 final class MenuConfigurator {
-    func configure() -> MenuVC {
+     func configure() -> MenuVC {
         let menuVC = MenuVC()
         let menuPresenter = MenuPresenter()
         

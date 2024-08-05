@@ -7,13 +7,34 @@
 
 import Foundation
 
+enum NetworkError: Error {
+    case statusCode
+    case parsingModel
+    case url
+}
+
 protocol NetworkClientProtocol {
     func fetch(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+    
+    func fetch(url: URL) async -> Result<Data, Error>
 }
 
 struct NetworkClient: NetworkClientProtocol {
-    private enum NetworkError: Error {
-        case codeError
+    
+    
+    func fetch(url: URL) async -> Result<Data, Error>  {
+        
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            return .success(data)
+        } catch {
+            print(error)
+            return .failure(NetworkError.statusCode)
+        }
     }
     
     func fetch(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
@@ -30,7 +51,7 @@ struct NetworkClient: NetworkClientProtocol {
             if let response = response as? HTTPURLResponse,
                response.statusCode < 200 || response.statusCode >= 300 {
                 
-                completion(.failure(NetworkError.codeError))
+                completion(.failure(NetworkError.statusCode))
                 return
             }
             

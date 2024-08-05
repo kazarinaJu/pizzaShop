@@ -56,21 +56,51 @@ extension MenuPresenter {
 //MARK: - Business Logic
 extension MenuPresenter {
     func fetchProducts() {
-        productsService?.fetchProducts { [weak self] products in
-            guard let self else { return }
-            view?.showProducts(products)
+        Task {
+            do {
+                if let products = try await productsService?.fetchProducts() {
+                    await MainActor.run {
+                        view?.showProducts(products)
+                    }
+                }
+            } catch {
+                print(error)
+            }
         }
     }
 
     func fetchStories() {
-        storiesService?.fetchStories { [self] stories in
-            view?.showStories(stories)
-        }
+//        Task {
+//            do {
+//                if let stories = try await productsService?.f() {
+//                    await MainActor.run {
+//                        view?.showStories(stories)
+//                    }
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+        
+//        storiesService?.fetchStories { [self] stories in
+//            view?.showStories(stories)
+//        }
     }
 
     func fetchCategories() {
-        productsService?.fetchCategories { [self] categories in
-            view?.showCategories(categories)
+        Task {
+            do {
+                if let categories = try await productsService?.fetchCategories() {
+                    await MainActor.run {
+                        view?.showCategories(categories)
+                    }
+                }
+            } catch {
+                print(error)
+            }
         }
+//        productsService?.fetchCategories { [self] categories in
+//            view?.showCategories(categories)
+//        }
     }
 }
