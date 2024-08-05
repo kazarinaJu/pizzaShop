@@ -24,8 +24,8 @@ class ProductsService: ProductsServiceProtocol {
     }
     
     private var productsUrl: URL {
-        guard let url = URL(string: "https://mocki.io/v1/91ef3aa0-da24-41e5-a4e1-effe4c66801b") else {
-            preconditionFailure("Unable to construct mostPopularMoviesUrl")
+        guard let url = URL(string: "http://localhost:3001/products") else {
+            preconditionFailure("Unable to construct url")
         }
         return url
     }
