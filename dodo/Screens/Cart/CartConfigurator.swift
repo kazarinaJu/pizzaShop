@@ -16,8 +16,10 @@ final class CartConfigurator {
         
         let networkClient = NetworkClient()
         let ordersService = OrdersService(networkClient: networkClient)
+        let productsService = ProductsService(networkClient: networkClient)
         
         cartPresenter.ordersService = ordersService
+        cartPresenter.productsService = productsService
         
         return cartVC
     }

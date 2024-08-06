@@ -36,12 +36,6 @@ final class DetailPresenter: DetailPresenterProtocol {
     
     func viewDidLoad() {
         
-        //provider.fetchIngredients()
-        //interactor.fetchIngredients()
-        
-        //presenter.fetchedIngredients(ingredients) VIPER
-        //view.showIngredients() VIP (Clean Swift)
-        
         fetchIngredients()
         fetchSizesAndDough()
     }

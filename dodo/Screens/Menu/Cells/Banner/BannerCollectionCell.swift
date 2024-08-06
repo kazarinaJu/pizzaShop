@@ -17,23 +17,22 @@ final class BannerCollectionCell: UICollectionViewCell {
     
     private var bannerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "hawaii")
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         return imageView
     }()
     
-    private var bannnerLabel: UILabel = {
+    private var bannerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пепперони"
         label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private var bannerPriceButton: UIButton = {
         let button = UIButton.init(type: .system)
-        button.setTitle("от 100 ₽", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
@@ -58,7 +57,7 @@ final class BannerCollectionCell: UICollectionViewCell {
     func update(_ product: Product) {
         self.product = product
         bannerImageView.image = UIImage(named: product.image)
-        bannnerLabel.text = product.name
+        bannerLabel.text = product.name
         bannerPriceButton.setTitle("от \(product.price) ₽", for: .normal)
     }
     
@@ -69,7 +68,7 @@ final class BannerCollectionCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.addSubview(bannerImageView)
-        contentView.addSubview(bannnerLabel)
+        contentView.addSubview(bannerLabel)
         contentView.addSubview(bannerPriceButton)
         
         contentView.backgroundColor = .white
@@ -80,13 +79,15 @@ final class BannerCollectionCell: UICollectionViewCell {
         bannerImageView.snp.makeConstraints { make in
             make.top.bottom.left.equalTo(contentView).inset(8)
         }
-        bannnerLabel.snp.makeConstraints { make in
+        bannerLabel.snp.makeConstraints { make in
             make.left.equalTo(bannerImageView.snp.right).offset(16)
             make.top.equalTo(contentView).inset(16)
+            make.right.equalTo(contentView).inset(8)
         }
         bannerPriceButton.snp.makeConstraints { make in
             make.left.equalTo(bannerImageView.snp.right).offset(16)
-            make.top.equalTo(bannnerLabel.snp.bottom).offset(16)
+            make.top.equalTo(bannerLabel.snp.bottom).offset(16)
+            make.bottom.lessThanOrEqualTo(contentView).inset(16)
         }
     }
 }

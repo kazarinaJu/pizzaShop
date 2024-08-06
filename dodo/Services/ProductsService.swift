@@ -37,8 +37,6 @@ class ProductsService: ProductsServiceProtocol {
             switch result {
             case .success(let data):
                 do {
-                    //print 
-                    print(data.prettyPrintedJSONString)
                     let productResponse = try decoder.decode(ProductResponse.self, from: data)
                     let products = productResponse.products
                     

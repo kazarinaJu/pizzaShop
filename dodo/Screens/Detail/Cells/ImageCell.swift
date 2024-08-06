@@ -26,7 +26,6 @@ final class ImageCell: UITableViewCell {
     
     private var detailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "default")
         imageView.contentMode = .scaleAspectFill
         imageView.widthAnchor.constraint(equalToConstant: ScreenSize.width).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: ScreenSize.width).isActive = true
@@ -35,21 +34,18 @@ final class ImageCell: UITableViewCell {
     
     private var nameLabel: UILabel = {
         var label = UILabel()
-        label.text = "Пепперони"
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
     private var weightLabel: UILabel = {
         var label = UILabel()
-        label.text = "330 г."
         label.textColor = .gray
         return label
     }()
     
     private var descriptionLabel: UILabel = {
         var label = UILabel()
-        label.text = "Из печи, калорийно, вкусно, классно, в общем заебись"
         label.textColor = .darkGray
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)

@@ -35,14 +35,12 @@ final class ProductCell: UITableViewCell {
     
     private var nameLabel: UILabel = {
         var label = UILabel()
-        label.text = "Пепперони"
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
     private var detailLabel: UILabel = {
         var label = UILabel()
-        label.text = "Тесто, Цыпленок, моцарелла, томатный соус"
         label.textColor = .darkGray
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
@@ -51,7 +49,6 @@ final class ProductCell: UITableViewCell {
     
     private var priceButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.setTitle("от 469 ₽", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
@@ -66,7 +63,6 @@ final class ProductCell: UITableViewCell {
     
     private var productImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "pizza")
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 0.40 * ScreenSize.width).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 0.40 * ScreenSize.width).isActive = true

@@ -48,7 +48,7 @@ final class CartTests: XCTestCase {
             updateCartCalled = true
         }
         
-        func fetchProducts() {
+        func fetchOrderProducts() {
             
         }
         
@@ -69,7 +69,7 @@ final class CartTests: XCTestCase {
         cartPresenter.ordersService = orderService
 
         //when
-        cartPresenter.fetchProducts()
+        cartPresenter.fetchOrderProducts()
         
         let expectation = expectation(description: "Loading products")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

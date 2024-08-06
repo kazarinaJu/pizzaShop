@@ -160,7 +160,7 @@
             "portion": null,
             "size": null,
             "dough": null,
-            "isOnSale": false,
+            "isOnSale": true,
            "count": 1
         },
         {
@@ -216,7 +216,7 @@
             "portion": null,
             "size": null,
             "dough": null,
-            "isOnSale": false,
+            "isOnSale": true,
            "count": 1
         },
         {
