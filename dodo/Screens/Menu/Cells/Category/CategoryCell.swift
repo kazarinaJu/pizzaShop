@@ -11,9 +11,15 @@ import SnapKit
 final class CategoryCell: UITableViewCell {
     static let reuseId = "CategoryCell"
     
-    var onCategoryTapped: ((Category)->())? //declaration closure
+    //var onCategoryTapped: ((Category)->())? //declaration closure
     
-    private var categories: [Category] = [] {
+//    private var categories: [Category] = [] {
+//        didSet {
+//            collectionView.reloadData()
+//        }
+//    }
+    
+    private var productSections: [String] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -53,8 +59,12 @@ final class CategoryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(_ categories: [Category]) {
-        self.categories = categories
+//    func update(_ categories: [Category]) {
+//        self.categories = categories
+//    }
+    
+    func update(_ productSections: [String]) {
+        self.productSections = productSections
     }
     
     private func setupViews() {
@@ -75,18 +85,23 @@ final class CategoryCell: UITableViewCell {
 
 extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        //return categories.count
+        return productSections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.reuseId, for: indexPath) as! CategoryCollectionCell
-        let category = categories[indexPath.row]
-        cell.update(category)
+        //let category = categories[indexPath.row]
+        //cell.update(category)
+        
+        let productSection = productSections[indexPath.row]
+        cell.update(with: productSection)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = categories[indexPath.row]
-        onCategoryTapped?(category) //call closure
+//        let category = categories[indexPath.row]
+//        onCategoryTapped?(category) //call closure
+        let productSection = productSections[indexPath.row]
     }
 }

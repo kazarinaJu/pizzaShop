@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class ProductCell: UITableViewCell {
-
+    
     var onPriceButtonTapped: ((Product)->())? //1. declaration
 
     private var product: Product?

@@ -11,7 +11,7 @@ import SnapKit
 protocol MenuVCProtocol: AnyObject {
     var presenter: MenuPresenterProtocol? { get set }
     
-    func showCategories(_ categories: [Category])
+    func showCategories(_ categories: [String])
     func showStories(_ stories: [Storie])
     func showProducts(_ products: [Product])
     
@@ -32,7 +32,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     //MARK: Data models
     private var stories: [Storie] = []
     private var products: [Product] = []
-    private var categories: [Category] = []
+    private var categories: [String] = []
     
     //MARK: UI
     lazy var tableView: UITableView = {
@@ -59,7 +59,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
 }
 //MARK: - Update View
 extension MenuVC {
-    func showCategories(_ categories: [Category]) {
+    func showCategories(_ categories: [String]) {
         self.categories = categories
         tableView.reloadData()
     }
@@ -125,12 +125,15 @@ extension MenuVC: UITableViewDataSource {
             return cell
         case .categories:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseId, for: indexPath) as! CategoryCell
+//            cell.update(categories)
+//            cell.onCategoryTapped = { [weak self ]category in
+//                let indexPath = IndexPath(row: category.indexPath[1], section: category.indexPath[0])
+//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//            }
+            
             cell.update(categories)
-            cell.onCategoryTapped = { [weak self ]category in
-                let indexPath = IndexPath(row: category.indexPath[1], section: category.indexPath[0])
-                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-            }
             return cell
+            
         case .products:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
             let product = products[indexPath.row]

@@ -361,7 +361,7 @@
 		055D6C172B69533000989B70 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				055D6C1D2B6953EB00989B70 /* ProductCell.swift */,
+				05E6F4352C6241F500488E26 /* Product */,
 				05B008952B83B13F00FC2821 /* Storie */,
 				05B008932B81162F00FC2821 /* Banner */,
 				05B0089E2B861FE700FC2821 /* Category */,
@@ -477,6 +477,14 @@
 				05B0088B2B7E130700FC2821 /* CustomBigButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		05E6F4352C6241F500488E26 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				055D6C1D2B6953EB00989B70 /* ProductCell.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

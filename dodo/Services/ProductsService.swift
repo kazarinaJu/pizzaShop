@@ -8,7 +8,8 @@ import Foundation
 
 protocol ProductsServiceProtocol: AnyObject {
     func fetchProducts(completion: @escaping ([Product]) -> Void)
-    func fetchCategories(completion: @escaping ([Category]) -> Void)
+    //func fetchCategories(completion: @escaping ([Category]) -> Void)
+    func fetchCategories() -> [String]
     func fetchIngredients(completion: @escaping ([Ingredient]) -> Void)
     func fetchSizesAndDough(completion: @escaping ([String]?, [String]?) -> Void)
 }
@@ -52,25 +53,29 @@ class ProductsService: ProductsServiceProtocol {
         }
     }
     
-    func fetchCategories(completion: @escaping ([Category]) -> Void) {
-        networkClient.fetch(url: productsUrl) { [self] result in
-            switch result {
-            case .success(let data):
-                do {
-                    let categoryResponse = try decoder.decode(ProductResponse.self, from: data)
-                    let categories = categoryResponse.categories
-                    
-                    DispatchQueue.main.async {
-                        completion(categories)
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+    func fetchCategories() -> [String] {
+        return ProductSection.allCases.map { $0.description }
     }
+    
+//    func fetchCategories(completion: @escaping ([Category]) -> Void) {
+//        networkClient.fetch(url: productsUrl) { [self] result in
+//            switch result {
+//            case .success(let data):
+//                do {
+//                    let categoryResponse = try decoder.decode(ProductResponse.self, from: data)
+//                    let categories = categoryResponse.categories
+//                    
+//                    DispatchQueue.main.async {
+//                        completion(categories)
+//                    }
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
     
     func fetchIngredients(completion: @escaping ([Ingredient]) -> Void) {
         

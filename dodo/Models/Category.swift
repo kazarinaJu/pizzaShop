@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Category: Codable {
-    let id: UInt
-    let name: String
-    let indexPath: [Int]
-}
+//struct Category: Codable {
+//    let id: UInt
+//    let name: String
+//    let indexPath: [Int]
+//}
