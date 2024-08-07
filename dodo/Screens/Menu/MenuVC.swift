@@ -63,6 +63,7 @@ extension MenuVC {
         self.categories = categories
         tableView.reloadData()
     }
+
     
     func showStories(_ stories: [Storie]) {
         self.stories = stories
@@ -125,13 +126,10 @@ extension MenuVC: UITableViewDataSource {
             return cell
         case .categories:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseId, for: indexPath) as! CategoryCell
-//            cell.update(categories)
-//            cell.onCategoryTapped = { [weak self ]category in
-//                let indexPath = IndexPath(row: category.indexPath[1], section: category.indexPath[0])
-//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//            }
-            
             cell.update(categories)
+            cell.onCategoryTapped = { [weak self] category in
+                self?.scrollToCategory(category)
+            }
             return cell
             
         case .products:
@@ -179,5 +177,16 @@ extension MenuVC {
     
     func productSelectedTapped(_ selectedProduct: Product) {
         presenter?.productCellSelected(selectedProduct)
+    }
+    
+    func scrollToCategory(_ categoryDescription: String) {
+        guard let category = ProductSection.from(description: categoryDescription) else { return }
+        
+        if let productIndex = products.firstIndex(where: { $0.category == category }) {
+            let indexPath = IndexPath(row: productIndex, section: MenuSection.products.rawValue)
+            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        } else {
+            print("No products found for the category: \(categoryDescription)")
+        }
     }
 }

@@ -21,7 +21,6 @@
 		0507F9242C61132500114ADF /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507F9232C61132500114ADF /* OfferCell.swift */; };
 		0507F9272C61136900114ADF /* OfferCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507F9262C61136900114ADF /* OfferCollectionCell.swift */; };
 		05197E322BE0CD9200BEB946 /* DetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05197E312BE0CD9200BEB946 /* DetailTests.swift */; };
-		051DD9F12BD12EEF007E1136 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F02BD12EEF007E1136 /* Category.swift */; };
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		052AA8242BDA66FB00C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
 		052AA8252BDA6C4200C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
@@ -114,7 +113,6 @@
 		05197E312BE0CD9200BEB946 /* DetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTests.swift; sourceTree = "<group>"; };
 		051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dodo-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		051DD9F02BD12EEF007E1136 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		051DD9F22BD131D6007E1136 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
 		055D6BFA2B6952A300989B70 /* dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,7 +327,6 @@
 			children = (
 				055D6C1F2B69542700989B70 /* Product.swift */,
 				05B0089A2B84F99000FC2821 /* Storie.swift */,
-				051DD9F02BD12EEF007E1136 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -704,7 +701,6 @@
 				05B4B2212BAC38AC00AA4802 /* MenuPresenter.swift in Sources */,
 				0502F0972BBD816600556C33 /* AddressView.swift in Sources */,
 				05B008782B74C7FA00FC2821 /* DetailVC.swift in Sources */,
-				051DD9F12BD12EEF007E1136 /* Category.swift in Sources */,
 				05C0DBCF2B9087E800546F01 /* Collection+isNotEmpty.swift in Sources */,
 				055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */,
 				055D6C022B6952A300989B70 /* MenuVC.swift in Sources */,

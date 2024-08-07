@@ -7,7 +7,6 @@
 
 struct ProductResponse: Codable {
     let ingredients: [Ingredient]
-    //let categories: [Category]
     let sizes, dough: [String]
     let products: [Product]
 }
@@ -70,6 +69,12 @@ enum ProductSection: String, Codable, CaseIterable {
         case .desert: return "Десерты"
         case .souce: return "Соусы"
         }
+    }
+}
+
+extension ProductSection {
+    static func from(description: String) -> ProductSection? {
+        return ProductSection.allCases.first { $0.description == description }
     }
 }
 

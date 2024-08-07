@@ -10,7 +10,7 @@ import SnapKit
 
 final class ProductCell: UITableViewCell {
     
-    var onPriceButtonTapped: ((Product)->())? //1. declaration
+    var onPriceButtonTapped: ((Product)->())?
 
     private var product: Product?
     
@@ -90,7 +90,7 @@ final class ProductCell: UITableViewCell {
     
     @objc func priceButtonTapped(_ sender: UIButton) {
         guard let product else { return }
-        onPriceButtonTapped?(product) //3. call
+        onPriceButtonTapped?(product)
     }
 }
 
