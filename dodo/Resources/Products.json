@@ -1,4 +1,4 @@
-{
+
 "ingredients": [
         {"id": 2001, "image": "cheese-board", "name": "Сырный бортик", "price": 189},
         {"id": 2002, "image": "mozarella", "name": "Сливочная моцарелла", "price": 79},
@@ -25,7 +25,8 @@
             "dough": null,
             "isOnSale": false,
            "count": 1,
-           "category": "pizza"
+           "category": "pizza",
+           "isPromo": true
         },
         {
            "id": 3002,
@@ -148,7 +149,8 @@
             "dough": null,
             "isOnSale": false,
            "count": 1,
-           "category": "combo"
+           "category": "combo",
+           "isPromo": true
         },{
           "id": 3010,
           "name": "10 пицц",
@@ -192,7 +194,8 @@
             "dough": null,
             "isOnSale": false,
            "count": 1,
-           "category": "snack"
+           "category": "snack",
+           "isPromo": true
         },
          {
           "id": 3013,
@@ -252,7 +255,8 @@
             "dough": null,
             "isOnSale": false,
            "count": 1,
-           "category": "drink"
+           "category": "drink",
+           "isPromo": true
         },
          {
           "id": 3017,
@@ -309,7 +313,8 @@
             "dough": null,
             "isOnSale": false,
            "count": 1,
-           "category": "desert"
+           "category": "desert",
+           "isPromo": true
         },{
           "id": 3021,
           "name": "Чизкейк Нью-Йорк с кокосом",
@@ -351,7 +356,8 @@
             "dough": null,
             "isOnSale": false,
            "count": 1,
-           "category": "souce"
+           "category": "souce",
+           "isPromo": true
         },{
           "id": 3024,
           "name": "Сырный соус",
