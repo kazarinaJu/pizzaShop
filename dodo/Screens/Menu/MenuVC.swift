@@ -46,6 +46,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
         tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.reuseId)
         tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseId)
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseId)
+        tableView.register(ProductPromoCell.self, forCellReuseIdentifier: ProductPromoCell.reuseId)
         return tableView
     }()
     
@@ -133,13 +134,26 @@ extension MenuVC: UITableViewDataSource {
             return cell
             
         case .products:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+            
             let product = products[indexPath.row]
-            cell.update(product)
-            cell.onPriceButtonTapped = { [weak self ]product in
-                self?.productCellPriceButtonTapped(product)
+            
+            if product.isPromo != nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ProductPromoCell.reuseId, for: indexPath) as! ProductPromoCell
+                cell.update(product)
+                cell.onPriceButtonTapped = { [weak self ]product in
+                    self?.productCellPriceButtonTapped(product)
+                }
+                return cell
+                
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+                cell.update(product)
+                cell.onPriceButtonTapped = { [weak self ]product in
+                    self?.productCellPriceButtonTapped(product)
+                }
+                return cell
             }
-            return cell
+            
         default:
             return UITableViewCell()
         }
@@ -184,7 +198,7 @@ extension MenuVC {
         
         if let productIndex = products.firstIndex(where: { $0.category == category }) {
             let indexPath = IndexPath(row: productIndex, section: MenuSection.products.rawValue)
-            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         } else {
             print("No products found for the category: \(categoryDescription)")
         }

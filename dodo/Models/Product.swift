@@ -25,6 +25,7 @@ struct Product: Codable {
     let isOnSale: Bool
     var count: Int = 1
     let category: ProductSection
+    let isPromo: Bool?
     
     func sizeIndex(_ size: String) -> Int {
         switch size {
@@ -42,7 +43,7 @@ struct Product: Codable {
     }
     
     static var empty: Product {
-        return Product(id: 0, name: "", detail: "", description: "", weight: 0, price: 0, image: "", portion: 0, isOnSale: false, category: .pizza)
+        return Product(id: 0, name: "", detail: "", description: "", weight: 0, price: 0, image: "", portion: 0, isOnSale: false, category: .pizza, isPromo: false)
     }
 }
 
