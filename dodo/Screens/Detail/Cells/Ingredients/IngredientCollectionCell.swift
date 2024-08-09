@@ -25,7 +25,6 @@ final class IngredientCollectionCell: UICollectionViewCell {
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .white
-        imageView.image = UIImage.init(named: "hala")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -33,7 +32,6 @@ final class IngredientCollectionCell: UICollectionViewCell {
     
     private var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Маринованные огурчики"
         label.numberOfLines = 2
         label.textAlignment = .center
         return label
@@ -41,7 +39,6 @@ final class IngredientCollectionCell: UICollectionViewCell {
     
     private var priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "79р"
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         return label

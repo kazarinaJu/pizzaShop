@@ -7,7 +7,6 @@
 
 struct ProductResponse: Codable {
     let ingredients: [Ingredient]
-    let categories: [Category]
     let sizes, dough: [String]
     let products: [Product]
 }
@@ -25,11 +24,12 @@ struct Product: Codable {
     var dough: String?
     let isOnSale: Bool
     var count: Int = 1
+    let category: ProductSection
+    let isPromo: Bool?
     
     func sizeIndex(_ size: String) -> Int {
         switch size {
         case "Большая": return 2
-        //case "Средняя": return 1
         case "Маленькая": return 0
         default: return 1
         }
@@ -43,7 +43,7 @@ struct Product: Codable {
     }
     
     static var empty: Product {
-        return Product(id: 0, name: "", detail: "", description: "", weight: 0, price: 0, image: "", portion: 0, isOnSale: false)
+        return Product(id: 0, name: "", detail: "", description: "", weight: 0, price: 0, image: "", portion: 0, isOnSale: false, category: .pizza, isPromo: false)
     }
 }
 
@@ -52,5 +52,32 @@ struct Ingredient: Codable {
     let image, name: String
     let price: Int
 }
+
+enum ProductSection: String, Codable, CaseIterable {
+    case pizza
+    case combo
+    case snack
+    case drink
+    case desert
+    case souce
+    
+    var description: String {
+        switch self {
+        case .pizza: return "Пицца"
+        case .combo: return "Комбо"
+        case .snack: return "Закуски"
+        case .drink: return "Напитки"
+        case .desert: return "Десерты"
+        case .souce: return "Соусы"
+        }
+    }
+}
+
+extension ProductSection {
+    static func from(description: String) -> ProductSection? {
+        return ProductSection.allCases.first { $0.description == description }
+    }
+}
+
 
 

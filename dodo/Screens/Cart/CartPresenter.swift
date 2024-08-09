@@ -15,26 +15,29 @@ protocol CartPresenterProtocol: AnyObject {
     
     func viewWillAppear()
     func productCountChanged(_ products: inout [Product], _ changedProduct: Product)
+    func offerPriceButtonTapped(_ product: Product)
     
-    func fetchProducts()
+    func fetchOfferProducts()
+    func fetchOrderProducts()
     func fetchTotalCountAndPrice()
     func updateCart()
 }
 
 final class CartPresenter: CartPresenterProtocol {
-  
+    
     weak var view: CartVCProtocol?
     var totalProducts: Int = 0
     var totalPrice: Int = 0
-
-//MARK: Services
+    
+    //MARK: Services
     var ordersService: OrdersServiceProtocol?
+    var productsService: ProductsServiceProtocol?
     
     func viewWillAppear() {
-        fetchProducts()
+        fetchOrderProducts()
+        fetchOfferProducts()
         fetchTotalCountAndPrice()
         updateCart()
-        
     }
 }
 
@@ -51,13 +54,26 @@ extension CartPresenter {
         self.ordersService?.save(products)
         self.updateCart()
     }
+    
+    func offerPriceButtonTapped(_ product: Product) {
+        ordersService?.add(product)
+        updateCart()
+    }
 }
 
 //MARK: - Business Logic
 extension CartPresenter {
-    func fetchProducts() {
-        guard let products = ordersService?.fetch() else { return }
-        view?.showProducts(products)
+    func fetchOfferProducts() {
+        productsService?.fetchProducts { [weak self] products in
+            guard let self else { return }
+            view?.show(products.filter { $0.isOnSale })
+        }
+    }
+
+    
+    func fetchOrderProducts() {
+        guard let orderProducts = ordersService?.fetch() else { return }
+        view?.showProducts(orderProducts)
     }
     
     func fetchTotalCountAndPrice() {

@@ -8,13 +8,13 @@ import Foundation
 
 protocol ProductsServiceProtocol: AnyObject {
     func fetchProducts(completion: @escaping ([Product]) -> Void)
-    func fetchCategories(completion: @escaping ([Category]) -> Void)
+    func fetchCategories() -> [String]
     func fetchIngredients(completion: @escaping ([Ingredient]) -> Void)
     func fetchSizesAndDough(completion: @escaping ([String]?, [String]?) -> Void)
 }
 
 class ProductsService: ProductsServiceProtocol {
-
+    
     private let networkClient: NetworkClientProtocol
     private let decoder: JSONDecoder
     
@@ -24,8 +24,8 @@ class ProductsService: ProductsServiceProtocol {
     }
     
     private var productsUrl: URL {
-        guard let url = URL(string: "https://mocki.io/v1/91ef3aa0-da24-41e5-a4e1-effe4c66801b") else {
-            preconditionFailure("Unable to construct mostPopularMoviesUrl")
+        guard let url = URL(string: "http://localhost:3001/products") else {
+            preconditionFailure("Unable to construct url")
         }
         return url
     }
@@ -37,8 +37,6 @@ class ProductsService: ProductsServiceProtocol {
             switch result {
             case .success(let data):
                 do {
-                    //print 
-                    print(data.prettyPrintedJSONString)
                     let productResponse = try decoder.decode(ProductResponse.self, from: data)
                     let products = productResponse.products
                     
@@ -54,24 +52,8 @@ class ProductsService: ProductsServiceProtocol {
         }
     }
     
-    func fetchCategories(completion: @escaping ([Category]) -> Void) {
-        networkClient.fetch(url: productsUrl) { [self] result in
-            switch result {
-            case .success(let data):
-                do {
-                    let categoryResponse = try decoder.decode(ProductResponse.self, from: data)
-                    let categories = categoryResponse.categories
-                    
-                    DispatchQueue.main.async {
-                        completion(categories)
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+    func fetchCategories() -> [String] {
+        return ProductSection.allCases.map { $0.description }
     }
     
     func fetchIngredients(completion: @escaping ([Ingredient]) -> Void) {

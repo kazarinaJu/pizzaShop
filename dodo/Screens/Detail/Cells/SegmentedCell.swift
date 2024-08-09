@@ -75,19 +75,7 @@ final class SegmentedCell: UITableViewCell {
         let productSize = product?.size ?? ""
         let productDough = product?.dough ?? ""
         
-        //Установили по умолчанию
-//        if productSize.isEmpty {
-//            if sizeSegmentedControl.selectedSegmentIndex == UISegmentedControl.noSegment {
-//                sizeSegmentedControl.selectedSegmentIndex = 1
-//            }
-//        } else {
         sizeSegmentedControl.selectedSegmentIndex = product?.sizeIndex(productSize) ?? 1
- //       }
-       
-//        if doughSegmentedControl.selectedSegmentIndex == UISegmentedControl.noSegment {
-//            doughSegmentedControl.selectedSegmentIndex = 0
-//        }
-        
         doughSegmentedControl.selectedSegmentIndex = product?.doughIndex(productDough) ?? 0
         
         let defaultSize = sizes[sizeSegmentedControl.selectedSegmentIndex]

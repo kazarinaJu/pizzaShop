@@ -18,11 +18,13 @@
 		0502F0932BBC6DD500556C33 /* GeocodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0922BBC6DD500556C33 /* GeocodeService.swift */; };
 		0502F0972BBD816600556C33 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0962BBD816600556C33 /* AddressView.swift */; };
 		0502F0992BBDB74600556C33 /* AddressPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0982BBDB74600556C33 /* AddressPanelView.swift */; };
+		0507F9242C61132500114ADF /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507F9232C61132500114ADF /* OfferCell.swift */; };
+		0507F9272C61136900114ADF /* OfferCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507F9262C61136900114ADF /* OfferCollectionCell.swift */; };
 		05197E322BE0CD9200BEB946 /* DetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05197E312BE0CD9200BEB946 /* DetailTests.swift */; };
-		051DD9F12BD12EEF007E1136 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F02BD12EEF007E1136 /* Category.swift */; };
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		052AA8242BDA66FB00C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
 		052AA8252BDA6C4200C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
+		05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05564C242C64E21B000CE78E /* ProductPromoCell.swift */; };
 		055D6BFE2B6952A300989B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFD2B6952A300989B70 /* AppDelegate.swift */; };
 		055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFF2B6952A300989B70 /* SceneDelegate.swift */; };
 		055D6C022B6952A300989B70 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C012B6952A300989B70 /* MenuVC.swift */; };
@@ -107,12 +109,14 @@
 		0502F0922BBC6DD500556C33 /* GeocodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeService.swift; sourceTree = "<group>"; };
 		0502F0962BBD816600556C33 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		0502F0982BBDB74600556C33 /* AddressPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPanelView.swift; sourceTree = "<group>"; };
+		0507F9232C61132500114ADF /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
+		0507F9262C61136900114ADF /* OfferCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCollectionCell.swift; sourceTree = "<group>"; };
 		05197E312BE0CD9200BEB946 /* DetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTests.swift; sourceTree = "<group>"; };
 		051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dodo-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		051DD9F02BD12EEF007E1136 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		051DD9F22BD131D6007E1136 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
+		05564C242C64E21B000CE78E /* ProductPromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPromoCell.swift; sourceTree = "<group>"; };
 		055D6BFA2B6952A300989B70 /* dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055D6BFD2B6952A300989B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		055D6BFF2B6952A300989B70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +231,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0507F9252C61133600114ADF /* OrderOfferCell */ = {
+			isa = PBXGroup;
+			children = (
+				0507F9232C61132500114ADF /* OfferCell.swift */,
+				0507F9262C61136900114ADF /* OfferCollectionCell.swift */,
+			);
+			path = OrderOfferCell;
+			sourceTree = "<group>";
+		};
 		051DD9E82BD12C5B007E1136 /* dodoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,7 +329,6 @@
 			children = (
 				055D6C1F2B69542700989B70 /* Product.swift */,
 				05B0089A2B84F99000FC2821 /* Storie.swift */,
-				051DD9F02BD12EEF007E1136 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,7 +360,7 @@
 		055D6C172B69533000989B70 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				055D6C1D2B6953EB00989B70 /* ProductCell.swift */,
+				05E6F4352C6241F500488E26 /* Product */,
 				05B008952B83B13F00FC2821 /* Storie */,
 				05B008932B81162F00FC2821 /* Banner */,
 				05B0089E2B861FE700FC2821 /* Category */,
@@ -443,6 +455,7 @@
 			children = (
 				05C0DBC52B8CF19D00546F01 /* OrderProductCell.swift */,
 				05C0DBC72B8E2D3A00546F01 /* OrderDetailCell.swift */,
+				0507F9252C61133600114ADF /* OrderOfferCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -463,6 +476,15 @@
 				05B0088B2B7E130700FC2821 /* CustomBigButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		05E6F4352C6241F500488E26 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				055D6C1D2B6953EB00989B70 /* ProductCell.swift */,
+				05564C242C64E21B000CE78E /* ProductPromoCell.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -676,13 +698,13 @@
 				05B008992B83B17100FC2821 /* StoriesCollectionCell.swift in Sources */,
 				05AB8BF12BD68BBF00A95765 /* NetworkClient.swift in Sources */,
 				05C0DBCB2B8E46C500546F01 /* PriceHeaderView.swift in Sources */,
+				05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */,
 				05B4B2152BA094F700AA4802 /* ScreenSize.swift in Sources */,
 				05B008872B7CA62B00FC2821 /* IngredientCollectionCell.swift in Sources */,
 				05C0DBD22B95B4EA00546F01 /* CustomStepper.swift in Sources */,
 				05B4B2212BAC38AC00AA4802 /* MenuPresenter.swift in Sources */,
 				0502F0972BBD816600556C33 /* AddressView.swift in Sources */,
 				05B008782B74C7FA00FC2821 /* DetailVC.swift in Sources */,
-				051DD9F12BD12EEF007E1136 /* Category.swift in Sources */,
 				05C0DBCF2B9087E800546F01 /* Collection+isNotEmpty.swift in Sources */,
 				055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */,
 				055D6C022B6952A300989B70 /* MenuVC.swift in Sources */,
@@ -701,6 +723,7 @@
 				055D6C292B6A861A00989B70 /* UITableViewCell + reuseID.swift in Sources */,
 				05B008922B81162500FC2821 /* BannerCollectionCell.swift in Sources */,
 				055D6C202B69542700989B70 /* Product.swift in Sources */,
+				0507F9242C61132500114ADF /* OfferCell.swift in Sources */,
 				05C0DBC32B8CD77F00546F01 /* OrdersService.swift in Sources */,
 				05B4B2232BB2E0BE00AA4802 /* DetailPresenter.swift in Sources */,
 				055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */,
@@ -713,6 +736,7 @@
 				05B0087A2B74CCCC00FC2821 /* ImageCell.swift in Sources */,
 				055D6C222B69544800989B70 /* ProductsService.swift in Sources */,
 				05B0088C2B7E130700FC2821 /* CustomBigButton.swift in Sources */,
+				0507F9272C61136900114ADF /* OfferCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,6 @@ final class OrderDetailCell: UITableViewCell {
     
     private var countLabel: UILabel = {
         var label = UILabel()
-        label.text = "1 товар"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
@@ -55,7 +54,6 @@ final class OrderDetailCell: UITableViewCell {
     
     private var orderPriceLabel: UILabel = {
         var label = UILabel()
-        label.text = "990 ₽"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()

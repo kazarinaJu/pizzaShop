@@ -13,7 +13,6 @@ final class StoriesCollectionCell: UICollectionViewCell {
     
     private var storiesImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "stories1")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView

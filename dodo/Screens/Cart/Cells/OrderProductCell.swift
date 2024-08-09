@@ -28,7 +28,6 @@ final class OrderProductCell: UITableViewCell {
     
     private var productImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "margarita")
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 0.20 * ScreenSize.width).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 0.20 * ScreenSize.width).isActive = true
@@ -37,14 +36,12 @@ final class OrderProductCell: UITableViewCell {
     
     private var nameLabel: UILabel = {
         var label = UILabel()
-        label.text = "Пепперони"
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
     private var detailLabel: UILabel = {
         var label = UILabel()
-        label.text = ""
         label.textColor = .darkGray
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 15)
@@ -63,7 +60,6 @@ final class OrderProductCell: UITableViewCell {
     
     private var priceLabel: UILabel = {
         var label = UILabel()
-        label.text = "990 ₽"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()

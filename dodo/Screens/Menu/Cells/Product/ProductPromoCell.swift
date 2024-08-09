@@ -1,48 +1,39 @@
 //
-//  ProductCell.swift
+//  ProductPromoCell.swift
 //  dodo
 //
-//  Created by Юлия Ястребова on 27.01.2024.
+//  Created by Юлия Ястребова on 08.08.2024.
 //
 
 import UIKit
 import SnapKit
 
-final class ProductCell: UITableViewCell {
-
-    var onPriceButtonTapped: ((Product)->())? //1. declaration
+final class ProductPromoCell: UITableViewCell {
+    
+    var onPriceButtonTapped: ((Product)->())?
 
     private var product: Product?
     
-    static let reuseId = "ProductCell"
-    
-    private var containerView: UIView = {
-        var view = UIView()
-        view.backgroundColor = .white
-        view.applyShadow(cornerRadius: 10)
-        return view
-    }()
+    static let reuseId = "ProductPromoCell"
     
     private var verticalStackView: UIStackView = {
         var stackView = UIStackView.init()
         stackView.axis = .vertical
-        stackView.spacing = 15
+        stackView.spacing = 5
         stackView.alignment = .leading
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 12, trailing: 0)
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 12, trailing: 15)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     
     private var nameLabel: UILabel = {
         var label = UILabel()
-        label.text = "Пепперони"
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
     private var detailLabel: UILabel = {
         var label = UILabel()
-        label.text = "Тесто, Цыпленок, моцарелла, томатный соус"
         label.textColor = .darkGray
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
@@ -51,7 +42,6 @@ final class ProductCell: UITableViewCell {
     
     private var priceButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.setTitle("от 469 ₽", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
@@ -66,10 +56,8 @@ final class ProductCell: UITableViewCell {
     
     private var productImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "pizza")
-        imageView.contentMode = .scaleAspectFill
-        imageView.heightAnchor.constraint(equalToConstant: 0.40 * ScreenSize.width).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 0.40 * ScreenSize.width).isActive = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.heightAnchor.constraint(equalToConstant: 0.8 * ScreenSize.width).isActive = true
         return imageView
     }()
     
@@ -94,37 +82,31 @@ final class ProductCell: UITableViewCell {
     
     @objc func priceButtonTapped(_ sender: UIButton) {
         guard let product else { return }
-        onPriceButtonTapped?(product) //3. call
+        onPriceButtonTapped?(product)
     }
 }
 
-extension ProductCell {
+extension ProductPromoCell {
     
     private func setupViews() {
         selectionStyle = .none
     
-        contentView.addSubview(containerView)
-        containerView.addSubview(productImageView)
-        containerView.addSubview(verticalStackView)
+        contentView.addSubview(verticalStackView)
+        contentView.addSubview(priceButton)
+        verticalStackView.addArrangedSubview(productImageView)
         verticalStackView.addArrangedSubview(nameLabel)
         verticalStackView.addArrangedSubview(detailLabel)
-        verticalStackView.addArrangedSubview(priceButton)
     }
     
     private func setupConstraints() {
-        containerView.snp.makeConstraints { make in
-            make.left.right.equalTo(contentView).inset(16)
-            make.top.bottom.equalTo(contentView).inset(8)
+        verticalStackView.snp.makeConstraints { make in
+            make.top.right.left.equalTo(contentView).inset(8)
         }
         
-        productImageView.snp.makeConstraints { make in
-            make.left.equalTo(containerView).offset(8)
-            make.centerY.equalTo(containerView)
-            make.top.bottom.greaterThanOrEqualTo(containerView).inset(8)
-        }
-        verticalStackView.snp.makeConstraints { make in
-            make.top.right.bottom.equalTo(containerView).inset(8)
-            make.left.equalTo(productImageView.snp.right).offset(8)
+        priceButton.snp.makeConstraints { make in
+            make.top.equalTo(verticalStackView.snp.bottom).inset(8)
+            make.right.equalTo(contentView).inset(8)
+            make.bottom.equalTo(contentView).inset(8)
         }
     }
 }

@@ -24,7 +24,6 @@ final class PortionCell: UITableViewCell {
         portionLabel.layer.cornerRadius = 8
         portionLabel.clipsToBounds = true
         portionLabel.textColor = .black
-        portionLabel.text = "1 шт."
         portionLabel.textAlignment = .center
         portionLabel.heightAnchor.constraint(equalToConstant: 45).isActive = true
         return portionLabel

@@ -8,11 +8,6 @@
 import UIKit
 import SnapKit
 
-struct Screen {
-    static let bounds = UIScreen.main.bounds
-    static let width =  UIScreen.main.bounds.width
-}
-
 final class BannerCell: UITableViewCell {
     
     var onCellPriceButtonTapped: ((Product)->Void)?
@@ -34,7 +29,7 @@ final class BannerCell: UITableViewCell {
         return containerView
     }()
     
-    private var bannnerLabel: UILabel = {
+    var bannerLabel: UILabel = {
         let label = UILabel()
         label.text = "Выгодно и вкусно"
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -44,7 +39,7 @@ final class BannerCell: UITableViewCell {
     lazy private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize.init(width: Screen.width * 0.6, height: Screen.width * 0.25)
+        layout.itemSize = CGSize.init(width: ScreenSize.width * 0.6, height: ScreenSize.width * 0.25)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
@@ -73,8 +68,9 @@ final class BannerCell: UITableViewCell {
     }
 
     private func setupViews() {
+        self.selectionStyle = .none
         contentView.addSubview(containerView)
-        containerView.addSubview(bannnerLabel)
+        containerView.addSubview(bannerLabel)
         containerView.addSubview(collectionView)
     }
     
@@ -83,11 +79,11 @@ final class BannerCell: UITableViewCell {
             make.left.right.equalTo(contentView).inset(16)
             make.top.bottom.equalTo(contentView).inset(8)
         }
-        bannnerLabel.snp.makeConstraints { make in
+        bannerLabel.snp.makeConstraints { make in
             make.top.left.right.equalTo(containerView).inset(8)
         }
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(bannnerLabel.snp.bottom)
+            make.top.equalTo(bannerLabel.snp.bottom)
             make.left.right.bottom.equalTo(containerView)
         }
     }

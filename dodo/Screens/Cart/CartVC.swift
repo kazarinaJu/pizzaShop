@@ -10,6 +10,7 @@ protocol CartVCProtocol: AnyObject {
     var presenter: CartPresenterProtocol? { get set }
     
     func showProducts(_ products: [Product])
+    func show(_ offerProducts: [Product])
     func showCart(_ totalPrice: Int, _ totalProducts: Int)
 }
 
@@ -17,11 +18,13 @@ final class CartVC: UIViewController, CartVCProtocol {
 
     enum OrderSection: Int, CaseIterable {
         case products
+        case offer
         case detail
     }
     
     var presenter: CartPresenterProtocol?
-    private var products: [Product] = []
+    private var orderProducts: [Product] = []
+    private var offerProducts: [Product] = []
     
 //MARK: UI
     private var priceOrderButton = CustomBigButton()
@@ -38,6 +41,7 @@ final class CartVC: UIViewController, CartVCProtocol {
         tableView.delegate = self
         tableView.register(OrderProductCell.self, forCellReuseIdentifier: OrderProductCell.reuseId)
         tableView.register(OrderDetailCell.self, forCellReuseIdentifier: OrderDetailCell.reuseId)
+        tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.reuseId)
         return tableView
     }()
     
@@ -58,8 +62,7 @@ final class CartVC: UIViewController, CartVCProtocol {
 //MARK: - Update View
 extension CartVC {
     func showProducts(_ products: [Product]) {
-        self.products = products
-        //presenter?.updateCart()
+        self.orderProducts = products
         cartUpdated()
     }
     
@@ -69,6 +72,13 @@ extension CartVC {
             priceHeaderView.priceLabel.text = text
         }
         priceOrderButton.customBigtButton.setTitle("Оформить заказ на \(totalPrice) ₽", for: .normal)
+        DispatchQueue.main.async {
+            self.cartTableView.reloadData()
+        }
+    }
+    
+    func show(_ offerProducts: [Product]) {
+        self.offerProducts = offerProducts
         DispatchQueue.main.async {
             self.cartTableView.reloadData()
         }
@@ -124,8 +134,10 @@ extension CartVC: UITableViewDataSource {
         
         switch orderSection {
         case .products:
-            emptyCart.isHidden = products.isNotEmpty
-            return products.count
+            emptyCart.isHidden = orderProducts.isNotEmpty
+            return orderProducts.count
+        case .offer:
+            return 1
         case .detail:
             return 1
         default:
@@ -139,12 +151,22 @@ extension CartVC: UITableViewDataSource {
         switch orderSection {
         case .products:
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderProductCell.reuseID, for: indexPath) as! OrderProductCell
-            let product = products[indexPath.row]
+            let product = orderProducts[indexPath.row]
             cell.update(product)
             cell.onProductCountChanged = { [weak self] changedProduct in
                 self?.productCountChangedHappened(changedProduct)
             }
             return cell
+            
+        case .offer:
+            let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.reuseId, for: indexPath) as! BannerCell
+            cell.update(offerProducts)
+            cell.bannerLabel.text = "Добавить к заказу?"
+            cell.onCellPriceButtonTapped = { [weak self] product in
+                self?.offerCellPriceButtonTapped(product)
+            }
+            return cell
+
         case .detail:
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderDetailCell.reuseID, for: indexPath) as! OrderDetailCell
             guard let price = presenter?.totalPrice else { return cell }
@@ -160,10 +182,14 @@ extension CartVC: UITableViewDataSource {
 //MARK: - Pass Event
 extension CartVC {
     func productCountChangedHappened(_ changedProduct: Product) {
-        presenter?.productCountChanged(&products, changedProduct)
+        presenter?.productCountChanged(&orderProducts, changedProduct)
     }
     
     func cartUpdated() {
         presenter?.updateCart()
+    }
+    
+    func offerCellPriceButtonTapped(_ product: Product) {
+        presenter?.offerPriceButtonTapped(product)
     }
 }

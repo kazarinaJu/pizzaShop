@@ -143,8 +143,6 @@ extension DetailVC: UITableViewDataSource {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ImageCell.reuseID, for: indexPath) as! ImageCell
-            //.cell.product = product
-            
             cell.update(product)
             
             return cell
