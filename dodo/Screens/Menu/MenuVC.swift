@@ -11,7 +11,7 @@ import SnapKit
 protocol MenuVCProtocol: AnyObject {
     var presenter: MenuPresenterProtocol? { get set }
     
-    func showCategories(_ categories: [Category])
+    func showCategories(_ categories: [String])
     func showStories(_ stories: [Storie])
     func showProducts(_ products: [Product])
     
@@ -32,7 +32,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     //MARK: Data models
     private var stories: [Storie] = []
     private var products: [Product] = []
-    private var categories: [Category] = []
+    private var categories: [String] = []
     
     //MARK: UI
     lazy var tableView: UITableView = {
@@ -46,6 +46,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
         tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.reuseId)
         tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseId)
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseId)
+        tableView.register(ProductPromoCell.self, forCellReuseIdentifier: ProductPromoCell.reuseId)
         return tableView
     }()
     
@@ -59,10 +60,11 @@ final class MenuVC: UIViewController, MenuVCProtocol {
 }
 //MARK: - Update View
 extension MenuVC {
-    func showCategories(_ categories: [Category]) {
+    func showCategories(_ categories: [String]) {
         self.categories = categories
         tableView.reloadData()
     }
+
     
     func showStories(_ stories: [Storie]) {
         self.stories = stories
@@ -126,19 +128,32 @@ extension MenuVC: UITableViewDataSource {
         case .categories:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseId, for: indexPath) as! CategoryCell
             cell.update(categories)
-            cell.onCategoryTapped = { [weak self ]category in
-                let indexPath = IndexPath(row: category.indexPath[1], section: category.indexPath[0])
-                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            cell.onCategoryTapped = { [weak self] category in
+                self?.scrollToCategory(category)
             }
             return cell
+            
         case .products:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+            
             let product = products[indexPath.row]
-            cell.update(product)
-            cell.onPriceButtonTapped = { [weak self ]product in
-                self?.productCellPriceButtonTapped(product)
+            
+            if product.isPromo != nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ProductPromoCell.reuseId, for: indexPath) as! ProductPromoCell
+                cell.update(product)
+                cell.onPriceButtonTapped = { [weak self ]product in
+                    self?.productCellPriceButtonTapped(product)
+                }
+                return cell
+                
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+                cell.update(product)
+                cell.onPriceButtonTapped = { [weak self ]product in
+                    self?.productCellPriceButtonTapped(product)
+                }
+                return cell
             }
-            return cell
+            
         default:
             return UITableViewCell()
         }
@@ -176,5 +191,16 @@ extension MenuVC {
     
     func productSelectedTapped(_ selectedProduct: Product) {
         presenter?.productCellSelected(selectedProduct)
+    }
+    
+    func scrollToCategory(_ categoryDescription: String) {
+        guard let category = ProductSection.from(description: categoryDescription) else { return }
+        
+        if let productIndex = products.firstIndex(where: { $0.category == category }) {
+            let indexPath = IndexPath(row: productIndex, section: MenuSection.products.rawValue)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        } else {
+            print("No products found for the category: \(categoryDescription)")
+        }
     }
 }

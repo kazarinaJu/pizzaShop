@@ -29,8 +29,8 @@ class CategoryCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(_ category: Category) {
-        categoryLabel.text = category.name
+    func update(with productSection: String) {
+        categoryLabel.text = productSection.description
     }
     
     private func setupViews() {

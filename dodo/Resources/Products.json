@@ -9,14 +9,6 @@
         {"id": 2007, "image": "mash", "name": "Шампиньоны", "price": 59},
         {"id": 2008, "image": "italian-herbs", "name": "Итальянские травы", "price": 39}
     ],
-"categories": [
-        {"id": 1002, "name": "Пиццы", "indexPath": [3, 3]},
-        {"id": 1003, "name": "Комбо", "indexPath": [3, 6]},
-        {"id": 1004, "name": "Закуски", "indexPath": [3, 9]},
-        {"id": 1005, "name": "Напитки", "indexPath": [3, 0]},
-        {"id": 1006, "name": "Десерты", "indexPath": [3, 0]},
-        {"id": 1007, "name": "Соусы", "indexPath": [3, 0]}
-    ],
 "sizes": ["Маленькая", "Средняя", "Большая"],
 "dough": ["Традиционное", "Тонкое"],
 "products": [
@@ -32,7 +24,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "pizza"
         },
         {
            "id": 3002,
@@ -44,11 +37,11 @@
             "price": 650,
             "image": "margarita",
             "portion": null,
-           
             "size": null,
             "dough": null,
             "isOnSale": true,
-"count": 1
+"count": 1,
+"category": "pizza"
         },
         {
          "id": 3003,
@@ -64,7 +57,8 @@
             "size": "Средняя",
             "dough": "Традиционное",
             "isOnSale": true,
-"count": 1
+"count": 1,
+"category": "pizza"
         },
         {
           "id": 3004,
@@ -78,7 +72,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "pizza"
         },
         {
           "id": 3005,
@@ -92,7 +87,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "pizza"
         },
         {
           "id": 3006,
@@ -106,7 +102,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "pizza"
         },
         {
           "id": 3007,
@@ -120,7 +117,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "pizza"
         },
          {
           "id": 3008,
@@ -134,7 +132,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "pizza"
         },
          {
           "id": 3009,
@@ -148,7 +147,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "combo"
         },{
           "id": 3010,
           "name": "10 пицц",
@@ -161,7 +161,8 @@
             "size": null,
             "dough": null,
             "isOnSale": true,
-           "count": 1
+           "count": 1,
+           "category": "combo"
         },
         {
           "id": 3011,
@@ -175,7 +176,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "combo"
         },
          {
           "id": 3012,
@@ -189,7 +191,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "snack"
         },
          {
           "id": 3013,
@@ -203,7 +206,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "snack"
         },
          {
           "id": 3014,
@@ -217,7 +221,8 @@
             "size": null,
             "dough": null,
             "isOnSale": true,
-           "count": 1
+           "count": 1,
+           "category": "snack"
         },
         {
           "id": 3015,
@@ -231,7 +236,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "snack"
         },
          {
           "id": 3016,
@@ -245,7 +251,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "drink"
         },
          {
           "id": 3017,
@@ -259,7 +266,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "drink"
         }, {
           "id": 3018,
           "name": "Вода",
@@ -272,7 +280,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "drink"
         },{
           "id": 3019,
           "name": "Чай",
@@ -285,7 +294,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "drink"
         },{
           "id": 3020,
           "name": "Сорбет Лимонный фреш",
@@ -298,7 +308,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "desert"
         },{
           "id": 3021,
           "name": "Чизкейк Нью-Йорк с кокосом",
@@ -311,7 +322,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "desert"
         },{
           "id": 3022,
           "name": "Маффин Соленая карамель",
@@ -324,7 +336,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "desert"
         },{
           "id": 3023,
           "name": "Сладкий чили",
@@ -337,7 +350,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "souce"
         },{
           "id": 3024,
           "name": "Сырный соус",
@@ -350,7 +364,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "souce"
         },{
           "id": 3025,
           "name": "Чесночный соус",
@@ -363,7 +378,8 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1
+           "count": 1,
+           "category": "souce"
         }
         ]
 }

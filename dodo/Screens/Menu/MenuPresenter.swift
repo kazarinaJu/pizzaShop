@@ -67,10 +67,9 @@ extension MenuPresenter {
             view?.showStories(stories)
         }
     }
-
+    
     func fetchCategories() {
-        productsService?.fetchCategories { [self] categories in
-            view?.showCategories(categories)
-        }
+        guard let categories = productsService?.fetchCategories() else { return }
+        view?.showCategories(categories)
     }
 }
