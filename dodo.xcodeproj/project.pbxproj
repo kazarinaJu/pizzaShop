@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		050267292BE9149600EA38A4 /* dodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050267282BE9149600EA38A4 /* dodoUITests.swift */; };
 		0502672B2BE9149600EA38A4 /* dodoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502672A2BE9149600EA38A4 /* dodoUITestsLaunchTests.swift */; };
-		0502F0872BB42B9900556C33 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0502F0862BB42B9900556C33 /* SnapKit */; };
-		0502F0892BB42B9900556C33 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0502F0882BB42B9900556C33 /* SnapKit-Dynamic */; };
 		0502F08B2BB55DBB00556C33 /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F08A2BB55DBB00556C33 /* DetailConfigurator.swift */; };
 		0502F08D2BB5701300556C33 /* CartConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F08C2BB5701300556C33 /* CartConfigurator.swift */; };
 		0502F08F2BBADE8F00556C33 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F08E2BBADE8F00556C33 /* MapVC.swift */; };
@@ -24,6 +22,8 @@
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		052AA8242BDA66FB00C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
 		052AA8252BDA6C4200C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
+		0534AA932C66074F003A3E78 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0534AA922C66074F003A3E78 /* SnapKit */; };
+		0534AA952C66074F003A3E78 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0534AA942C66074F003A3E78 /* SnapKit-Dynamic */; };
 		05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05564C242C64E21B000CE78E /* ProductPromoCell.swift */; };
 		055D6BFE2B6952A300989B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFD2B6952A300989B70 /* AppDelegate.swift */; };
 		055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFF2B6952A300989B70 /* SceneDelegate.swift */; };
@@ -196,8 +196,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0502F0872BB42B9900556C33 /* SnapKit in Frameworks */,
-				0502F0892BB42B9900556C33 /* SnapKit-Dynamic in Frameworks */,
+				0534AA932C66074F003A3E78 /* SnapKit in Frameworks */,
+				0534AA952C66074F003A3E78 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,8 +558,8 @@
 			);
 			name = dodo;
 			packageProductDependencies = (
-				0502F0862BB42B9900556C33 /* SnapKit */,
-				0502F0882BB42B9900556C33 /* SnapKit-Dynamic */,
+				0534AA922C66074F003A3E78 /* SnapKit */,
+				0534AA942C66074F003A3E78 /* SnapKit-Dynamic */,
 			);
 			productName = dodo;
 			productReference = 055D6BFA2B6952A300989B70 /* dodo.app */;
@@ -603,7 +603,7 @@
 			);
 			mainGroup = 055D6BF12B6952A300989B70;
 			packageReferences = (
-				0502F0852BB42B9900556C33 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0534AA912C66074F003A3E78 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 055D6BFB2B6952A300989B70 /* Products */;
 			projectDirPath = "";
@@ -1127,7 +1127,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0502F0852BB42B9900556C33 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		0534AA912C66074F003A3E78 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1138,14 +1138,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0502F0862BB42B9900556C33 /* SnapKit */ = {
+		0534AA922C66074F003A3E78 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0502F0852BB42B9900556C33 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 0534AA912C66074F003A3E78 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		0502F0882BB42B9900556C33 /* SnapKit-Dynamic */ = {
+		0534AA942C66074F003A3E78 /* SnapKit-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0502F0852BB42B9900556C33 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 0534AA912C66074F003A3E78 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
