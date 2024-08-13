@@ -12,12 +12,10 @@ final class OrderDetailCell: UITableViewCell {
     
     static let reuseId = "OrderDetailCell"
     
-    private var leftVerticalStackView: UIStackView = {
+    private var orderStackView: UIStackView = {
         var stackView = UIStackView.init()
-        stackView.axis = .vertical
-        stackView.spacing = 15
-        stackView.alignment = .leading
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 12, trailing: 0)
+        stackView.axis = .horizontal
+        stackView.spacing = 8
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
@@ -28,32 +26,23 @@ final class OrderDetailCell: UITableViewCell {
         return label
     }()
     
-    private var coinLabel: UILabel = {
+    private var orderPriceLabel: UILabel = {
         var label = UILabel()
-        label.text = "Начислим додокоинов"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
     
-    private var deliveryLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Доставка"
-        label.font = UIFont.systemFont(ofSize: 15)
-        return label
-    }()
-    
-    private var rightVerticalStackView: UIStackView = {
+    private var coinStackView: UIStackView = {
         var stackView = UIStackView.init()
-        stackView.axis = .vertical
-        stackView.spacing = 15
-        stackView.alignment = .trailing
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 12, trailing: 0)
+        stackView.axis = .horizontal
+        stackView.spacing = 8
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     
-    private var orderPriceLabel: UILabel = {
+    private var coinLabel: UILabel = {
         var label = UILabel()
+        label.text = "Начислим додокоинов"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
@@ -65,6 +54,21 @@ final class OrderDetailCell: UITableViewCell {
         return label
     }()
     
+    private var deliveryStackView: UIStackView = {
+        var stackView = UIStackView.init()
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
+    }()
+    
+    private var deliveryLabel: UILabel = {
+        var label = UILabel()
+        label.text = "Доставка"
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+    
     private var deliveryDetailLabel: UILabel = {
         var label = UILabel()
         label.text = "Бесплатно"
@@ -72,12 +76,28 @@ final class OrderDetailCell: UITableViewCell {
         return label
     }()
     
+    private var infoButtonContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private var infoButton: UIButton = {
+        var button = UIButton(type: .system)
+        let image = UIImage(systemName: "info.circle")
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        return button
+    }()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
         setupConstraints()
+        setupContextMenu()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -89,23 +109,59 @@ final class OrderDetailCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(leftVerticalStackView)
-        leftVerticalStackView.addArrangedSubview(countLabel)
-        leftVerticalStackView.addArrangedSubview(coinLabel)
-        leftVerticalStackView.addArrangedSubview(deliveryLabel)
         
-        contentView.addSubview(rightVerticalStackView)
-        rightVerticalStackView.addArrangedSubview(orderPriceLabel)
-        rightVerticalStackView.addArrangedSubview(coinCountLabel)
-        rightVerticalStackView.addArrangedSubview(deliveryDetailLabel)
+        contentView.addSubview(orderStackView)
+        orderStackView.addArrangedSubview(countLabel)
+        orderStackView.addArrangedSubview(orderPriceLabel)
+        
+        contentView.addSubview(coinStackView)
+        coinStackView.addArrangedSubview(coinLabel)
+        coinStackView.addArrangedSubview(coinCountLabel)
+        
+        contentView.addSubview(deliveryStackView)
+        deliveryStackView.addArrangedSubview(deliveryLabel)
+        deliveryStackView.addArrangedSubview(infoButtonContainer)
+        deliveryStackView.addArrangedSubview(deliveryDetailLabel)
+        
+        infoButtonContainer.addSubview(infoButton)
     }
+    
     private func setupConstraints() {
-        leftVerticalStackView.snp.makeConstraints { make in
-            make.top.left.bottom.equalTo(contentView).inset(8)
+        orderStackView.snp.makeConstraints { make in
+            make.top.right.left.equalTo(contentView).inset(20)
         }
         
-        rightVerticalStackView.snp.makeConstraints { make in
-            make.top.right.bottom.equalTo(contentView).inset(8)
+        coinStackView.snp.makeConstraints { make in
+            make.right.left.equalTo(contentView).inset(20)
+            make.top.equalTo(orderStackView.snp.bottom).offset(16)
+        }
+        
+        deliveryStackView.snp.makeConstraints { make in
+            make.right.left.equalTo(contentView).inset(20)
+            make.top.equalTo(coinStackView.snp.bottom).offset(16)
+            make.bottom.equalTo(contentView).inset(20)
+        }
+        
+        infoButton.snp.makeConstraints { make in
+            make.width.height.equalTo(18)
+            make.left.equalTo(deliveryLabel.snp.right).offset(8)
+        }
+    }
+}
+
+extension OrderDetailCell: UIContextMenuInteractionDelegate {
+    private func setupContextMenu() {
+        let interaction = UIContextMenuInteraction(delegate: self)
+        infoButton.addInteraction(interaction)
+    }
+    
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        print("Context menu interaction triggered")
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let action = UIAction(title: "Сумма заказа от 2000 р.") { _ in
+                print("Action triggered")
+            }
+            return UIMenu(title: "Информация", children: [action])
         }
     }
 }
