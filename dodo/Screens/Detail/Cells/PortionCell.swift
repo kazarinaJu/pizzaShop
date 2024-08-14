@@ -25,6 +25,7 @@ final class PortionCell: UITableViewCell {
         portionLabel.clipsToBounds = true
         portionLabel.textColor = .black
         portionLabel.textAlignment = .center
+        portionLabel.font = UIFont(name: "SFProRounded-Regular", size: 15)
         portionLabel.heightAnchor.constraint(equalToConstant: 45).isActive = true
         return portionLabel
     }()

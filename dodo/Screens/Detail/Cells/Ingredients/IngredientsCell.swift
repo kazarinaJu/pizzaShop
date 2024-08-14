@@ -50,7 +50,7 @@ final class IngredientsCell: UITableViewCell {
     private var titleLabel: UILabel = {
         var label = UILabel()
         label.text = "Добавить по вкусу"
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 20)
         label.textAlignment = .left
         return label
     }()

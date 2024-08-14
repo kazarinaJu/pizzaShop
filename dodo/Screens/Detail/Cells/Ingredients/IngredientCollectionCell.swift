@@ -34,12 +34,13 @@ final class IngredientCollectionCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.textAlignment = .center
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
     private var priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
         label.textAlignment = .center
         return label
     }()

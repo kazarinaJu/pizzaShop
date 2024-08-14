@@ -18,14 +18,14 @@ final class BannerCollectionCell: UICollectionViewCell {
     private var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
         return imageView
     }()
     
     private var bannerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -33,7 +33,7 @@ final class BannerCollectionCell: UICollectionViewCell {
     
     private var bannerPriceButton: UIButton = {
         let button = UIButton.init(type: .system)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont(name: "SFProRounded-Bold", size: 15)
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
         button.setTitleColor(.brown, for: .normal)

@@ -13,13 +13,14 @@ final class AddressView: UIView {
     private var discriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Город, улица и дом"
-        label.font = UIFont.systemFont(ofSize: 13, weight: .thin)
+        label.font = UIFont(name: "SFProRounded-Thin", size: 11)
         return label
     }()
     
     var addressTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Ваш адрес"
+        textField.font = UIFont(name: "SFProRounded-Regular", size: 13)
         textField.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return textField
     }()

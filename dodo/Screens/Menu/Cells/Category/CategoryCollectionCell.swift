@@ -13,7 +13,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     
     private var categoryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 14)
         label.textAlignment = .center
         return label
     }()

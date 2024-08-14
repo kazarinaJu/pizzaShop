@@ -27,7 +27,7 @@ final class EmptyCart: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Пока тут пусто"
-        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 22)
         return label
     }()
     
@@ -35,6 +35,7 @@ final class EmptyCart: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Добавьте пиццу. Или две!"
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
@@ -42,6 +43,7 @@ final class EmptyCart: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "А мы  доставим заказ от 599 ₽"
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     

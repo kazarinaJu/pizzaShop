@@ -22,13 +22,13 @@ final class OrderDetailCell: UITableViewCell {
     
     private var countLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
     private var orderPriceLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
@@ -43,14 +43,14 @@ final class OrderDetailCell: UITableViewCell {
     private var coinLabel: UILabel = {
         var label = UILabel()
         label.text = "Начислим додокоинов"
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
     private var coinCountLabel: UILabel = {
         var label = UILabel()
         label.text = "+50"
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
@@ -65,14 +65,14 @@ final class OrderDetailCell: UITableViewCell {
     private var deliveryLabel: UILabel = {
         var label = UILabel()
         label.text = "Доставка"
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
     private var deliveryDetailLabel: UILabel = {
         var label = UILabel()
         label.text = "Бесплатно"
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     

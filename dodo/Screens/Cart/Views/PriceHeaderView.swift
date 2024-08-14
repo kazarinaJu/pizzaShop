@@ -13,7 +13,7 @@ final class PriceHeaderView: UIView {
     
     lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
         label.text = "5 товаров на 1108 ₽"
         return label
     }()

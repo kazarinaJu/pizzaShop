@@ -24,15 +24,15 @@ final class BannerCell: UITableViewCell {
     private var containerView: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = .white
-        containerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        containerView.translatesAutoresizingMaskIntoConstraints = false 
+        containerView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
     }()
     
     var bannerLabel: UILabel = {
         let label = UILabel()
         label.text = "Выгодно и вкусно"
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 20)
         return label
     }()
     

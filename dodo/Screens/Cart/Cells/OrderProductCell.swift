@@ -36,7 +36,7 @@ final class OrderProductCell: UITableViewCell {
     
     private var nameLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
         return label
     }()
     
@@ -44,7 +44,7 @@ final class OrderProductCell: UITableViewCell {
         var label = UILabel()
         label.textColor = .darkGray
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     
@@ -60,7 +60,7 @@ final class OrderProductCell: UITableViewCell {
     
     private var priceLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
         return label
     }()
     

@@ -28,7 +28,7 @@ final class ProductPromoCell: UITableViewCell {
     
     private var nameLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 20)
         return label
     }()
     
@@ -36,7 +36,7 @@ final class ProductPromoCell: UITableViewCell {
         var label = UILabel()
         label.textColor = .darkGray
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
         return label
     }()
     
