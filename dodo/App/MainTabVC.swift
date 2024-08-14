@@ -5,6 +5,8 @@
 //  Created by Юлия Ястребова on 01.02.2024.
 //
 
+//MARK: - НЕ используется
+
 import UIKit
 
 class MainTabVC:UITabBarController {

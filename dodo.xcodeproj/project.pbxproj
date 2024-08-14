@@ -20,6 +20,7 @@
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		052AA8242BDA66FB00C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
 		052AA8252BDA6C4200C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
+		052F32FF2C6CC7CC009FF201 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F32FE2C6CC7CC009FF201 /* CartButton.swift */; };
 		0534AA932C66074F003A3E78 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0534AA922C66074F003A3E78 /* SnapKit */; };
 		0534AA952C66074F003A3E78 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0534AA942C66074F003A3E78 /* SnapKit-Dynamic */; };
 		05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05564C242C64E21B000CE78E /* ProductPromoCell.swift */; };
@@ -112,6 +113,7 @@
 		051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dodo-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		051DD9F22BD131D6007E1136 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
+		052F32FE2C6CC7CC009FF201 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		05564C242C64E21B000CE78E /* ProductPromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPromoCell.swift; sourceTree = "<group>"; };
 		055D6BFA2B6952A300989B70 /* dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055D6BFD2B6952A300989B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 		05C0DBD02B908DB600546F01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				052F32FE2C6CC7CC009FF201 /* CartButton.swift */,
 				05C0DBD12B95B4EA00546F01 /* CustomStepper.swift */,
 				05B0088B2B7E130700FC2821 /* CustomBigButton.swift */,
 			);
@@ -721,6 +724,7 @@
 				05B0087A2B74CCCC00FC2821 /* ImageCell.swift in Sources */,
 				055D6C222B69544800989B70 /* ProductsService.swift in Sources */,
 				05B0088C2B7E130700FC2821 /* CustomBigButton.swift in Sources */,
+				052F32FF2C6CC7CC009FF201 /* CartButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
