@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var cartButton: CartButton?
+    var mapButton: MapButton?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -23,5 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         cartButton = CartButton(window: window)
         cartButton?.addCartButton()
+        
+        mapButton = MapButton(window: window)
+        mapButton?.addMapButton()
     }
 }
