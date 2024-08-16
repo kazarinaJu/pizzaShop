@@ -51,6 +51,7 @@ final class EmptyCart: UIView {
         var button = UIButton.init(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Перейти в меню", for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
         button.setTitleColor(.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)

@@ -24,6 +24,7 @@ class MapButton {
         let image = UIImage(systemName: "location.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal)
         mapButton?.setImage(image, for: .normal)
         mapButton?.backgroundColor = .clear
+        mapButton?.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
         mapButton?.addTarget(self, action: #selector(openMapVC), for: .touchUpInside)
         mapButton?.translatesAutoresizingMaskIntoConstraints = false
         

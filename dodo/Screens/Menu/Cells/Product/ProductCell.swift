@@ -49,7 +49,7 @@ final class ProductCell: UITableViewCell {
     
     private var priceButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
         button.setTitleColor(.brown, for: .normal)

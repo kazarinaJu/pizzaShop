@@ -16,6 +16,7 @@ final class CustomBigButton: UIView {
         var button = UIButton.init(type: .system)
         button.backgroundColor = .orange
         button.setTitle("В корзину за 300 ₽", for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
         button.setTitleColor(.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.layer.cornerRadius = 20

@@ -37,7 +37,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     //MARK: UI
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.delegate = self
@@ -86,7 +86,8 @@ extension MenuVC {
     
     private func setupConstraints() {
         tableView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
     }
 }

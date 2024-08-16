@@ -112,9 +112,9 @@ extension CartVC {
 //MARK: - Observe
 extension CartVC {
     private func observe() { //bind
-        emptyCart.onGoToMenuTapped = { [weak self] in
-            self?.tabBarController?.selectedIndex = 0
-        }
+//        emptyCart.onGoToMenuTapped = { [weak self] in
+//            self?.tabBarController?.selectedIndex = 0
+//        }
     }
 }
 

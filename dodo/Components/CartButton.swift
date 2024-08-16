@@ -26,6 +26,7 @@ class CartButton {
         cartButton?.setImage(image, for: .normal)
         cartButton?.backgroundColor = .orange
         cartButton?.layer.cornerRadius = 25
+        cartButton?.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
         cartButton?.addTarget(self, action: #selector(openCartVC), for: .touchUpInside)
         cartButton?.translatesAutoresizingMaskIntoConstraints = false
         
