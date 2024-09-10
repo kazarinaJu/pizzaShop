@@ -8,6 +8,9 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    let remoteToggleService = RemoteTogglesService.shared
+    let localToggleService = LocalTogglesService.shared
 
     var window: UIWindow?
     var cartButton: CartButton?
@@ -17,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
+//        window?.rootViewController = FeatureToggleVC()
+   
         let mainVC = MenuConfigurator().configure()
 
         window?.rootViewController = mainVC
@@ -26,6 +31,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         cartButton?.addCartButton()
         
         mapButton = MapButton(window: window)
-        mapButton?.addMapButton()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+            if self.remoteToggleService.isMapAvailable && self.localToggleService.isMapAvailable {
+                mapButton?.addMapButton()
+            }
+        }
+        
+        
+        
+        
     }
 }

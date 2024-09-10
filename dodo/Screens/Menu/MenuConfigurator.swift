@@ -25,6 +25,9 @@ final class MenuConfigurator {
         menuPresenter.storiesService = storiesService
         menuPresenter.ordersService = orderService
         
+        
+        
+        
         return menuVC
     }
 }

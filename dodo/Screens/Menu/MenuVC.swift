@@ -16,6 +16,8 @@ protocol MenuVCProtocol: AnyObject {
     func showProducts(_ products: [Product])
     
     func navigateToDetailScreen(_ selectedProduct: Product)
+    func navigateToFeatureTogglesScreen()
+    
 }
 
 final class MenuVC: UIViewController, MenuVCProtocol {
@@ -50,10 +52,21 @@ final class MenuVC: UIViewController, MenuVCProtocol {
         return tableView
     }()
     
+    var flagButton: UIButton = {
+        let button = UIButton()
+        let configuration = UIImage.SymbolConfiguration(pointSize: 40.0)
+        let symbol = UIImage(systemName: "flag.circle.fill", withConfiguration: configuration)
+        button.setImage(symbol, for: .normal)
+        button.addTarget(self, action: #selector(flagButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setUpFeatureToggles()
         
         presenter?.viewDidLoad()
     }
@@ -65,7 +78,6 @@ extension MenuVC {
         tableView.reloadData()
     }
 
-    
     func showStories(_ stories: [Storie]) {
         self.stories = stories
         tableView.reloadData()
@@ -89,6 +101,15 @@ extension MenuVC {
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
+    }
+    
+    func setUpFeatureToggles() {
+        #if LOCAL
+        view.addSubview(flagButton)
+        flagButton.snp.makeConstraints { make in
+            make.top.right.equalTo(view.safeAreaLayoutGuide).inset(8)
+        }
+        #endif
     }
 }
 
@@ -178,6 +199,11 @@ extension MenuVC {
         let productDetailVC = DetailConfigurator().configure(selectedProduct)
         present(productDetailVC, animated: true)
     }
+    
+    func navigateToFeatureTogglesScreen() {
+        let featureToggleVC = FeatureToggleVC()
+        present(featureToggleVC, animated: true)
+    }
 }
 
 //MARK: - Pass Event
@@ -203,5 +229,9 @@ extension MenuVC {
         } else {
             print("No products found for the category: \(categoryDescription)")
         }
+    }
+    
+    @objc func flagButtonTapped() {
+        presenter?.flagButtonTapped()
     }
 }

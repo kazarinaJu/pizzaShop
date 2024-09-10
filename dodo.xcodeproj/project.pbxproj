@@ -18,6 +18,12 @@
 		0502F0992BBDB74600556C33 /* AddressPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0982BBDB74600556C33 /* AddressPanelView.swift */; };
 		05197E322BE0CD9200BEB946 /* DetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05197E312BE0CD9200BEB946 /* DetailTests.swift */; };
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
+		052194CD2C7CC9D000B19019 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194CC2C7CC9D000B19019 /* Feature.swift */; };
+		052194D12C7CCA7A00B19019 /* FeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194D02C7CCA7A00B19019 /* FeatureToggleService.swift */; };
+		052194D32C7DE5C500B19019 /* localFeatureToggles.json in Resources */ = {isa = PBXBuildFile; fileRef = 052194D22C7DE5C500B19019 /* localFeatureToggles.json */; };
+		052194D52C7F5C0700B19019 /* FeatureToggleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194D42C7F5C0700B19019 /* FeatureToggleVC.swift */; };
+		052194D72C80889400B19019 /* RemoteTogglesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194D62C80889400B19019 /* RemoteTogglesService.swift */; };
+		052194D92C80913500B19019 /* LocalTogglesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194D82C80913500B19019 /* LocalTogglesService.swift */; };
 		052AA8242BDA66FB00C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
 		052AA8252BDA6C4200C16A75 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */; };
 		052F32FF2C6CC7CC009FF201 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F32FE2C6CC7CC009FF201 /* CartButton.swift */; };
@@ -44,6 +50,7 @@
 		055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C242B6A74D500989B70 /* UIView+Shadow.swift */; };
 		055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C262B6A85CB00989B70 /* UITableView + dequeueCell.swift */; };
 		055D6C292B6A861A00989B70 /* UITableViewCell + reuseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C282B6A861A00989B70 /* UITableViewCell + reuseID.swift */; };
+		0588DBEA2C88812E00A12D8E /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588DBE92C88812E00A12D8E /* ServerConfig.swift */; };
 		05AB8BF12BD68BBF00A95765 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */; };
 		05B0086E2B6B9DD800FC2821 /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0086D2B6B9DD800FC2821 /* MainTabVC.swift */; };
 		05B008702B6B9F8900FC2821 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0086F2B6B9F8900FC2821 /* CartVC.swift */; };
@@ -80,6 +87,10 @@
 		05D1D5862BE229F000DB34DD /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1D5852BE229F000DB34DD /* CartTests.swift */; };
 		05D1D5882BE238DB00DB34DD /* OrdersServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1D5872BE238DB00DB34DD /* OrdersServiceTests.swift */; };
 		05DB973A2C6E16F400E9DB93 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05DB97392C6E16F400E9DB93 /* SnapKit */; };
+		1D2F1B2A9AEB342902186970 /* Pods_dodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53223F0561903148EB2CF35A /* Pods_dodo.framework */; };
+		2F65DB37F1DF86C18431D4A8 /* Pods_dodo_dodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E4510138A1FD43EB3C2F54 /* Pods_dodo_dodoUITests.framework */; };
+		4869C8102E9CB29031A1144C /* Pods_dodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9440D9CB358DB812A22AC9E /* Pods_dodoTests.framework */; };
+		9DBEC3A825F08665F2F8EB40 /* Pods_dodo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA17CEE8BA212D8FA9C794F /* Pods_dodo_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +132,12 @@
 		051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dodo-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		051DD9F22BD131D6007E1136 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
+		052194CC2C7CC9D000B19019 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		052194D02C7CCA7A00B19019 /* FeatureToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleService.swift; sourceTree = "<group>"; };
+		052194D22C7DE5C500B19019 /* localFeatureToggles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = localFeatureToggles.json; sourceTree = "<group>"; };
+		052194D42C7F5C0700B19019 /* FeatureToggleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleVC.swift; sourceTree = "<group>"; };
+		052194D62C80889400B19019 /* RemoteTogglesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTogglesService.swift; sourceTree = "<group>"; };
+		052194D82C80913500B19019 /* LocalTogglesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTogglesService.swift; sourceTree = "<group>"; };
 		052AA8232BDA66FB00C16A75 /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
 		052F32FE2C6CC7CC009FF201 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		052F33002C6CE4D8009FF201 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
@@ -148,6 +165,7 @@
 		055D6C242B6A74D500989B70 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		055D6C262B6A85CB00989B70 /* UITableView + dequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + dequeueCell.swift"; sourceTree = "<group>"; };
 		055D6C282B6A861A00989B70 /* UITableViewCell + reuseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + reuseID.swift"; sourceTree = "<group>"; };
+		0588DBE92C88812E00A12D8E /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		05B0086D2B6B9DD800FC2821 /* MainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
 		05B0086F2B6B9F8900FC2821 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
@@ -185,6 +203,34 @@
 		05D1D5832BE2252300DB34DD /* StoriesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesServiceTests.swift; sourceTree = "<group>"; };
 		05D1D5852BE229F000DB34DD /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		05D1D5872BE238DB00DB34DD /* OrdersServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersServiceTests.swift; sourceTree = "<group>"; };
+		1148F8687976309A7797B6F7 /* Pods-dodoTests.debugqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.debugqa.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.debugqa.xcconfig"; sourceTree = "<group>"; };
+		2D2B8195629DC535E0C000EC /* Pods-dodo.debugprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.debugprod.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.debugprod.xcconfig"; sourceTree = "<group>"; };
+		31CAA04447872ADAA713B076 /* Pods-dodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.debug.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.debug.xcconfig"; sourceTree = "<group>"; };
+		33F3232AC97C405E7FC66755 /* Pods-dodo.releaseqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.releaseqa.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.releaseqa.xcconfig"; sourceTree = "<group>"; };
+		429819B6C119262967A72567 /* Pods-dodo-dodoUITests.releaseqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-dodoUITests.releaseqa.xcconfig"; path = "Target Support Files/Pods-dodo-dodoUITests/Pods-dodo-dodoUITests.releaseqa.xcconfig"; sourceTree = "<group>"; };
+		43F38C33DAAC85C1C8FC6DC3 /* Pods-dodo-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-Tests.debug.xcconfig"; path = "Target Support Files/Pods-dodo-Tests/Pods-dodo-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B48C378373580393A05AF4F /* Pods-dodo-dodoUITests.debugqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-dodoUITests.debugqa.xcconfig"; path = "Target Support Files/Pods-dodo-dodoUITests/Pods-dodo-dodoUITests.debugqa.xcconfig"; sourceTree = "<group>"; };
+		53223F0561903148EB2CF35A /* Pods_dodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55381F5E7C6EAE157EE5A263 /* Pods-dodo-Tests.debugqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-Tests.debugqa.xcconfig"; path = "Target Support Files/Pods-dodo-Tests/Pods-dodo-Tests.debugqa.xcconfig"; sourceTree = "<group>"; };
+		69E339FB058E086A07F8F5DB /* Pods-dodoTests.releaseprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.releaseprod.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.releaseprod.xcconfig"; sourceTree = "<group>"; };
+		6C766B4182C2902C97289599 /* Pods-dodo.debugqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.debugqa.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.debugqa.xcconfig"; sourceTree = "<group>"; };
+		8A1FBA5DD1CE28ED87A76F32 /* Pods-dodoTests.debugprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.debugprod.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.debugprod.xcconfig"; sourceTree = "<group>"; };
+		8CA17CEE8BA212D8FA9C794F /* Pods_dodo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dodo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6CCEA170F44C667510D3E1 /* Pods-dodoTests.releaseqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.releaseqa.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.releaseqa.xcconfig"; sourceTree = "<group>"; };
+		95303503C45EBC590A5A7C9E /* Pods-dodo-Tests.releaseqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-Tests.releaseqa.xcconfig"; path = "Target Support Files/Pods-dodo-Tests/Pods-dodo-Tests.releaseqa.xcconfig"; sourceTree = "<group>"; };
+		A32B0BFF4DDCA9D28F7745DA /* Pods-dodo-dodoUITests.releaseprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-dodoUITests.releaseprod.xcconfig"; path = "Target Support Files/Pods-dodo-dodoUITests/Pods-dodo-dodoUITests.releaseprod.xcconfig"; sourceTree = "<group>"; };
+		C9440D9CB358DB812A22AC9E /* Pods_dodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE07479C29E0C5E9C890888 /* Pods-dodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.debug.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0879E5C5BB1F859AA9A12EF /* Pods-dodo-Tests.releaseprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-Tests.releaseprod.xcconfig"; path = "Target Support Files/Pods-dodo-Tests/Pods-dodo-Tests.releaseprod.xcconfig"; sourceTree = "<group>"; };
+		D1AE1CDC78B7D5853EC9F47C /* Pods-dodo-dodoUITests.debugprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-dodoUITests.debugprod.xcconfig"; path = "Target Support Files/Pods-dodo-dodoUITests/Pods-dodo-dodoUITests.debugprod.xcconfig"; sourceTree = "<group>"; };
+		D9FC548C3BBBB86F262089E0 /* Pods-dodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.release.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.release.xcconfig"; sourceTree = "<group>"; };
+		DA8E143147036E8EFC82AABD /* Pods-dodo-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-Tests.release.xcconfig"; path = "Target Support Files/Pods-dodo-Tests/Pods-dodo-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DF008E097AE5D54CA069B0DE /* Pods-dodo-Tests.debugprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-Tests.debugprod.xcconfig"; path = "Target Support Files/Pods-dodo-Tests/Pods-dodo-Tests.debugprod.xcconfig"; sourceTree = "<group>"; };
+		E4BF06E3771D03E115724566 /* Pods-dodo-dodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-dodoUITests.release.xcconfig"; path = "Target Support Files/Pods-dodo-dodoUITests/Pods-dodo-dodoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F56AAEA6216F782F083532C1 /* Pods-dodo-dodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo-dodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-dodo-dodoUITests/Pods-dodo-dodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F5E4510138A1FD43EB3C2F54 /* Pods_dodo_dodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dodo_dodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F611FAC52431240BA31249C0 /* Pods-dodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.release.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.release.xcconfig"; sourceTree = "<group>"; };
+		FF8037A37D33CC0FD20E47DD /* Pods-dodo.releaseprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.releaseprod.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.releaseprod.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F65DB37F1DF86C18431D4A8 /* Pods_dodo_dodoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4869C8102E9CB29031A1144C /* Pods_dodoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBEC3A825F08665F2F8EB40 /* Pods_dodo_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DB973A2C6E16F400E9DB93 /* SnapKit in Frameworks */,
+				1D2F1B2A9AEB342902186970 /* Pods_dodo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +311,19 @@
 			path = dodoTests;
 			sourceTree = "<group>";
 		};
+		052194CB2C7CC9B000B19019 /* FeatureToggle */ = {
+			isa = PBXGroup;
+			children = (
+				052194CC2C7CC9D000B19019 /* Feature.swift */,
+				052194D02C7CCA7A00B19019 /* FeatureToggleService.swift */,
+				052194D22C7DE5C500B19019 /* localFeatureToggles.json */,
+				052194D42C7F5C0700B19019 /* FeatureToggleVC.swift */,
+				052194D62C80889400B19019 /* RemoteTogglesService.swift */,
+				052194D82C80913500B19019 /* LocalTogglesService.swift */,
+			);
+			path = FeatureToggle;
+			sourceTree = "<group>";
+		};
 		052F33022C6E155B009FF201 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +347,8 @@
 				051DD9E82BD12C5B007E1136 /* dodoTests */,
 				050267272BE9149600EA38A4 /* dodoUITests */,
 				055D6BFB2B6952A300989B70 /* Products */,
+				D008A178E23304D0C2C7F786 /* Pods */,
+				A46F39105A6DEB07F6CD1560 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,6 +366,7 @@
 		055D6BFC2B6952A300989B70 /* dodo */ = {
 			isa = PBXGroup;
 			children = (
+				052194CB2C7CC9B000B19019 /* FeatureToggle */,
 				055D6C122B6952CE00989B70 /* App */,
 				055D6C132B6952ED00989B70 /* Screens */,
 				055D6C142B69530300989B70 /* Models */,
@@ -323,6 +389,7 @@
 				055D6C0B2B6952A400989B70 /* Info.plist */,
 				05B4B2162BA43C6600AA4802 /* Products.json */,
 				05B4B21C2BA829EF00AA4802 /* Stories.json */,
+				0588DBE92C88812E00A12D8E /* ServerConfig.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -512,6 +579,49 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
+		A46F39105A6DEB07F6CD1560 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53223F0561903148EB2CF35A /* Pods_dodo.framework */,
+				8CA17CEE8BA212D8FA9C794F /* Pods_dodo_Tests.framework */,
+				F5E4510138A1FD43EB3C2F54 /* Pods_dodo_dodoUITests.framework */,
+				C9440D9CB358DB812A22AC9E /* Pods_dodoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D008A178E23304D0C2C7F786 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31CAA04447872ADAA713B076 /* Pods-dodo.debug.xcconfig */,
+				2D2B8195629DC535E0C000EC /* Pods-dodo.debugprod.xcconfig */,
+				6C766B4182C2902C97289599 /* Pods-dodo.debugqa.xcconfig */,
+				F611FAC52431240BA31249C0 /* Pods-dodo.release.xcconfig */,
+				FF8037A37D33CC0FD20E47DD /* Pods-dodo.releaseprod.xcconfig */,
+				33F3232AC97C405E7FC66755 /* Pods-dodo.releaseqa.xcconfig */,
+				43F38C33DAAC85C1C8FC6DC3 /* Pods-dodo-Tests.debug.xcconfig */,
+				DF008E097AE5D54CA069B0DE /* Pods-dodo-Tests.debugprod.xcconfig */,
+				55381F5E7C6EAE157EE5A263 /* Pods-dodo-Tests.debugqa.xcconfig */,
+				DA8E143147036E8EFC82AABD /* Pods-dodo-Tests.release.xcconfig */,
+				D0879E5C5BB1F859AA9A12EF /* Pods-dodo-Tests.releaseprod.xcconfig */,
+				95303503C45EBC590A5A7C9E /* Pods-dodo-Tests.releaseqa.xcconfig */,
+				F56AAEA6216F782F083532C1 /* Pods-dodo-dodoUITests.debug.xcconfig */,
+				D1AE1CDC78B7D5853EC9F47C /* Pods-dodo-dodoUITests.debugprod.xcconfig */,
+				4B48C378373580393A05AF4F /* Pods-dodo-dodoUITests.debugqa.xcconfig */,
+				E4BF06E3771D03E115724566 /* Pods-dodo-dodoUITests.release.xcconfig */,
+				A32B0BFF4DDCA9D28F7745DA /* Pods-dodo-dodoUITests.releaseprod.xcconfig */,
+				429819B6C119262967A72567 /* Pods-dodo-dodoUITests.releaseqa.xcconfig */,
+				CBE07479C29E0C5E9C890888 /* Pods-dodoTests.debug.xcconfig */,
+				8A1FBA5DD1CE28ED87A76F32 /* Pods-dodoTests.debugprod.xcconfig */,
+				1148F8687976309A7797B6F7 /* Pods-dodoTests.debugqa.xcconfig */,
+				D9FC548C3BBBB86F262089E0 /* Pods-dodoTests.release.xcconfig */,
+				69E339FB058E086A07F8F5DB /* Pods-dodoTests.releaseprod.xcconfig */,
+				8E6CCEA170F44C667510D3E1 /* Pods-dodoTests.releaseqa.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,6 +629,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 050267302BE9149600EA38A4 /* Build configuration list for PBXNativeTarget "dodoUITests" */;
 			buildPhases = (
+				CD03183EE0CA9137CD20F48A /* [CP] Check Pods Manifest.lock */,
 				050267222BE9149600EA38A4 /* Sources */,
 				050267232BE9149600EA38A4 /* Frameworks */,
 				050267242BE9149600EA38A4 /* Resources */,
@@ -537,6 +648,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 051DD9E22BCEADAA007E1136 /* Build configuration list for PBXNativeTarget "dodoTests" */;
 			buildPhases = (
+				463284EF18765F2121FCE327 /* [CP] Check Pods Manifest.lock */,
 				051DD9D62BCEADAA007E1136 /* Sources */,
 				051DD9D72BCEADAA007E1136 /* Frameworks */,
 				051DD9D82BCEADAA007E1136 /* Resources */,
@@ -555,6 +667,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 051DD9ED2BD12C5B007E1136 /* Build configuration list for PBXNativeTarget "dodo-Tests" */;
 			buildPhases = (
+				386CE465A47D54C61C2EFCA0 /* [CP] Check Pods Manifest.lock */,
 				051DD9E32BD12C5B007E1136 /* Sources */,
 				051DD9E42BD12C5B007E1136 /* Frameworks */,
 				051DD9E52BD12C5B007E1136 /* Resources */,
@@ -573,6 +686,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 055D6C0E2B6952A400989B70 /* Build configuration list for PBXNativeTarget "dodo" */;
 			buildPhases = (
+				F640D3AAFEB34E1C43E58A54 /* [CP] Check Pods Manifest.lock */,
 				055D6BF62B6952A300989B70 /* Sources */,
 				055D6BF72B6952A300989B70 /* Frameworks */,
 				055D6BF82B6952A300989B70 /* Resources */,
@@ -675,6 +789,7 @@
 				055D6C072B6952A400989B70 /* Assets.xcassets in Resources */,
 				055D6C052B6952A300989B70 /* Main.storyboard in Resources */,
 				052F33132C6E1599009FF201 /* SF-Pro-Rounded-Regular.otf in Resources */,
+				052194D32C7DE5C500B19019 /* localFeatureToggles.json in Resources */,
 				052F33122C6E1599009FF201 /* SF-Pro-Rounded-Heavy.otf in Resources */,
 				052F330F2C6E1599009FF201 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
 				052F33112C6E1599009FF201 /* SF-Pro-Rounded-Semibold.otf in Resources */,
@@ -683,6 +798,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		386CE465A47D54C61C2EFCA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dodo-Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		463284EF18765F2121FCE327 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dodoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD03183EE0CA9137CD20F48A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dodo-dodoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F640D3AAFEB34E1C43E58A54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dodo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		050267222BE9149600EA38A4 /* Sources */ = {
@@ -723,7 +929,9 @@
 				052F33012C6CE4D8009FF201 /* MapButton.swift in Sources */,
 				0502F08D2BB5701300556C33 /* CartConfigurator.swift in Sources */,
 				0502F0992BBDB74600556C33 /* AddressPanelView.swift in Sources */,
+				052194CD2C7CC9D000B19019 /* Feature.swift in Sources */,
 				0502F0932BBC6DD500556C33 /* GeocodeService.swift in Sources */,
+				052194D12C7CCA7A00B19019 /* FeatureToggleService.swift in Sources */,
 				05B0087C2B74D4F300FC2821 /* PortionCell.swift in Sources */,
 				05B0088E2B80F57B00FC2821 /* BannerCell.swift in Sources */,
 				05B008702B6B9F8900FC2821 /* CartVC.swift in Sources */,
@@ -754,15 +962,19 @@
 				0502F08F2BBADE8F00556C33 /* MapVC.swift in Sources */,
 				05B0089B2B84F99000FC2821 /* Storie.swift in Sources */,
 				05B008842B79EF6E00FC2821 /* IngredientsCell.swift in Sources */,
+				052194D72C80889400B19019 /* RemoteTogglesService.swift in Sources */,
 				055D6C292B6A861A00989B70 /* UITableViewCell + reuseID.swift in Sources */,
 				05B008922B81162500FC2821 /* BannerCollectionCell.swift in Sources */,
 				055D6C202B69542700989B70 /* Product.swift in Sources */,
 				05C0DBC32B8CD77F00546F01 /* OrdersService.swift in Sources */,
 				05B4B2232BB2E0BE00AA4802 /* DetailPresenter.swift in Sources */,
 				055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */,
+				052194D52C7F5C0700B19019 /* FeatureToggleVC.swift in Sources */,
+				052194D92C80913500B19019 /* LocalTogglesService.swift in Sources */,
 				05B4B21F2BAC387300AA4802 /* MenuConfigurator.swift in Sources */,
 				0502F08B2BB55DBB00556C33 /* DetailConfigurator.swift in Sources */,
 				052AA8252BDA6C4200C16A75 /* NetworkClientStub.swift in Sources */,
+				0588DBEA2C88812E00A12D8E /* ServerConfig.swift in Sources */,
 				05C0DBC82B8E2D3A00546F01 /* OrderDetailCell.swift in Sources */,
 				055D6BFE2B6952A300989B70 /* AppDelegate.swift in Sources */,
 				055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */,
@@ -815,6 +1027,7 @@
 /* Begin XCBuildConfiguration section */
 		0502672E2BE9149600EA38A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F56AAEA6216F782F083532C1 /* Pods-dodo-dodoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -832,6 +1045,7 @@
 		};
 		0502672F2BE9149600EA38A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4BF06E3771D03E115724566 /* Pods-dodo-dodoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -849,6 +1063,7 @@
 		};
 		051DD9E02BCEADAA007E1136 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBE07479C29E0C5E9C890888 /* Pods-dodoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -870,6 +1085,7 @@
 		};
 		051DD9E12BCEADAA007E1136 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9FC548C3BBBB86F262089E0 /* Pods-dodoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -890,6 +1106,7 @@
 		};
 		051DD9EE2BD12C5B007E1136 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43F38C33DAAC85C1C8FC6DC3 /* Pods-dodo-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -909,6 +1126,7 @@
 		};
 		051DD9EF2BD12C5B007E1136 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA8E143147036E8EFC82AABD /* Pods-dodo-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -984,7 +1202,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG LOCAL";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1040,6 +1258,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = LOCAL;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1047,6 +1266,7 @@
 		};
 		055D6C0F2B6952A400989B70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31CAA04447872ADAA713B076 /* Pods-dodo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1079,6 +1299,7 @@
 		};
 		055D6C102B6952A400989B70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F611FAC52431240BA31249C0 /* Pods-dodo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1109,6 +1330,616 @@
 			};
 			name = Release;
 		};
+		0588DBE42C887F8D00A12D8E /* DebugQA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG QA";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = DebugQA;
+		};
+		0588DBE52C887F8D00A12D8E /* DebugQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C766B4182C2902C97289599 /* Pods-dodo.debugqa.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = DebugQA;
+		};
+		0588DBE62C887F8D00A12D8E /* DebugQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1148F8687976309A7797B6F7 /* Pods-dodoTests.debugqa.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = DebugQA;
+		};
+		0588DBE72C887F8D00A12D8E /* DebugQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55381F5E7C6EAE157EE5A263 /* Pods-dodo-Tests.debugqa.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JK.dodo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = DebugQA;
+		};
+		0588DBE82C887F8D00A12D8E /* DebugQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B48C378373580393A05AF4F /* Pods-dodo-dodoUITests.debugqa.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dodo;
+			};
+			name = DebugQA;
+		};
+		0588DBEB2C888E9300A12D8E /* ReleaseQA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = QA;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = ReleaseQA;
+		};
+		0588DBEC2C888E9300A12D8E /* ReleaseQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33F3232AC97C405E7FC66755 /* Pods-dodo.releaseqa.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = ReleaseQA;
+		};
+		0588DBED2C888E9300A12D8E /* ReleaseQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E6CCEA170F44C667510D3E1 /* Pods-dodoTests.releaseqa.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = ReleaseQA;
+		};
+		0588DBEE2C888E9300A12D8E /* ReleaseQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95303503C45EBC590A5A7C9E /* Pods-dodo-Tests.releaseqa.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JK.dodo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = ReleaseQA;
+		};
+		0588DBEF2C888E9300A12D8E /* ReleaseQA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 429819B6C119262967A72567 /* Pods-dodo-dodoUITests.releaseqa.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dodo;
+			};
+			name = ReleaseQA;
+		};
+		0588DBFA2C888EB000A12D8E /* DebugProd */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PROD";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = DebugProd;
+		};
+		0588DBFB2C888EB000A12D8E /* DebugProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D2B8195629DC535E0C000EC /* Pods-dodo.debugprod.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = DebugProd;
+		};
+		0588DBFC2C888EB000A12D8E /* DebugProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A1FBA5DD1CE28ED87A76F32 /* Pods-dodoTests.debugprod.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = DebugProd;
+		};
+		0588DBFD2C888EB000A12D8E /* DebugProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF008E097AE5D54CA069B0DE /* Pods-dodo-Tests.debugprod.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JK.dodo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = DebugProd;
+		};
+		0588DBFE2C888EB000A12D8E /* DebugProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1AE1CDC78B7D5853EC9F47C /* Pods-dodo-dodoUITests.debugprod.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dodo;
+			};
+			name = DebugProd;
+		};
+		0588DBFF2C888EB700A12D8E /* ReleaseProd */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = ReleaseProd;
+		};
+		0588DC002C888EB700A12D8E /* ReleaseProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF8037A37D33CC0FD20E47DD /* Pods-dodo.releaseprod.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = ReleaseProd;
+		};
+		0588DC012C888EB700A12D8E /* ReleaseProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69E339FB058E086A07F8F5DB /* Pods-dodoTests.releaseprod.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = ReleaseProd;
+		};
+		0588DC022C888EB700A12D8E /* ReleaseProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0879E5C5BB1F859AA9A12EF /* Pods-dodo-Tests.releaseprod.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JK.dodo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dodo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dodo";
+			};
+			name = ReleaseProd;
+		};
+		0588DC032C888EB700A12D8E /* ReleaseProd */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A32B0BFF4DDCA9D28F7745DA /* Pods-dodo-dodoUITests.releaseprod.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XFJYF5H6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JK.dodoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dodo;
+			};
+			name = ReleaseProd;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1116,7 +1947,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0502672E2BE9149600EA38A4 /* Debug */,
+				0588DBFE2C888EB000A12D8E /* DebugProd */,
+				0588DBE82C887F8D00A12D8E /* DebugQA */,
 				0502672F2BE9149600EA38A4 /* Release */,
+				0588DC032C888EB700A12D8E /* ReleaseProd */,
+				0588DBEF2C888E9300A12D8E /* ReleaseQA */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1125,7 +1960,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				051DD9E02BCEADAA007E1136 /* Debug */,
+				0588DBFC2C888EB000A12D8E /* DebugProd */,
+				0588DBE62C887F8D00A12D8E /* DebugQA */,
 				051DD9E12BCEADAA007E1136 /* Release */,
+				0588DC012C888EB700A12D8E /* ReleaseProd */,
+				0588DBED2C888E9300A12D8E /* ReleaseQA */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1134,7 +1973,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				051DD9EE2BD12C5B007E1136 /* Debug */,
+				0588DBFD2C888EB000A12D8E /* DebugProd */,
+				0588DBE72C887F8D00A12D8E /* DebugQA */,
 				051DD9EF2BD12C5B007E1136 /* Release */,
+				0588DC022C888EB700A12D8E /* ReleaseProd */,
+				0588DBEE2C888E9300A12D8E /* ReleaseQA */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1143,7 +1986,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				055D6C0C2B6952A400989B70 /* Debug */,
+				0588DBFA2C888EB000A12D8E /* DebugProd */,
+				0588DBE42C887F8D00A12D8E /* DebugQA */,
 				055D6C0D2B6952A400989B70 /* Release */,
+				0588DBFF2C888EB700A12D8E /* ReleaseProd */,
+				0588DBEB2C888E9300A12D8E /* ReleaseQA */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1152,7 +1999,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				055D6C0F2B6952A400989B70 /* Debug */,
+				0588DBFB2C888EB000A12D8E /* DebugProd */,
+				0588DBE52C887F8D00A12D8E /* DebugQA */,
 				055D6C102B6952A400989B70 /* Release */,
+				0588DC002C888EB700A12D8E /* ReleaseProd */,
+				0588DBEC2C888E9300A12D8E /* ReleaseQA */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
