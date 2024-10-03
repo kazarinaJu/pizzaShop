@@ -16,6 +16,9 @@ protocol MenuPresenterProtocol: AnyObject {
     func productPriceButtonTapped(_ product: Product)
     func productCellSelected(_ selectedProduct: Product)
     func flagButtonTapped()
+    func loginButtonTapped()
+    func cartButtonTapped()
+    func mapButtonTapped()
     
     //Business Logic
     func fetchProducts()
@@ -55,6 +58,18 @@ extension MenuPresenter {
     
     func flagButtonTapped() {
         view?.navigateToFeatureTogglesScreen()
+    }
+    
+    func loginButtonTapped() {
+        view?.navigateToLoginScreen()
+    }
+    
+    func cartButtonTapped() {
+        view?.navigateToCartScreen()
+    }
+    
+    func mapButtonTapped() {
+        view?.navigateToMapScreen()
     }
 }
 

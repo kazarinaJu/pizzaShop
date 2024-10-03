@@ -17,7 +17,9 @@ protocol MenuVCProtocol: AnyObject {
     
     func navigateToDetailScreen(_ selectedProduct: Product)
     func navigateToFeatureTogglesScreen()
-    
+    func navigateToLoginScreen()
+    func navigateToCartScreen()
+    func navigateToMapScreen()
 }
 
 final class MenuVC: UIViewController, MenuVCProtocol {
@@ -39,7 +41,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     //MARK: UI
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.delegate = self
@@ -54,11 +56,45 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     
     var flagButton: UIButton = {
         let button = UIButton()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 40.0)
-        let symbol = UIImage(systemName: "flag.circle.fill", withConfiguration: configuration)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30.0)
+        let symbol = UIImage(systemName: "flag.circle.fill", withConfiguration: configuration)?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
         button.setImage(symbol, for: .normal)
         button.addTarget(self, action: #selector(flagButtonTapped), for: .touchUpInside)
         
+        return button
+    }()
+    
+    var loginButton: UIButton = {
+        let button = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 30.0)
+        let symbol = UIImage(systemName: "person.fill", withConfiguration: config)?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        button.setImage(symbol, for: .normal)
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    var cartButton: UIButton = {
+        let button = UIButton()
+        let config = UIImage.SymbolConfiguration(weight: .bold)
+        let image = UIImage(systemName: "cart", withConfiguration: config)?
+            .withTintColor(.white, renderingMode: .alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.backgroundColor = .orange
+        button.layer.cornerRadius = 25
+        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
+        button.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    var mapButton: UIButton = {
+        let button = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 25.0)
+        let image = UIImage(systemName: "location.fill", withConfiguration: config)?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -92,14 +128,33 @@ extension MenuVC {
 //MARK: - Layout
 extension MenuVC {
     private func setupViews() {
-        view.addSubview(tableView)
         view.backgroundColor = .white
+        view.addSubview(tableView)
+        view.addSubview(loginButton)
+        view.addSubview(cartButton)
+        view.addSubview(mapButton)
     }
     
     private func setupConstraints() {
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(40)
+        }
+        loginButton.snp.makeConstraints { make in
+            make.top.right.equalTo(view.safeAreaLayoutGuide).inset(8)
+        }
+        
+        cartButton.snp.makeConstraints { make in
+            make.right.equalTo(view.snp.right).inset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(50)
+            make.width.equalTo(100)
+        }
+        
+        mapButton.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left).inset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(50)
         }
     }
     
@@ -107,7 +162,8 @@ extension MenuVC {
         #if LOCAL
         view.addSubview(flagButton)
         flagButton.snp.makeConstraints { make in
-            make.top.right.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.centerX.equalToSuperview()
         }
         #endif
     }
@@ -204,6 +260,21 @@ extension MenuVC {
         let featureToggleVC = FeatureToggleVC()
         present(featureToggleVC, animated: true)
     }
+    
+    func navigateToLoginScreen() {
+        let loginVC = LoginVC()
+        present(loginVC, animated: true)
+    }
+    
+    func navigateToCartScreen() {
+        let cartVC = CartVC()
+        present(cartVC, animated: true)
+    }
+    
+    func navigateToMapScreen() {
+        let mapVC = MapVC()
+        present(mapVC, animated: true)
+    }
 }
 
 //MARK: - Pass Event
@@ -233,5 +304,17 @@ extension MenuVC {
     
     @objc func flagButtonTapped() {
         presenter?.flagButtonTapped()
+    }
+    
+    @objc func loginButtonTapped() {
+        presenter?.loginButtonTapped()
+    }
+    
+    @objc private func cartButtonTapped() {
+        presenter?.cartButtonTapped()
+    }
+    
+    @objc private func mapButtonTapped() {
+        presenter?.mapButtonTapped()
     }
 }
