@@ -3,11 +3,11 @@
   "features": [
     {
       "name": "X-101: Map",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "X-109: Cart",
-      "enabled": false
+      "enabled": true
     }
   ]
 }
