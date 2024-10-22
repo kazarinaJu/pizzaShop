@@ -40,7 +40,7 @@ class RemoteTogglesService {
         }
     }
     
-    private func fetchToggles(completion: @escaping ([Feature]) -> Void) {
+    func fetchToggles(completion: @escaping ([Feature]) -> Void) {
         guard let url = URL(string: "http://localhost:3001/featureToggles") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in

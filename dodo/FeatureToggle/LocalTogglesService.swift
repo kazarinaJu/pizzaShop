@@ -27,7 +27,7 @@ class LocalTogglesService {
         }
     }
     
-    private func fetchLocalFeatureToggles(completion: @escaping ([Feature]) -> Void) {
+    func fetchLocalFeatureToggles(completion: @escaping ([Feature]) -> Void) {
         if let path = Bundle.main.path(forResource: "localFeatureToggles", ofType: "json") {
             let url = URL(fileURLWithPath: path)
             do {
