@@ -40,9 +40,19 @@ final class MapVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupCloseButton()
         setupKeyboardNotifications()
         showCurrentLocationOnMap()
         observe()
+    }
+    
+    private func setupCloseButton() {
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVC))
+        navigationItem.leftBarButtonItem = closeButton
+    }
+    
+    @objc private func closeVC() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

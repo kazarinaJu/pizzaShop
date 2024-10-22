@@ -112,9 +112,9 @@ extension CartVC {
 //MARK: - Observe
 extension CartVC {
     private func observe() { //bind
-//        emptyCart.onGoToMenuTapped = { [weak self] in
-//            self?.tabBarController?.selectedIndex = 0
-//        }
+        emptyCart.onGoToMenuTapped = { [weak self] in
+            self?.goToMenu()
+        }
     }
 }
 
@@ -191,5 +191,9 @@ extension CartVC {
     
     func offerCellPriceButtonTapped(_ product: Product) {
         presenter?.offerPriceButtonTapped(product)
+    }
+    
+    private func goToMenu() {
+        dismiss(animated: true, completion: nil)
     }
 }
