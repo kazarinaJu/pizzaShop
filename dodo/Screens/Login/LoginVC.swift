@@ -11,8 +11,6 @@ import SnapKit
 
 final class LoginVC: UIViewController {
     
-    //var onLoginButtonTapped: (() -> ())?
-    
     private var loginImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "login")
@@ -63,6 +61,16 @@ final class LoginVC: UIViewController {
         
         setupViews()
         setupConstraints()
+        setupCloseButton()
+    }
+    
+    private func setupCloseButton() {
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVC))
+        navigationItem.leftBarButtonItem = closeButton
+    }
+    
+    @objc private func closeVC() {
+        dismiss(animated: true, completion: nil)
     }
     
     private func setupViews() {
@@ -96,6 +104,9 @@ final class LoginVC: UIViewController {
     }
     
     @objc private func loginButtonTapped() {
-        //onLoginButtonTapped?()
+        let phoneVC = AuthConfigurator().configurePhone()
+        present(phoneVC, animated: true)
     }
+    
+   
 }

@@ -16,6 +16,13 @@
 		0502F0932BBC6DD500556C33 /* GeocodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0922BBC6DD500556C33 /* GeocodeService.swift */; };
 		0502F0972BBD816600556C33 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0962BBD816600556C33 /* AddressView.swift */; };
 		0502F0992BBDB74600556C33 /* AddressPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0502F0982BBDB74600556C33 /* AddressPanelView.swift */; };
+		050FDFA12CB656B800D56C17 /* PhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA02CB656B500D56C17 /* PhoneVC.swift */; };
+		050FDFA32CB6570000D56C17 /* CodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA22CB656F400D56C17 /* CodeVC.swift */; };
+		050FDFA52CB6572500D56C17 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA42CB6572000D56C17 /* ProfileVC.swift */; };
+		050FDFA72CB65E3D00D56C17 /* PhoneAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA62CB65E3400D56C17 /* PhoneAuthService.swift */; };
+		050FDFA92CB65F0E00D56C17 /* AuthConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA82CB65F0400D56C17 /* AuthConfigurator.swift */; };
+		050FDFAB2CB65F2300D56C17 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFAA2CB65F1D00D56C17 /* AuthPresenter.swift */; };
+		050FDFB12CB6A60D00D56C17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 050FDFB02CB6A60D00D56C17 /* GoogleService-Info.plist */; };
 		05197E322BE0CD9200BEB946 /* DetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05197E312BE0CD9200BEB946 /* DetailTests.swift */; };
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		052194CD2C7CC9D000B19019 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194CC2C7CC9D000B19019 /* Feature.swift */; };
@@ -35,6 +42,7 @@
 		052F33122C6E1599009FF201 /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 052F33092C6E1599009FF201 /* SF-Pro-Rounded-Heavy.otf */; };
 		052F33132C6E1599009FF201 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 052F330A2C6E1599009FF201 /* SF-Pro-Rounded-Regular.otf */; };
 		052F33142C6E1599009FF201 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 052F330B2C6E1599009FF201 /* SF-Pro-Rounded-Thin.otf */; };
+		052FDA7B2CBFF4E20016E637 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052FDA7A2CBFF4E00016E637 /* Router.swift */; };
 		05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05564C242C64E21B000CE78E /* ProductPromoCell.swift */; };
 		055D6BFE2B6952A300989B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFD2B6952A300989B70 /* AppDelegate.swift */; };
 		055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6BFF2B6952A300989B70 /* SceneDelegate.swift */; };
@@ -48,9 +56,9 @@
 		055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C242B6A74D500989B70 /* UIView+Shadow.swift */; };
 		055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C262B6A85CB00989B70 /* UITableView + dequeueCell.swift */; };
 		055D6C292B6A861A00989B70 /* UITableViewCell + reuseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C282B6A861A00989B70 /* UITableViewCell + reuseID.swift */; };
+		058340182CAEC4BC0060305C /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058340172CAEC4BC0060305C /* StartVC.swift */; };
 		0588DBEA2C88812E00A12D8E /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588DBE92C88812E00A12D8E /* ServerConfig.swift */; };
 		0588DC052C9075C200A12D8E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588DC042C9075C200A12D8E /* LoginVC.swift */; };
-		0597E3962C945B8A00573C8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0597E3952C945B8A00573C8A /* GoogleService-Info.plist */; };
 		0597E39A2C94627700573C8A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0597E3992C94627700573C8A /* FirebaseAuth */; };
 		0597E39C2C94627700573C8A /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0597E39B2C94627700573C8A /* FirebaseAuthCombine-Community */; };
 		05AB8BF12BD68BBF00A95765 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */; };
@@ -138,6 +146,13 @@
 		0502F0922BBC6DD500556C33 /* GeocodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeService.swift; sourceTree = "<group>"; };
 		0502F0962BBD816600556C33 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		0502F0982BBDB74600556C33 /* AddressPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPanelView.swift; sourceTree = "<group>"; };
+		050FDFA02CB656B500D56C17 /* PhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC.swift; sourceTree = "<group>"; };
+		050FDFA22CB656F400D56C17 /* CodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
+		050FDFA42CB6572000D56C17 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		050FDFA62CB65E3400D56C17 /* PhoneAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthService.swift; sourceTree = "<group>"; };
+		050FDFA82CB65F0400D56C17 /* AuthConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfigurator.swift; sourceTree = "<group>"; };
+		050FDFAA2CB65F1D00D56C17 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		050FDFB02CB6A60D00D56C17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		05197E312BE0CD9200BEB946 /* DetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTests.swift; sourceTree = "<group>"; };
 		051DD9DA2BCEADAA007E1136 /* dodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		051DD9E72BD12C5B007E1136 /* dodo-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dodo-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +173,7 @@
 		052F33092C6E1599009FF201 /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
 		052F330A2C6E1599009FF201 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
 		052F330B2C6E1599009FF201 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
+		052FDA7A2CBFF4E00016E637 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		05564C242C64E21B000CE78E /* ProductPromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPromoCell.swift; sourceTree = "<group>"; };
 		055D6BFA2B6952A300989B70 /* dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055D6BFD2B6952A300989B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,9 +189,9 @@
 		055D6C242B6A74D500989B70 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		055D6C262B6A85CB00989B70 /* UITableView + dequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + dequeueCell.swift"; sourceTree = "<group>"; };
 		055D6C282B6A861A00989B70 /* UITableViewCell + reuseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + reuseID.swift"; sourceTree = "<group>"; };
+		058340172CAEC4BC0060305C /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		0588DBE92C88812E00A12D8E /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		0588DC042C9075C200A12D8E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		0597E3952C945B8A00573C8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		05B0086D2B6B9DD800FC2821 /* MainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
 		05B0086F2B6B9F8900FC2821 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
@@ -317,6 +333,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		050FDFAC2CB68C2000D56C17 /* AuthScreens */ = {
+			isa = PBXGroup;
+			children = (
+				050FDFA82CB65F0400D56C17 /* AuthConfigurator.swift */,
+				050FDFAA2CB65F1D00D56C17 /* AuthPresenter.swift */,
+				050FDFA02CB656B500D56C17 /* PhoneVC.swift */,
+				050FDFA22CB656F400D56C17 /* CodeVC.swift */,
+			);
+			path = AuthScreens;
+			sourceTree = "<group>";
+		};
+		050FDFAD2CB68C5500D56C17 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				050FDFA42CB6572000D56C17 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		051DD9E82BD12C5B007E1136 /* dodoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +392,15 @@
 				052F33062C6E1598009FF201 /* SF-Pro-Rounded-Ultralight.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		052FDA792CBFF4CA0016E637 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				052FDA7A2CBFF4E00016E637 /* Router.swift */,
+				05B441C72CAE746C008B3F79 /* Coordinator.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		055D6BF12B6952A300989B70 = {
@@ -408,7 +452,7 @@
 				055D6C062B6952A400989B70 /* Assets.xcassets */,
 				055D6C082B6952A400989B70 /* LaunchScreen.storyboard */,
 				055D6C0B2B6952A400989B70 /* Info.plist */,
-				0597E3952C945B8A00573C8A /* GoogleService-Info.plist */,
+				050FDFB02CB6A60D00D56C17 /* GoogleService-Info.plist */,
 				05B4B2162BA43C6600AA4802 /* Products.json */,
 				05B4B21C2BA829EF00AA4802 /* Stories.json */,
 				052194D22C7DE5C500B19019 /* localFeatureToggles.json */,
@@ -429,7 +473,9 @@
 		055D6C132B6952ED00989B70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				058340172CAEC4BC0060305C /* StartVC.swift */,
 				0588DC062C9075CF00A12D8E /* Login */,
+				050FDFAD2CB68C5500D56C17 /* Profile */,
 				055D6C162B69532800989B70 /* Menu */,
 				05B008752B74C7CA00FC2821 /* Detail */,
 				0502F0942BBD813000556C33 /* Map */,
@@ -457,6 +503,7 @@
 				0502F0902BBC3F6500556C33 /* LocationService.swift */,
 				0502F0922BBC6DD500556C33 /* GeocodeService.swift */,
 				05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */,
+				050FDFA62CB65E3400D56C17 /* PhoneAuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -499,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				0588DC042C9075C200A12D8E /* LoginVC.swift */,
+				050FDFAC2CB68C2000D56C17 /* AuthScreens */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -586,7 +634,7 @@
 		05B441C62CAE742F008B3F79 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				05B441C72CAE746C008B3F79 /* Coordinator.swift */,
+				052FDA792CBFF4CA0016E637 /* Core */,
 				05B441C92CAE7A4E008B3F79 /* AppCoordinator.swift */,
 				05B441D52CAE8484008B3F79 /* StartCoordinator.swift */,
 				05B441D12CAE7BD6008B3F79 /* LoginCoordinator.swift */,
@@ -848,7 +896,7 @@
 				052F330F2C6E1599009FF201 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
 				052F33112C6E1599009FF201 /* SF-Pro-Rounded-Semibold.otf in Resources */,
 				052F330C2C6E1599009FF201 /* SF-Pro-Rounded-Medium.otf in Resources */,
-				0597E3962C945B8A00573C8A /* GoogleService-Info.plist in Resources */,
+				050FDFB12CB6A60D00D56C17 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,6 +1046,8 @@
 				05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */,
 				0588DC052C9075C200A12D8E /* LoginVC.swift in Sources */,
 				05B4B2152BA094F700AA4802 /* ScreenSize.swift in Sources */,
+				050FDFAB2CB65F2300D56C17 /* AuthPresenter.swift in Sources */,
+				050FDFA12CB656B800D56C17 /* PhoneVC.swift in Sources */,
 				05B008872B7CA62B00FC2821 /* IngredientCollectionCell.swift in Sources */,
 				05C0DBD22B95B4EA00546F01 /* CustomStepper.swift in Sources */,
 				05B4B2212BAC38AC00AA4802 /* MenuPresenter.swift in Sources */,
@@ -1009,12 +1059,16 @@
 				055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */,
 				055D6C022B6952A300989B70 /* MenuVC.swift in Sources */,
 				055D6C1E2B6953EB00989B70 /* ProductCell.swift in Sources */,
+				050FDFA92CB65F0E00D56C17 /* AuthConfigurator.swift in Sources */,
 				05B4B2252BB2E0E000AA4802 /* CartPresenter.swift in Sources */,
 				05B0087F2B79274000FC2821 /* SegmentedCell.swift in Sources */,
+				050FDFA72CB65E3D00D56C17 /* PhoneAuthService.swift in Sources */,
 				05C0DBC12B88FB2900546F01 /* EmptyCart.swift in Sources */,
 				05B008A02B86201000FC2821 /* CategoryCell.swift in Sources */,
 				05B0086E2B6B9DD800FC2821 /* MainTabVC.swift in Sources */,
 				05C0DBC62B8CF19D00546F01 /* OrderProductCell.swift in Sources */,
+				058340182CAEC4BC0060305C /* StartVC.swift in Sources */,
+				052FDA7B2CBFF4E20016E637 /* Router.swift in Sources */,
 				05B4B2182BA4985200AA4802 /* Data+PrettyJSON.swift in Sources */,
 				0502F0912BBC3F6500556C33 /* LocationService.swift in Sources */,
 				0502F08F2BBADE8F00556C33 /* MapVC.swift in Sources */,
@@ -1031,6 +1085,7 @@
 				055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */,
 				052194D52C7F5C0700B19019 /* FeatureToggleVC.swift in Sources */,
 				05B441C32CAD8FFE008B3F79 /* DependencyContainer.swift in Sources */,
+				050FDFA32CB6570000D56C17 /* CodeVC.swift in Sources */,
 				052194D92C80913500B19019 /* LocalTogglesService.swift in Sources */,
 				05B4B21F2BAC387300AA4802 /* MenuConfigurator.swift in Sources */,
 				0502F08B2BB55DBB00556C33 /* DetailConfigurator.swift in Sources */,
@@ -1041,6 +1096,7 @@
 				05C0DBC82B8E2D3A00546F01 /* OrderDetailCell.swift in Sources */,
 				055D6BFE2B6952A300989B70 /* AppDelegate.swift in Sources */,
 				055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */,
+				050FDFA52CB6572500D56C17 /* ProfileVC.swift in Sources */,
 				05B0087A2B74CCCC00FC2821 /* ImageCell.swift in Sources */,
 				055D6C222B69544800989B70 /* ProductsService.swift in Sources */,
 				05B0088C2B7E130700FC2821 /* CustomBigButton.swift in Sources */,
