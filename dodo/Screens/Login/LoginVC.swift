@@ -9,7 +9,14 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class LoginVC: UIViewController {
+protocol LoginVCProtocol: AnyObject {
+    var presenter: AuthPresenterProtocol? { get set }
+}
+
+final class LoginVC: UIViewController, LoginVCProtocol {
+    var presenter: AuthPresenterProtocol?
+    
+    var onPhoneButtonTapped: (()->())?
     
     private var loginImageView: UIImageView = {
         let imageView = UIImageView()
@@ -51,31 +58,28 @@ final class LoginVC: UIViewController {
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
-        button.addTarget(nil, action: #selector(loginButtonTapped), for: .touchUpInside)
-        
+        button.addTarget(self, action: #selector(phoneButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    private var closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setupConstraints()
-        setupCloseButton()
-    }
-    
-    private func setupCloseButton() {
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVC))
-        navigationItem.leftBarButtonItem = closeButton
-    }
-    
-    @objc private func closeVC() {
-        dismiss(animated: true, completion: nil)
     }
     
     private func setupViews() {
         view.backgroundColor = .white
         
+        view.addSubview(closeButton)
         view.addSubview(loginImageView)
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
@@ -83,8 +87,13 @@ final class LoginVC: UIViewController {
     }
     
     private func setupConstraints() {
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+        }
+        
         loginImageView.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(100)
+            make.top.equalTo(closeButton.snp.bottom).offset(50)
             make.centerX.equalTo(view)
         }
         titleLabel.snp.makeConstraints { make in
@@ -95,7 +104,7 @@ final class LoginVC: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.centerX.equalTo(view)
         }
-       
+        
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(50)
             make.left.right.equalTo(view).inset(50)
@@ -103,10 +112,12 @@ final class LoginVC: UIViewController {
         }
     }
     
-    @objc private func loginButtonTapped() {
-        let phoneVC = AuthConfigurator().configurePhone()
-        present(phoneVC, animated: true)
+    @objc private func phoneButtonTapped() {
+        print("button tapped")
+        onPhoneButtonTapped?()
     }
     
-   
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
 }

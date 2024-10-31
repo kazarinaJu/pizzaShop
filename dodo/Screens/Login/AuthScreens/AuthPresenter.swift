@@ -17,6 +17,7 @@ protocol AuthPresenterProtocol: AnyObject {
 }
 
 final class AuthPresenter: AuthPresenterProtocol {
+    var loginView: LoginVCProtocol?
     var phoneView: PhoneVCProtocol?
     var codeView: CodeVCProtocol?
     
@@ -47,8 +48,6 @@ final class AuthPresenter: AuthPresenterProtocol {
                     print(error.localizedDescription)
                 }
             }
-        
-        
     }
   
 }

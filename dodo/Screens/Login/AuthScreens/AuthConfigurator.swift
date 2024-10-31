@@ -8,6 +8,16 @@
 import UIKit
 
 final class AuthConfigurator {
+    func configureLogin() -> LoginVC {
+        let loginVC = LoginVC()
+        let loginPresenter = AuthPresenter()
+        
+        loginVC.presenter = loginPresenter
+        loginPresenter.loginView = loginVC
+        
+        return loginVC
+    }
+    
     func configurePhone() -> PhoneVC {
         let phoneVC = PhoneVC()
         let phonePresenter = AuthPresenter()

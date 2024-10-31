@@ -24,6 +24,11 @@ protocol MenuVCProtocol: AnyObject {
 
 final class MenuVC: UIViewController, MenuVCProtocol {
     
+    var onCartButtonTapped: (()->())?
+    var onMapButtonTapped: (()->())?
+    var onLoginButtonTapped: (()->())?
+    var onDetailCellTapped: ((Product)->())?
+    
     var presenter: MenuPresenterProtocol?
     
     enum MenuSection: Int, CaseIterable {
@@ -113,7 +118,7 @@ extension MenuVC {
         self.categories = categories
         tableView.reloadData()
     }
-
+    
     func showStories(_ stories: [Storie]) {
         self.stories = stories
         tableView.reloadData()
@@ -133,6 +138,10 @@ extension MenuVC {
         view.addSubview(loginButton)
         view.addSubview(cartButton)
         view.addSubview(mapButton)
+        
+//        if remoteToggleService.isMapAvailable && localToggleService.isMapAvailable {
+//            view.addSubview(mapButton)
+//        }
     }
     
     private func setupConstraints() {
@@ -140,6 +149,7 @@ extension MenuVC {
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(40)
         }
+        
         loginButton.snp.makeConstraints { make in
             make.top.right.equalTo(view.safeAreaLayoutGuide).inset(8)
         }
@@ -159,13 +169,13 @@ extension MenuVC {
     }
     
     func setUpFeatureToggles() {
-        #if LOCAL
+    #if LOCAL
         view.addSubview(flagButton)
         flagButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(8)
             make.centerX.equalToSuperview()
         }
-        #endif
+    #endif
     }
 }
 
@@ -252,8 +262,7 @@ extension MenuVC: UITableViewDelegate {
 //MARK: - Navigation
 extension MenuVC {
     func navigateToDetailScreen(_ selectedProduct: Product) {
-        let productDetailVC = DetailConfigurator().configure(selectedProduct)
-        present(productDetailVC, animated: true)
+        onDetailCellTapped?(selectedProduct)
     }
     
     func navigateToFeatureTogglesScreen() {
@@ -262,18 +271,15 @@ extension MenuVC {
     }
     
     func navigateToLoginScreen() {
-        let loginVC = LoginVC()
-        present(loginVC, animated: true)
+        onLoginButtonTapped?()
     }
     
     func navigateToCartScreen() {
-        let cartVC = CartVC()
-        present(cartVC, animated: true)
+        onCartButtonTapped?()
     }
     
     func navigateToMapScreen() {
-        let mapVC = MapVC()
-        present(mapVC, animated: true)
+        onMapButtonTapped?()
     }
 }
 

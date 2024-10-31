@@ -8,7 +8,7 @@
 import UIKit
 
 final class MenuConfigurator {
-    func configure() -> MenuVC {
+    func configure(_ di: DependencyContainer) -> MenuVC {
         let menuVC = MenuVC()
         let menuPresenter = MenuPresenter()
         
@@ -17,17 +17,10 @@ final class MenuConfigurator {
         menuPresenter.view = menuVC
         
         //di
-        let networkClient = NetworkClient()
-        let productsService = ProductsService(networkClient: networkClient)
-        let storiesService = StoriesService(networkClient: networkClient)
-        let orderService = OrdersService(networkClient: networkClient)
-        menuPresenter.productsService = productsService
-        menuPresenter.storiesService = storiesService
-        menuPresenter.ordersService = orderService
-        
-        
-        
-        
+        menuPresenter.productsService = di.productsService
+        menuPresenter.storiesService = di.storiesService
+        menuPresenter.ordersService = di.ordersService
+
         return menuVC
     }
 }

@@ -20,6 +20,12 @@ final class ProfileVC: UIViewController {
         return label
     }()
     
+    private var closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,13 +33,24 @@ final class ProfileVC: UIViewController {
         setupConstraints()
     }
     
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     private func setupViews() {
         view.backgroundColor = .white
+        
+        view.addSubview(closeButton)
         view.addSubview(titleLabel)
         
     }
     
     private func setupConstraints() {
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+        }
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view).offset(100)
             make.left.right.equalTo(view).inset(20)

@@ -36,22 +36,22 @@ final class MapVC: UIViewController {
         return mapView
     }()
     
+    private var closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        setupCloseButton()
         setupKeyboardNotifications()
         showCurrentLocationOnMap()
         observe()
     }
     
-    private func setupCloseButton() {
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVC))
-        navigationItem.leftBarButtonItem = closeButton
-    }
-    
-    @objc private func closeVC() {
+    @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
 }
@@ -133,12 +133,19 @@ extension MapVC {
 extension MapVC {
     func setupViews() {
         view.backgroundColor = .systemBackground
+        
         view.addSubview(mapView)
         view.addSubview(pinImageView)
         view.addSubview(addressPanelView)
+        view.addSubview(closeButton)
     }
     
     func setupConstraints() {
+        
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+        }
         mapView.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
             make.bottom.equalTo(addressPanelView.snp.top)

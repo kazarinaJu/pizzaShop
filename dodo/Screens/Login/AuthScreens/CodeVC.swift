@@ -19,6 +19,8 @@ protocol CodeVCProtocol: AnyObject {
 final class CodeVC: UIViewController, CodeVCProtocol {
     var presenter: AuthPresenterProtocol?
     
+    var onUserLoggedIn: ((Bool)->())?
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -42,7 +44,7 @@ final class CodeVC: UIViewController, CodeVCProtocol {
         return textField
     }()
     
-    private var continueButton: UIButton = {
+    private var enterButton: UIButton = {
         var button = UIButton.init(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Войти", for: .normal)
@@ -57,15 +59,29 @@ final class CodeVC: UIViewController, CodeVCProtocol {
         return button
     }()
     
+    private var closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setupConstraints()
+        
+        //presentingViewController
+        //presentedViewController
+    }
+    
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func enterButtonTapped() {
         presenter?.getEnterButtonTapped()
+        onUserLoggedIn?(true)
     }
     
     func navigateToProfile() {
@@ -75,13 +91,20 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     
     private func setupViews() {
         view.backgroundColor = .white
+        
+        view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(codeTextField)
-        view.addSubview(continueButton)
+        view.addSubview(enterButton)
         
     }
     
     private func setupConstraints() {
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+        }
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view).offset(100)
             make.left.right.equalTo(view).inset(20)
@@ -93,7 +116,7 @@ final class CodeVC: UIViewController, CodeVCProtocol {
             make.centerX.equalTo(view)
         }
         
-        continueButton.snp.makeConstraints { make in
+        enterButton.snp.makeConstraints { make in
             make.top.equalTo(codeTextField.snp.bottom).offset(50)
             make.left.right.equalTo(view).inset(50)
             make.centerX.equalTo(view)

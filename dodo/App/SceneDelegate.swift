@@ -9,27 +9,20 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    let remoteToggleService = RemoteTogglesService.shared
-    let localToggleService = LocalTogglesService.shared
-
     var window: UIWindow?
     
-    var mapButton: MapButton?
+    private let appFactory: AppFactoryProtocol = DependencyContainer()
+    //private var appCoordinator: Coordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow.init(windowScene: windowScene)
         
-        window = UIWindow(windowScene: windowScene)
-   
-        let mainVC = MenuConfigurator().configure()
-
-        window?.rootViewController = mainVC
+        let (window, coordinator) = appFactory.makeKeyWindowWithAppCoordinator(window)
+        self.window = window
+        
+        coordinator.start()
         window?.makeKeyAndVisible()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
-            if self.remoteToggleService.isMapAvailable && self.localToggleService.isMapAvailable {
-                mapButton?.addMapButton()
-            }
-        }
     }
 }

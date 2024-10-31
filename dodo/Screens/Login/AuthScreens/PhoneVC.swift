@@ -17,7 +17,10 @@ protocol PhoneVCProtocol: AnyObject {
 }
 
 final class PhoneVC: UIViewController, PhoneVCProtocol {
+    
     var presenter: AuthPresenterProtocol?
+    
+    var onContinueButtonTapped: (()->())?
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -52,8 +55,14 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(codeButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         
+        return button
+    }()
+    
+    private var closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -64,28 +73,41 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
         setupConstraints()
     }
     
-    @objc private func codeButtonTapped() {
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func continueButtonTapped() {
         presenter?.getCodeButtonTapped()
+        onContinueButtonTapped?()
     }
     
     func navigateToCodeScreen() {
         let codeVC = AuthConfigurator().configureCode()
-        present(codeVC, animated: true)
+        present(codeVC, animated: true) 
     }
     
     private func setupViews() {
         view.backgroundColor = .white
+        
+        view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(phoneTextField)
         view.addSubview(continueButton)
     }
     
     private func setupConstraints() {
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+        }
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view).offset(100)
             make.left.right.equalTo(view).inset(20)
             make.centerX.equalTo(view)
         }
+        
         phoneTextField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.left.right.equalTo(view).inset(20)

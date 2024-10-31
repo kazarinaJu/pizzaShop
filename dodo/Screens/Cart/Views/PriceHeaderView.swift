@@ -35,7 +35,8 @@ final class PriceHeaderView: UIView {
     
     private func setupConstraints() {
         priceLabel.snp.makeConstraints { make in
-            make.edges.equalTo(self).inset(20)
+            make.top.equalTo(self).inset(40)
+            make.left.right.bottom.equalTo(self).inset(20)
         }
     }
     

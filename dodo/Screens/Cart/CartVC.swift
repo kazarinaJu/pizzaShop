@@ -45,6 +45,12 @@ final class CartVC: UIViewController, CartVCProtocol {
         return tableView
     }()
     
+    private var closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,12 +95,19 @@ extension CartVC {
 extension CartVC {
     private func setupViews() {
         view.backgroundColor = .white
+        
         view.addSubview(cartTableView)
         view.addSubview(priceOrderButton)
         view.addSubview(emptyCart)
+        view.addSubview(closeButton)
     }
     
     private func setupConstrain() {
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
+        }
+        
         cartTableView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.bottom.equalTo(priceOrderButton.snp.top)
@@ -194,6 +207,10 @@ extension CartVC {
     }
     
     private func goToMenu() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
 }
