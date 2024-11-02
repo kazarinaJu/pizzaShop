@@ -77,14 +77,20 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc private func continueButtonTapped() {
+    @objc internal func continueButtonTapped() {
         presenter?.getCodeButtonTapped()
-        onContinueButtonTapped?()
+        
     }
     
     func navigateToCodeScreen() {
-        let codeVC = AuthConfigurator().configureCode()
-        present(codeVC, animated: true) 
+        print("continueButtonTapped called on \(self)") 
+//        //print("Замыкание onContinueButtonTapped должно быть вызвано")
+//        print("navigateToCodeScreen called in PhoneVC")
+//        onContinueButtonTapped?()
+        print("navigateToCodeScreen called in PhoneVC")
+            dismiss(animated: true) { [weak self] in
+                self?.onContinueButtonTapped?()
+            }
     }
     
     private func setupViews() {

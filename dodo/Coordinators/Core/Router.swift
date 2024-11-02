@@ -68,19 +68,14 @@ final class RouterImpl: Router {
     }
     
     private func presentOnController(_ module: Presentable?) {
-        //present(module, animated: true)
-        
         guard let controller = module?.toPresent() else { return }
         
         presentController?.present(controller, animated: true, completion: nil)
     }
     
     private func presentOnContainer(_ module: Presentable?, animated: Bool) {
-        
         guard let controller = module?.toPresent() else { return }
-        
         presentController = controller
-        
         rootController?.present(controller, animated: animated, completion: nil)
     }
     

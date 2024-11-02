@@ -9,7 +9,7 @@ import Foundation
 
 class AppCoordinator: Coordinator {
     
-    private let router: Router //Держит корневой контроллер (UINavigationController)
+    private let router: Router
     private let coordinatorFactory: CoordinatorFactoryProtocol
     
     init(router: Router, coordinatorFactory: CoordinatorFactory) {
@@ -30,7 +30,7 @@ class AppCoordinator: Coordinator {
         }
         
         self.addDependency(coordinator)
-        coordinator.start() //стартуем StartCoordinator
+        coordinator.start()
     }
     
     func runMenuFlow() {
@@ -38,11 +38,4 @@ class AppCoordinator: Coordinator {
         self.addDependency(coordinator)
         coordinator.start()
     }
-    
-    func runProfileFlow() {
-        let coordinator = coordinatorFactory.makeProfileCoordinator(router: router)
-        self.addDependency(coordinator)
-        coordinator.start()
-    }
-   
 }

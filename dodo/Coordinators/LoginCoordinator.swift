@@ -45,6 +45,7 @@ class LoginCoordinator: Coordinator {
         let phoneScreen = screenFactory.makePhoneScreen()
         
         phoneScreen.onContinueButtonTapped = {
+            print("onContinueButtonTapped triggered in PhoneVC")
             self.showCodeVC()
         }
         
@@ -53,11 +54,15 @@ class LoginCoordinator: Coordinator {
     
     func showCodeVC() {
         let codeScreen = screenFactory.makeCodeScreen()
+        print("Создан экземпляр CodeVC: \(codeScreen)")
         
-        codeScreen.onUserLoggedIn = { isLoaded in
+        codeScreen.onUserLoggedIn = { [weak self] isLoaded in
+            guard let self = self else { return }
+            print("onUserLoggedIn closure triggered with:", isLoaded)
             self.finishAuth?(true)
         }
         
         router.present(codeScreen, animated: true, onRoot: false)
+        print("onUserLoggedIn set for CodeVC")
     }
 }

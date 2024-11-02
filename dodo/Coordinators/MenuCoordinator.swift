@@ -44,7 +44,6 @@ class MenuCoordinator: Coordinator {
     
     func showDetail(_ product: Product) {
         let detailScreen = screenFactory.makeDetailScreen(with: product)
-        //router.present(detailScreen, animated: true)
         router.present(detailScreen, animated: true, onRoot: true )
     }
     
@@ -61,13 +60,14 @@ class MenuCoordinator: Coordinator {
     func runLoginFlow() {
         let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
         
+        self.addDependency(coordinator)
+        coordinator.start()
+        
         coordinator.finishAuth = { isLoaded in
+            print("Finish auth called with isLoaded:", isLoaded)
             self.runProfileFlow()
             self.removeDependency(coordinator)
         }
-        
-        self.addDependency(coordinator)
-        coordinator.start()
     }
     
     func runProfileFlow() {

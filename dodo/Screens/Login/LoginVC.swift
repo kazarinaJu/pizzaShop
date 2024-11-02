@@ -113,7 +113,6 @@ final class LoginVC: UIViewController, LoginVCProtocol {
     }
     
     @objc private func phoneButtonTapped() {
-        print("button tapped")
         onPhoneButtonTapped?()
     }
     

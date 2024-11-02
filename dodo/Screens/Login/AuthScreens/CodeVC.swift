@@ -12,8 +12,7 @@ import SnapKit
 protocol CodeVCProtocol: AnyObject {
     var presenter: AuthPresenterProtocol? { get set }
     var codeTextField: UITextField { get }
-    
-    func navigateToProfile()
+    var onUserLoggedIn: ((Bool)->())? { get }
 }
 
 final class CodeVC: UIViewController, CodeVCProtocol {
@@ -70,9 +69,6 @@ final class CodeVC: UIViewController, CodeVCProtocol {
         
         setupViews()
         setupConstraints()
-        
-        //presentingViewController
-        //presentedViewController
     }
     
     @objc private func closeButtonTapped() {
@@ -80,13 +76,19 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     }
     
     @objc private func enterButtonTapped() {
-        presenter?.getEnterButtonTapped()
-        onUserLoggedIn?(true)
-    }
-    
-    func navigateToProfile() {
-        let profileVC = ProfileVC()
-        present(profileVC, animated: true)
+        print("enterButtonTapped called on \(self)") //а здесь уже другой
+           presenter?.getEnterButtonTapped()
+        
+        dismiss(animated: true) { [weak self] in
+            self?.onUserLoggedIn?(true)
+        }
+        
+//           if let onUserLoggedIn = onUserLoggedIn {
+//               print("onUserLoggedIn is set, calling closure")
+//               onUserLoggedIn(true)
+//           } else {
+//               print("onUserLoggedIn is nil") //и получаем, что здесь onUserLoggedIn nil
+//           }
     }
     
     private func setupViews() {

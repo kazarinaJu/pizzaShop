@@ -25,6 +25,7 @@ class ProfileCoordinator: Coordinator {
     
     private func showProfileVC() {
         let profileScreen = screenFactory.makeProfileScreen()
-        router.present(profileScreen, animated: true, onRoot: true)
+        //router.setRootModule(profileScreen, hideBar: true)
+        router.present(profileScreen, animated: true, onRoot: false)
     }
 }

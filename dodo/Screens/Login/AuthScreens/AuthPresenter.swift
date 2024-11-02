@@ -43,7 +43,7 @@ final class AuthPresenter: AuthPresenterProtocol {
         phoneAuthViewService.signIn(with: verificationCode) { [weak self] result in
                 switch result {
                 case .success:
-                    self?.codeView?.navigateToProfile()
+                    self?.codeView?.onUserLoggedIn?(true)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
