@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class MenuCoordinator: Coordinator {
     
@@ -58,15 +59,25 @@ class MenuCoordinator: Coordinator {
     }
     
     func runLoginFlow() {
-        let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
         
-        self.addDependency(coordinator)
-        coordinator.start()
+        let isFirstAuth = UserDefaults.standard.bool(forKey: "isFirstAuthCompleted")
         
-        coordinator.finishAuth = { isLoaded in
-            print("Finish auth called with isLoaded:", isLoaded)
-            self.runProfileFlow()
-            self.removeDependency(coordinator)
+        if Auth.auth().currentUser != nil && isFirstAuth {
+            print("Пользователь авторизован")
+            runProfileFlow()
+        } else {
+            print("Первая авторизация")
+            let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
+            
+            self.addDependency(coordinator)
+            coordinator.start()
+            
+            coordinator.finishAuth = { isLoaded in
+                
+                self.runProfileFlow()
+                
+                self.removeDependency(coordinator)
+            }
         }
     }
     
@@ -74,5 +85,10 @@ class MenuCoordinator: Coordinator {
         let coordinator = coordinatorFactory.makeProfileCoordinator(router: router)
         self.addDependency(coordinator)
         coordinator.start()
+        
+        coordinator.logsOut = { isLoaded in
+            
+            self.runLoginFlow()
+        }
     }
 }

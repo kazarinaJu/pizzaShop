@@ -53,6 +53,8 @@ final class CodeVC: UIViewController, CodeVCProtocol {
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
+        button.isEnabled = false
+        button.alpha = 0.5
         button.addTarget(nil, action: #selector(enterButtonTapped), for: .touchUpInside)
         
         return button
@@ -69,6 +71,27 @@ final class CodeVC: UIViewController, CodeVCProtocol {
         
         setupViews()
         setupConstraints()
+        
+        observe()
+    }
+    
+    private func observe() {
+        codeTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    @objc private func textFieldDidChange() {
+        guard let text = codeTextField.text else { return }
+        
+        // Проверка, что строка состоит из ровно 6 цифр
+        let isSixDigits = text.range(of: "^[0-9]{6}$", options: .regularExpression) != nil
+        
+        if isSixDigits {
+            enterButton.isEnabled = true
+            enterButton.alpha = 1.0
+        } else {
+            enterButton.isEnabled = false
+            enterButton.alpha = 0.5
+        }
     }
     
     @objc private func closeButtonTapped() {
@@ -76,19 +99,15 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     }
     
     @objc private func enterButtonTapped() {
-        print("enterButtonTapped called on \(self)") //а здесь уже другой
-           presenter?.getEnterButtonTapped()
+        presenter?.getEnterButtonTapped()
+        UserDefaults.standard.set(true, forKey: "isFirstAuthCompleted")
         
-        dismiss(animated: true) { [weak self] in
-            self?.onUserLoggedIn?(true)
-        }
+       
         
-//           if let onUserLoggedIn = onUserLoggedIn {
-//               print("onUserLoggedIn is set, calling closure")
-//               onUserLoggedIn(true)
-//           } else {
-//               print("onUserLoggedIn is nil") //и получаем, что здесь onUserLoggedIn nil
-//           }
+        
+        //presentingViewController?.dismiss(animated: true) { [weak self] in
+            self.onUserLoggedIn?(true)
+        //}
     }
     
     private func setupViews() {

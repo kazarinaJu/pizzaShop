@@ -83,6 +83,7 @@
 		05B0089D2B84FA0900FC2821 /* StoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0089C2B84FA0900FC2821 /* StoriesService.swift */; };
 		05B008A02B86201000FC2821 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0089F2B86201000FC2821 /* CategoryCell.swift */; };
 		05B008A22B86204600FC2821 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B008A12B86204600FC2821 /* CategoryCollectionCell.swift */; };
+		05B21B502CD8B2A60071B95E /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05B21B4F2CD8B2A60071B95E /* PhoneNumberKit */; };
 		05B441C12CAD8C2D008B3F79 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B441C02CAD8C2D008B3F79 /* ScreenFactory.swift */; };
 		05B441C32CAD8FFE008B3F79 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B441C22CAD8FFE008B3F79 /* DependencyContainer.swift */; };
 		05B441C52CAD9117008B3F79 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B441C42CAD9117008B3F79 /* CoordinatorFactory.swift */; };
@@ -305,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DB973A2C6E16F400E9DB93 /* SnapKit in Frameworks */,
+				05B21B502CD8B2A60071B95E /* PhoneNumberKit in Frameworks */,
 				0597E39A2C94627700573C8A /* FirebaseAuth in Frameworks */,
 				1D2F1B2A9AEB342902186970 /* Pods_dodo.framework in Frameworks */,
 				0597E39C2C94627700573C8A /* FirebaseAuthCombine-Community in Frameworks */,
@@ -811,6 +813,7 @@
 				05DB97392C6E16F400E9DB93 /* SnapKit */,
 				0597E3992C94627700573C8A /* FirebaseAuth */,
 				0597E39B2C94627700573C8A /* FirebaseAuthCombine-Community */,
+				05B21B4F2CD8B2A60071B95E /* PhoneNumberKit */,
 			);
 			productName = dodo;
 			productReference = 055D6BFA2B6952A300989B70 /* dodo.app */;
@@ -856,6 +859,7 @@
 			packageReferences = (
 				05DB97382C6E16F400E9DB93 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0597E3982C94627700573C8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				05B21B4E2CD8B2A60071B95E /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 			);
 			productRefGroup = 055D6BFB2B6952A300989B70 /* Products */;
 			projectDirPath = "";
@@ -2153,6 +2157,14 @@
 				minimumVersion = 11.2.0;
 			};
 		};
+		05B21B4E2CD8B2A60071B95E /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		05DB97382C6E16F400E9DB93 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -2173,6 +2185,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0597E3982C94627700573C8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
+		};
+		05B21B4F2CD8B2A60071B95E /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05B21B4E2CD8B2A60071B95E /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
 		};
 		05DB97392C6E16F400E9DB93 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

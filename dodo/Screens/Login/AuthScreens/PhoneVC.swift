@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import PhoneNumberKit
 
 protocol PhoneVCProtocol: AnyObject {
     var presenter: AuthPresenterProtocol? { get set }
@@ -55,6 +56,8 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
+        button.isEnabled = false
+        button.alpha = 0.5
         button.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         
         return button
@@ -62,7 +65,7 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
     
     private var closeButton: CloseButton = {
         let button = CloseButton()
-        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -71,6 +74,27 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
         
         setupViews()
         setupConstraints()
+        
+        observeTF()
+    }
+    
+    private func observeTF() {
+        phoneTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    @objc private func textFieldDidChange() {
+        let phoneNumberUtility = PhoneNumberUtility()
+        
+        guard let text = phoneTextField.text else { return }
+        
+        do {
+            let phoneNumber = try phoneNumberUtility.parse(text, withRegion: "RU", ignoreType: true)
+            continueButton.isEnabled = true
+            continueButton.alpha = 1.0
+        } catch {
+            continueButton.isEnabled = false
+            continueButton.alpha = 0.5
+        }
     }
     
     @objc private func closeButtonTapped() {
@@ -79,18 +103,12 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
     
     @objc internal func continueButtonTapped() {
         presenter?.getCodeButtonTapped()
-        
     }
     
     func navigateToCodeScreen() {
-        print("continueButtonTapped called on \(self)") 
-//        //print("Замыкание onContinueButtonTapped должно быть вызвано")
-//        print("navigateToCodeScreen called in PhoneVC")
-//        onContinueButtonTapped?()
-        print("navigateToCodeScreen called in PhoneVC")
-            dismiss(animated: true) { [weak self] in
-                self?.onContinueButtonTapped?()
-            }
+        //dismiss(animated: true) { [weak self] in
+            self.onContinueButtonTapped?()
+        //}
     }
     
     private func setupViews() {

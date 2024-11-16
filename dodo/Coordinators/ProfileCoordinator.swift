@@ -9,7 +9,7 @@ import Foundation
 
 class ProfileCoordinator: Coordinator {
     
-    var finishFlow: ((Bool)->())?
+    var logsOut: ((Bool)->())?
     
     private let router: Router
     private let screenFactory: ScreenFactoryProtocol
@@ -25,7 +25,16 @@ class ProfileCoordinator: Coordinator {
     
     private func showProfileVC() {
         let profileScreen = screenFactory.makeProfileScreen()
-        //router.setRootModule(profileScreen, hideBar: true)
         router.present(profileScreen, animated: true, onRoot: false)
+        
+        profileScreen.onUserLogsOut = { isLoaded in
+            UserDefaults.standard.set(false, forKey: "isFirstAuthCompleted")
+            
+            
+            self.router.dismissModule(animated: true) {
+                self.logsOut?(true)
+            }
+            
+        }
     }
 }

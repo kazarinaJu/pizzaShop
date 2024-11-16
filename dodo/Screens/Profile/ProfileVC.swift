@@ -11,6 +11,8 @@ import SnapKit
 
 final class ProfileVC: UIViewController {
     
+    var onUserLogsOut: ((Bool)->())?
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -20,9 +22,18 @@ final class ProfileVC: UIViewController {
         return label
     }()
     
+    private var logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Выйти", for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private var closeButton: CloseButton = {
         let button = CloseButton()
-        button.addTarget(nil, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -31,6 +42,10 @@ final class ProfileVC: UIViewController {
         
         setupViews()
         setupConstraints()
+    }
+    
+    @objc private func logoutButtonTapped() {
+        onUserLogsOut?(true)
     }
     
     @objc private func closeButtonTapped() {
@@ -42,7 +57,7 @@ final class ProfileVC: UIViewController {
         
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
-        
+        view.addSubview(logoutButton)
     }
     
     private func setupConstraints() {
@@ -55,6 +70,11 @@ final class ProfileVC: UIViewController {
             make.top.equalTo(view).offset(100)
             make.left.right.equalTo(view).inset(20)
             make.centerX.equalTo(view)
+        }
+        
+        logoutButton.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
         }
     }
 }

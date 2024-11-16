@@ -35,6 +35,7 @@ protocol Router: Presentable {
     func popModule(animated: Bool)
     
     func dismissModule()
+    func dismissContainer()
     func dismissModule(animated: Bool, completion: (() -> Void)?)
     
     func setRootModule(_ module: Presentable?)
@@ -46,7 +47,7 @@ protocol Router: Presentable {
 final class RouterImpl: Router {
     
     private weak var rootController: UINavigationController?
-    private var presentController: UIViewController?
+    private var presentControllers: [UIViewController] = []
     
     private var completions: [UIViewController : () -> Void]
     
@@ -70,20 +71,37 @@ final class RouterImpl: Router {
     private func presentOnController(_ module: Presentable?) {
         guard let controller = module?.toPresent() else { return }
         
-        presentController?.present(controller, animated: true, completion: nil)
+        if presentControllers.isEmpty {
+            rootController?.present(controller, animated: true, completion: nil)
+            return
+        }
+         
+        let presentController = presentControllers[presentControllers.count - 1]
+        
+        presentControllers.append(controller)
+        
+        presentController.present(controller, animated: true, completion: nil)
     }
     
     private func presentOnContainer(_ module: Presentable?, animated: Bool) {
         guard let controller = module?.toPresent() else { return }
-        presentController = controller
+        presentControllers.append(controller)
         rootController?.present(controller, animated: animated, completion: nil)
     }
     
+    func dismissContainer() {
+        let presentContorller = presentControllers[0]
+        
+        presentContorller.dismiss(animated: true)
+    }
+    
     func dismissModule() {
+        presentControllers = []
         dismissModule(animated: true, completion: nil)
     }
     
     func dismissModule(animated: Bool, completion: (() -> Void)?) {
+        
         rootController?.dismiss(animated: animated, completion: completion)
     }
     

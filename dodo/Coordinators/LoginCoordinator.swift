@@ -14,7 +14,6 @@ class LoginCoordinator: Coordinator {
     
     private let router: Router
     private let screenFactory: ScreenFactoryProtocol
-    //private let userService: UserServiceProtocol
     
     init(router: Router, screenFactory: ScreenFactoryProtocol) {
         self.router = router
@@ -22,16 +21,10 @@ class LoginCoordinator: Coordinator {
     }
     
     override func start() {
-//        if userService.isUserLoggedIn() {
-//            showProfileVC()
-//        } else {
-//            showLoginVC()
-//        }
         showLoginVC()
-        
     }
     
-    private func showLoginVC() {
+    func showLoginVC() {
         let loginScreen = screenFactory.makeLoginScreen()
         
         loginScreen.onPhoneButtonTapped = {
@@ -45,7 +38,6 @@ class LoginCoordinator: Coordinator {
         let phoneScreen = screenFactory.makePhoneScreen()
         
         phoneScreen.onContinueButtonTapped = {
-            print("onContinueButtonTapped triggered in PhoneVC")
             self.showCodeVC()
         }
         
@@ -54,15 +46,17 @@ class LoginCoordinator: Coordinator {
     
     func showCodeVC() {
         let codeScreen = screenFactory.makeCodeScreen()
-        print("Создан экземпляр CodeVC: \(codeScreen)")
         
-        codeScreen.onUserLoggedIn = { [weak self] isLoaded in
-            guard let self = self else { return }
-            print("onUserLoggedIn closure triggered with:", isLoaded)
+        codeScreen.onUserLoggedIn = { isLoaded in
+            //guard let self = self else { return }
+            
+            self.router.dismissModule()
+            
             self.finishAuth?(true)
+            
+            
         }
         
         router.present(codeScreen, animated: true, onRoot: false)
-        print("onUserLoggedIn set for CodeVC")
     }
 }
