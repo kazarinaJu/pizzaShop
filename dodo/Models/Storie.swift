@@ -5,12 +5,12 @@
 //  Created by Юлия Ястребова on 20.02.2024.
 //
 
-struct StorieResponse: Codable {
+struct StorieResponse: Decodable {
     let stories: [Storie]
 }
 
-struct Storie: Codable {
+struct Storie: Decodable {
     let id: UInt
-    var image: String
-    var readability: Bool
+    let image: String
+    let readability: Bool
 }

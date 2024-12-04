@@ -43,7 +43,18 @@ struct Product: Codable {
     }
     
     static var empty: Product {
-        return Product(id: 0, name: "", detail: "", description: "", weight: 0, price: 0, image: "", portion: 0, isOnSale: false, category: .pizza, isPromo: false)
+        return Product(
+            id: 0,
+            name: "",
+            detail: "",
+            description: "",
+            weight: 0,
+            price: 0,
+            image: "",
+            portion: 0,
+            isOnSale: false,
+            category: .pizza,
+            isPromo: false)
     }
 }
 

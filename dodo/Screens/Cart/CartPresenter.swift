@@ -58,6 +58,8 @@ extension CartPresenter {
     func offerPriceButtonTapped(_ product: Product) {
         ordersService?.add(product)
         updateCart()
+        fetchOrderProducts()
+        
     }
 }
 
@@ -70,7 +72,6 @@ extension CartPresenter {
         }
     }
 
-    
     func fetchOrderProducts() {
         guard let orderProducts = ordersService?.fetch() else { return }
         view?.showProducts(orderProducts)
