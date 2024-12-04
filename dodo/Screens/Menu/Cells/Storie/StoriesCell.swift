@@ -36,7 +36,7 @@ final class StoriesCell: UITableViewCell {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(StoriesCollectionCell.self, forCellWithReuseIdentifier: StoriesCollectionCell.reuseId)
+        collectionView.registerCell(StoriesCollectionCell.self)
         
         return collectionView
     }()
@@ -77,7 +77,7 @@ extension StoriesCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectionCell.reuseId, for: indexPath) as! StoriesCollectionCell
+        let cell = collectionView.dequeueCell(indexPath) as StoriesCollectionCell
         let storie = stories[indexPath.row]
         cell.update(storie)
         return cell

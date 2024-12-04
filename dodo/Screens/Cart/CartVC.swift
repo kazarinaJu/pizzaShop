@@ -15,7 +15,7 @@ protocol CartVCProtocol: AnyObject {
 }
 
 final class CartVC: UIViewController, CartVCProtocol {
-
+    
     enum OrderSection: Int, CaseIterable {
         case products
         case offer
@@ -26,7 +26,7 @@ final class CartVC: UIViewController, CartVCProtocol {
     private var orderProducts: [Product] = []
     private var offerProducts: [Product] = []
     
-//MARK: UI
+    //MARK: UI
     private var priceOrderButton = CustomBigButton()
     private var emptyCart = EmptyCart()
     
@@ -36,12 +36,11 @@ final class CartVC: UIViewController, CartVCProtocol {
         tableView.separatorStyle = .none
         let priceHeaderView = PriceHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
         tableView.tableHeaderView = priceHeaderView
-        priceHeaderView.priceLabel.text = "5 товаров на 100 ₽"
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(OrderProductCell.self, forCellReuseIdentifier: OrderProductCell.reuseId)
-        tableView.register(OrderDetailCell.self, forCellReuseIdentifier: OrderDetailCell.reuseId)
-        tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.reuseId)
+        tableView.registerCell(OrderProductCell.self)
+        tableView.registerCell(OrderDetailCell.self)
+        tableView.registerCell(BannerCell.self)
         return tableView
     }()
     
@@ -163,7 +162,7 @@ extension CartVC: UITableViewDataSource {
         
         switch orderSection {
         case .products:
-            let cell = tableView.dequeueReusableCell(withIdentifier: OrderProductCell.reuseID, for: indexPath) as! OrderProductCell
+            let cell = tableView.dequeuCell(indexPath) as OrderProductCell
             let product = orderProducts[indexPath.row]
             cell.update(product)
             cell.onProductCountChanged = { [weak self] changedProduct in
@@ -172,16 +171,16 @@ extension CartVC: UITableViewDataSource {
             return cell
             
         case .offer:
-            let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.reuseId, for: indexPath) as! BannerCell
+            let cell = tableView.dequeuCell(indexPath) as BannerCell
             cell.update(offerProducts)
-            cell.bannerLabel.text = "Добавить к заказу?"
+            cell.bannerLabel.text = Texts.Cart.bannerTitle
             cell.onCellPriceButtonTapped = { [weak self] product in
                 self?.offerCellPriceButtonTapped(product)
             }
             return cell
-
+            
         case .detail:
-            let cell = tableView.dequeueReusableCell(withIdentifier: OrderDetailCell.reuseID, for: indexPath) as! OrderDetailCell
+            let cell = tableView.dequeuCell(indexPath) as OrderDetailCell
             guard let price = presenter?.totalPrice else { return cell }
             guard let count = presenter?.totalProducts else { return cell }
             cell.update(count, price)

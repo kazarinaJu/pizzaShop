@@ -28,22 +28,23 @@ final class DetailVC: UIViewController, DetailVCProtocol {
     
     var presenter: DetailPresenterProtocol?
     var product: Product?
-
+    
+    
     private var ingredients: [Ingredient] = []
     private var sizes: [String] = []
     private var dough: [String] = []
-
-//MARK: UI
+    
+    //MARK: UI
     var addToCartButtonView = CustomBigButton()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ImageCell.self, forCellReuseIdentifier: ImageCell.reuseID)
-        tableView.register(PortionCell.self, forCellReuseIdentifier: PortionCell.reuseID)
-        tableView.register(SegmentedCell.self, forCellReuseIdentifier: SegmentedCell.reuseID)
-        tableView.register(IngredientsCell.self, forCellReuseIdentifier: IngredientsCell.reuseID)
+        tableView.registerCell(ImageCell.self)
+        tableView.registerCell(PortionCell.self)
+        tableView.registerCell(SegmentedCell.self)
+        tableView.registerCell(IngredientsCell.self)
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -134,27 +135,33 @@ extension DetailVC: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension DetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DetailSection.allCases.count
+        guard let product = product else { return 0 }
+        return product.category == .pizza ? DetailSection.allCases.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = DetailSection.init(rawValue: indexPath.row)
+        guard let product = product else { return UITableViewCell() }
+        
+        let section: DetailSection
+        if product.category == .pizza {
+            section = DetailSection(rawValue: indexPath.row) ?? .image
+        } else {
+            section = .image
+        }
         
         switch section {
         case .image:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ImageCell.reuseID, for: indexPath) as! ImageCell
+            let cell = tableView.dequeuCell(indexPath) as ImageCell
             cell.update(product)
-            
+            cell.delegate = self
             return cell
         case .portion:
-            let cell = tableView.dequeueReusableCell(withIdentifier: PortionCell.reuseID, for: indexPath) as! PortionCell
+            let cell = tableView.dequeuCell(indexPath) as PortionCell
             cell.product = product
-            
             cell.clipsToBounds = true
             return cell
         case .segment:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedCell.reuseID, for: indexPath) as! SegmentedCell
-            
+            let cell = tableView.dequeuCell(indexPath) as SegmentedCell
             cell.update(sizes: sizes, dough: dough, product: self.product) { [weak self] size, dough in
                 self?.product?.dough = dough
                 self?.product?.size = size
@@ -168,8 +175,7 @@ extension DetailVC: UITableViewDataSource {
             }
             return cell
         case .ingredient:
-            let cell = tableView.dequeueReusableCell(withIdentifier: IngredientsCell.reuseId, for: indexPath) as! IngredientsCell
-            
+            let cell = tableView.dequeuCell(indexPath) as IngredientsCell
             cell.update(ingredients)
             return cell
         default: return UITableViewCell()
@@ -185,5 +191,31 @@ extension DetailVC {
     
     func sizeControlCellTapped(_ size: String) {
         presenter?.sizeControlTapped(size)
+    }
+}
+
+extension DetailVC: ImageCellDelegate {
+    func showPopover(from sourceView: UIView) {
+        let popoverViewController = PopoverVC()
+        popoverViewController.preferredContentSize = CGSize(width: 200, height: 100)
+        popoverViewController.modalPresentationStyle = .popover
+        
+        if let popoverPresentationController = popoverViewController.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .down
+            popoverPresentationController.sourceRect = sourceView.bounds
+            popoverPresentationController.sourceView = sourceView
+            popoverPresentationController.delegate = self
+        }
+        
+        present(popoverViewController, animated: true, completion: nil)
+    }
+}
+
+extension DetailVC: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+    ) -> UIModalPresentationStyle {
+        return .none
     }
 }

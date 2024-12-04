@@ -34,7 +34,6 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     enum MenuSection: Int, CaseIterable {
         case stories
         case banners
-        case categories
         case products
     }
     
@@ -46,35 +45,34 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     //MARK: UI
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(StoriesCell.self, forCellReuseIdentifier: StoriesCell.reuseId)
-        tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.reuseId)
-        tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseId)
-        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseId)
-        tableView.register(ProductPromoCell.self, forCellReuseIdentifier: ProductPromoCell.reuseId)
+        
+        tableView.registerCell(StoriesCell.self)
+        tableView.registerCell(BannerCell.self)
+        tableView.registerHeaderFooterView(CategoryHeader.self)
+        tableView.registerCell(ProductCell.self)
+        tableView.registerCell(ProductPromoCell.self)
+        
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
         return tableView
     }()
     
     var flagButton: UIButton = {
         let button = UIButton()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 30.0)
-        let symbol = UIImage(systemName: "flag.circle.fill", withConfiguration: configuration)?
-            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        let symbol = Images.flagCircleFill?.withTintColor(.black, renderingMode: .alwaysOriginal)
         button.setImage(symbol, for: .normal)
         button.addTarget(self, action: #selector(flagButtonTapped), for: .touchUpInside)
-        
         return button
     }()
     
     var loginButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 30.0)
-        let symbol = UIImage(systemName: "person.fill", withConfiguration: config)?
-            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        let symbol = Images.personFill?.withTintColor(.black, renderingMode: .alwaysOriginal)
         button.setImage(symbol, for: .normal)
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         return button
@@ -82,22 +80,18 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     
     var cartButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(weight: .bold)
-        let image = UIImage(systemName: "cart", withConfiguration: config)?
-            .withTintColor(.white, renderingMode: .alwaysOriginal)
+        let image = Images.cart?.withTintColor(.white, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
         button.backgroundColor = .orange
         button.layer.cornerRadius = 25
-        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
         return button
     }()
     
     var mapButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 25.0)
-        let image = UIImage(systemName: "location.fill", withConfiguration: config)?
-            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        let image = Images.locationFill?.withTintColor(.black, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
         return button
@@ -138,10 +132,6 @@ extension MenuVC {
         view.addSubview(loginButton)
         view.addSubview(cartButton)
         view.addSubview(mapButton)
-        
-//        if remoteToggleService.isMapAvailable && localToggleService.isMapAvailable {
-//            view.addSubview(mapButton)
-//        }
     }
     
     private func setupConstraints() {
@@ -169,13 +159,13 @@ extension MenuVC {
     }
     
     func setUpFeatureToggles() {
-    #if LOCAL
+#if LOCAL
         view.addSubview(flagButton)
         flagButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(8)
             make.centerX.equalToSuperview()
         }
-    #endif
+#endif
     }
 }
 
@@ -192,7 +182,6 @@ extension MenuVC: UITableViewDataSource {
         switch section {
         case .stories: return 1
         case .banners: return 1
-        case .categories: return 1
         case .products: return products.count
         default: return 0
         }
@@ -203,21 +192,14 @@ extension MenuVC: UITableViewDataSource {
         
         switch section {
         case .stories:
-            let cell = tableView.dequeueReusableCell(withIdentifier: StoriesCell.reuseId, for: indexPath) as! StoriesCell
+            let cell = tableView.dequeuCell(indexPath) as StoriesCell
             cell.update(stories)
             return cell
         case .banners:
-            let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.reuseId, for: indexPath) as! BannerCell
+            let cell = tableView.dequeuCell(indexPath) as BannerCell
             cell.update(products)
             cell.onCellPriceButtonTapped = { [weak self] product in
                 self?.bannerCellPriceButtonTapped(product)
-            }
-            return cell
-        case .categories:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseId, for: indexPath) as! CategoryCell
-            cell.update(categories)
-            cell.onCategoryTapped = { [weak self] category in
-                self?.scrollToCategory(category)
             }
             return cell
             
@@ -226,7 +208,7 @@ extension MenuVC: UITableViewDataSource {
             let product = products[indexPath.row]
             
             if product.isPromo != nil {
-                let cell = tableView.dequeueReusableCell(withIdentifier: ProductPromoCell.reuseId, for: indexPath) as! ProductPromoCell
+                let cell = tableView.dequeuCell(indexPath) as ProductPromoCell
                 cell.update(product)
                 cell.onPriceButtonTapped = { [weak self ]product in
                     self?.productCellPriceButtonTapped(product)
@@ -234,7 +216,7 @@ extension MenuVC: UITableViewDataSource {
                 return cell
                 
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
+                let cell = tableView.dequeuCell(indexPath) as ProductCell
                 cell.update(product)
                 cell.onPriceButtonTapped = { [weak self ]product in
                     self?.productCellPriceButtonTapped(product)
@@ -244,6 +226,21 @@ extension MenuVC: UITableViewDataSource {
             
         default:
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let menuSection = MenuSection.init(rawValue: section) else { return nil }
+        
+        switch menuSection {
+        case .products:
+            let header = tableView.dequeueHeader() as CategoryHeader
+            header.update(categories)
+            header.onCategoryTapped = { [weak self] category in
+                self?.scrollToCategory(category)
+            }
+            return header
+        default: return UIView()
         }
     }
 }
