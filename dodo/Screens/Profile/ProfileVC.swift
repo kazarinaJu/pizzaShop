@@ -13,12 +13,12 @@ final class ProfileVC: UIViewController {
     
     var onUserLogsOut: ((Bool)->())?
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "Скоро тут будет профиль"
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProRounded-Bold", size: 22)
+    private var titleLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Login.profileText,
+            font: Fonts.proRoundedBold22
+        )
         return label
     }()
     
@@ -26,7 +26,7 @@ final class ProfileVC: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Выйти", for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
         return button
     }()

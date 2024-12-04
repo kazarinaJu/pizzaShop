@@ -34,17 +34,21 @@ final class OrderProductCell: UITableViewCell {
         return imageView
     }()
     
-    private var nameLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
+    private var nameLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold15,
+            textAlignment: .left
+        )
         return label
     }()
     
-    private var detailLabel: UILabel = {
-        var label = UILabel()
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var detailLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            textColor: .darkGray,
+            textAlignment: .left
+        )
         return label
     }()
     
@@ -59,8 +63,10 @@ final class OrderProductCell: UITableViewCell {
     }()
     
     private var priceLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+        var label = CustomLabel()
+        label.configure(
+            textAlignment: .left
+        )
         return label
     }()
     

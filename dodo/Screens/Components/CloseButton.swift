@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CloseButton: UIButton {
+final class CloseButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -19,7 +19,7 @@ class CloseButton: UIButton {
     }
     
     private func setup() {
-        setImage(UIImage(systemName: "xmark"), for: .normal)
+        setImage(Images.xmark, for: .normal)
         tintColor = .darkGray
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: 44).isActive = true

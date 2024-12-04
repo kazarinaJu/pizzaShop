@@ -30,18 +30,19 @@ final class IngredientCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    private var nameLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 2
-        label.textAlignment = .center
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var nameLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            numberOfLines: 2
+        )
         return label
     }()
     
-    private var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
-        label.textAlignment = .center
+    private var priceLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold15
+        )
         return label
     }()
     

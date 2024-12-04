@@ -11,10 +11,12 @@ final class PriceHeaderView: UIView {
     
     private var products: [Product]?
     
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
-        label.text = "5 товаров на 1108 ₽"
+    lazy var priceLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold15,
+            textAlignment: .left
+        )
         return label
     }()
     

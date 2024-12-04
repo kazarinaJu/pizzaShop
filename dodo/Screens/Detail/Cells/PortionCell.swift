@@ -18,16 +18,13 @@ final class PortionCell: UITableViewCell {
     
     static let reuseID = "PortionCell"
     
-    private var portionLabel: UILabel = {
-        let portionLabel = UILabel()
-        portionLabel.backgroundColor = .lightGray
-        portionLabel.layer.cornerRadius = 8
-        portionLabel.clipsToBounds = true
-        portionLabel.textColor = .black
-        portionLabel.textAlignment = .center
-        portionLabel.font = UIFont(name: "SFProRounded-Regular", size: 15)
-        portionLabel.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        return portionLabel
+    private var portionLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.backgroundColor = .lightGray
+        label.layer.cornerRadius = 8
+        label.clipsToBounds = true
+        label.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

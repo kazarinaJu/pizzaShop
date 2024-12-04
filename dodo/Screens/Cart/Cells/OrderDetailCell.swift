@@ -20,15 +20,19 @@ final class OrderDetailCell: UITableViewCell {
         return stackView
     }()
     
-    private var countLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var countLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            textAlignment: .left
+        )
         return label
     }()
     
-    private var orderPriceLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var orderPriceLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            textAlignment: .right
+        )
         return label
     }()
     
@@ -40,17 +44,21 @@ final class OrderDetailCell: UITableViewCell {
         return stackView
     }()
     
-    private var coinLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Начислим додокоинов"
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var coinLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Coins.title,
+            textAlignment: .left
+        )
         return label
     }()
     
-    private var coinCountLabel: UILabel = {
-        var label = UILabel()
-        label.text = "+50"
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var coinCountLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Coins.description,
+            textAlignment: .right
+        )
         return label
     }()
     
@@ -62,17 +70,21 @@ final class OrderDetailCell: UITableViewCell {
         return stackView
     }()
     
-    private var deliveryLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Доставка"
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var deliveryLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Coins.delivery,
+            textAlignment: .left
+        )
         return label
     }()
     
-    private var deliveryDetailLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Бесплатно"
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var deliveryDetailLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Coins.deliveryPrice,
+            textAlignment: .right
+        )
         return label
     }()
     
@@ -83,7 +95,7 @@ final class OrderDetailCell: UITableViewCell {
     
     private var infoButton: UIButton = {
         var button = UIButton(type: .system)
-        let image = UIImage(systemName: "info.circle")
+        let image = Images.infoCircle
         button.setImage(image, for: .normal)
         button.tintColor = .black
         return button

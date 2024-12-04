@@ -23,17 +23,19 @@ final class BannerCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    private var bannerLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
-        label.numberOfLines = 0
+    private var bannerLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold15,
+            textAlignment: .left
+        )
         label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private var bannerPriceButton: UIButton = {
         let button = UIButton.init(type: .system)
-        button.titleLabel?.font = UIFont(name: "SFProRounded-Bold", size: 15)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
         button.setTitleColor(.brown, for: .normal)

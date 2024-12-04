@@ -18,7 +18,7 @@ final class StartVC: UIViewController {
     
     private var splashImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "splash")
+        imageView.image = Images.splash
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

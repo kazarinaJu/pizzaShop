@@ -14,7 +14,7 @@ final class EmptyCart: UIView {
     
     private var emptyCartImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "emptyCart")
+        imageView.image = Images.emptyCart
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true
@@ -23,27 +23,28 @@ final class EmptyCart: UIView {
         return imageView
     }()
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "Пока тут пусто"
-        label.font = UIFont(name: "SFProRounded-Bold", size: 22)
+    private var titleLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Cart.emptyCartTitle,
+            font: Fonts.proRoundedBold22
+        )
         return label
     }()
     
-    private var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "Добавьте пиццу. Или две!"
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var descriptionLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Cart.emptyCartDescription
+        )
         return label
     }()
     
-    private var priceLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "А мы  доставим заказ от 599 ₽"
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var priceLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Cart.emptyCartPrice
+        )
         return label
     }()
     
@@ -51,7 +52,7 @@ final class EmptyCart: UIView {
         var button = UIButton.init(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Перейти в меню", for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.setTitleColor(.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)

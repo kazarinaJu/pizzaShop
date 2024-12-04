@@ -8,10 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol ImageCellDelegate: AnyObject {
+    func showPopover(from sourceView: UIView)
+}
+
 final class ImageCell: UITableViewCell {
     
     var product: Product?
-    
+    weak var delegate: ImageCellDelegate?
+  
     static let reuseID = "DetailCell"
     
     private var verticalStackView: UIStackView = {
@@ -27,29 +32,53 @@ final class ImageCell: UITableViewCell {
     private var detailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.widthAnchor.constraint(equalToConstant: ScreenSize.width).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: ScreenSize.width).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: Layout.Detail.imageWidth).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: Layout.Detail.imageHeight).isActive = true
         return imageView
     }()
     
-    private var nameLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
+    private var detailStackView: UIStackView = {
+        var stackView = UIStackView.init()
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
+    }()
+    
+    private var nameLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold22
+        )
         return label
     }()
     
-    private var weightLabel: UILabel = {
-        var label = UILabel()
-        label.textColor = .gray
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+    private var detailButton: UIButton = {
+        var button = UIButton(type: .system)
+        let image = Images.infoCircle
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        button.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        button.addTarget(self, action: #selector(showPopover(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    private var weightLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            textColor: .gray
+        )
         return label
     }()
     
-    private var descriptionLabel: UILabel = {
-        var label = UILabel()
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
+    private var descriptionLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold15,
+            textColor: .darkGray,
+            textAlignment: .left
+        )
         return label
     }()
     
@@ -79,7 +108,11 @@ final class ImageCell: UITableViewCell {
         selectionStyle = .none
         contentView.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(detailImageView)
-        verticalStackView.addArrangedSubview(nameLabel)
+        
+        verticalStackView.addArrangedSubview(detailStackView)
+        detailStackView.addArrangedSubview(nameLabel)
+        detailStackView.addArrangedSubview(detailButton)
+        
         verticalStackView.addArrangedSubview(weightLabel)
         verticalStackView.addArrangedSubview(descriptionLabel)
     }
@@ -88,5 +121,9 @@ final class ImageCell: UITableViewCell {
         verticalStackView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalTo(contentView)
         }
+    }
+    
+    @objc func showPopover(_ sender: UIButton) {
+        delegate?.showPopover(from: sender)
     }
 }

@@ -22,7 +22,7 @@ final class MapVC: UIViewController {
     
     var pinImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "pin")
+        imageView.image = Images.pin
         imageView.contentMode = .scaleAspectFit
         imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true

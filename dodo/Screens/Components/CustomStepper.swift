@@ -21,24 +21,23 @@ final class CustomStepper: UIControl {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.setTitle("-", for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 13)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
     
-    private lazy var currentStepValueLabel: UILabel = {
-        var label = UILabel()
-        label.textColor = .black
-        label.text = "\(currentValue)"
-        //label.font = UIFont.monospacedDigitSystemFont(ofSize: 15, weight: UIFont.Weight.regular)
-        label.font = UIFont(name: "SFProRounded-Regular", size: 13)
+    private lazy var currentStepValueLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: "\(currentValue)"
+        )
         return label
     }()
     
     private lazy var increaseButton: UIButton = {
         let button = UIButton()
         button.setTitle("+", for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 13)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.setTitleColor(.black, for: .normal)
         return button

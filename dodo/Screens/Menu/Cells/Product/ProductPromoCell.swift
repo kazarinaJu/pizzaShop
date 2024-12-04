@@ -26,23 +26,26 @@ final class ProductPromoCell: UITableViewCell {
         return stackView
     }()
     
-    private var nameLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Bold", size: 20)
+    private var nameLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold22
+        )
         return label
     }()
     
-    private var detailLabel: UILabel = {
-        var label = UILabel()
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProRounded-Bold", size: 15)
+    private var detailLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            font: Fonts.proRoundedBold15,
+            textColor: .darkGray
+        )
         return label
     }()
     
     private var priceButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.backgroundColor = .orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
         button.setTitleColor(.brown, for: .normal)

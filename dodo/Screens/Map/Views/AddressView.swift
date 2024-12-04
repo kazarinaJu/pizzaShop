@@ -10,17 +10,19 @@ import SnapKit
 
 final class AddressView: UIView {
     
-    private var discriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Город, улица и дом"
-        label.font = UIFont(name: "SFProRounded-Thin", size: 11)
+    private var discriptionLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Map.mapDescription,
+            font: Fonts.proRoundedThin11
+        )
         return label
     }()
     
     var addressTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Ваш адрес"
-        textField.font = UIFont(name: "SFProRounded-Regular", size: 13)
+        textField.placeholder = Texts.Map.mapPlaceholder
+        textField.font = Fonts.proRoundedRegular15
         textField.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return textField
     }()

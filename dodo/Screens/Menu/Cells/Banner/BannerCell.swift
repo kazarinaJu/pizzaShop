@@ -29,10 +29,13 @@ final class BannerCell: UITableViewCell {
         return containerView
     }()
     
-    var bannerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Выгодно и вкусно"
-        label.font = UIFont(name: "SFProRounded-Bold", size: 20)
+    var bannerLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Menu.bannerTitle,
+            font: Fonts.proRoundedBold22,
+            textAlignment: .left
+        )
         return label
     }()
     
@@ -47,7 +50,7 @@ final class BannerCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(BannerCollectionCell.self, forCellWithReuseIdentifier: BannerCollectionCell.reuseId)
+        collectionView.registerCell(BannerCollectionCell.self)
         
         return collectionView
     }()
@@ -95,7 +98,7 @@ extension BannerCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionCell.reuseId, for: indexPath) as! BannerCollectionCell
+        let cell = collectionView.dequeueCell(indexPath) as BannerCollectionCell
         let product = products[indexPath.row]
         cell.update(product)
         cell.onPriceButtonTapped = { [weak self] product in

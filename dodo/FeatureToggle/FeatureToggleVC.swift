@@ -44,14 +44,14 @@ class FeatureToggleVC: UIViewController {
     let remoteTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Remote Features"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = Fonts.proRoundedBold15
         return label
     }()
     
     let localTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Local Features"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = Fonts.proRoundedBold15
         return label
     }()
     

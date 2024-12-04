@@ -20,7 +20,7 @@ final class LoginVC: UIViewController, LoginVCProtocol {
     
     private var loginImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "login")
+        imageView.image = Images.login
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true
@@ -29,20 +29,20 @@ final class LoginVC: UIViewController, LoginVCProtocol {
         return imageView
     }()
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "Войдите в профиль"
-        label.font = UIFont(name: "SFProRounded-Bold", size: 22)
+    private var titleLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Login.loginTitle,
+            font: Fonts.proRoundedBold22
+        )
         return label
     }()
     
     private var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "Чтобы копить додокоины и получать персональные скидки"
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProRounded-Regular", size: 15)
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Login.loginDescription
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
         label.widthAnchor.constraint(equalToConstant: 300).isActive = true
         return label
@@ -52,7 +52,7 @@ final class LoginVC: UIViewController, LoginVCProtocol {
         var button = UIButton.init(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Указать телефон", for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProRounded-Regular", size: 15)
+        button.titleLabel?.font = Fonts.proRoundedRegular15
         button.setTitleColor(.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)

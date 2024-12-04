@@ -11,10 +11,11 @@ import SnapKit
 class CategoryCollectionCell: UICollectionViewCell {
     static let reuseId = "CategoryCollectionCell"
     
-    private var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "SFProRounded-Regular", size: 14)
-        label.textAlignment = .center
+    private var categoryLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            numberOfLines: 1
+        )
         return label
     }()
     

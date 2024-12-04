@@ -41,17 +41,19 @@ final class IngredientsCell: UITableViewCell {
         collectionView.backgroundView = UIView.init(frame: CGRect.zero)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(IngredientCollectionCell.self, forCellWithReuseIdentifier: IngredientCollectionCell.reuseId)
+        collectionView.registerCell(IngredientCollectionCell.self)
         collectionView.isScrollEnabled = false
         
         return collectionView
     }()
     
-    private var titleLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Добавить по вкусу"
-        label.font = UIFont(name: "SFProRounded-Bold", size: 20)
-        label.textAlignment = .left
+    private var titleLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.configure(
+            text: Texts.Menu.ingredientsTitle,
+            font: Fonts.proRoundedBold22,
+            textAlignment: .left
+        )
         return label
     }()
 
@@ -90,12 +92,12 @@ final class IngredientsCell: UITableViewCell {
     
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView)
-            make.left.right.equalTo(contentView).inset(36)
+            make.top.equalTo(contentView).inset(18)
+            make.left.right.equalTo(contentView).inset(18)
         }
         collectionView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(contentView)
-            make.top.equalTo(titleLabel).offset(10)
+            make.top.equalTo(titleLabel.snp.bottom).offset(14)
         }
     }
 }
@@ -106,7 +108,7 @@ extension IngredientsCell: UICollectionViewDataSource, UICollectionViewDelegate 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IngredientCollectionCell.reuseId, for: indexPath) as! IngredientCollectionCell
+        let cell = collectionView.dequeueCell(indexPath) as IngredientCollectionCell
         cell.backgroundColor = .white
         let ingredient = ingredients[indexPath.row]
         cell.update(ingredient)
