@@ -10,7 +10,18 @@ import UIKit
 struct Images {    
     static let infoCircle = UIImage(systemName: "info.circle")
     static let xmark = UIImage(systemName: "xmark")
-    static let locationFill = UIImage(systemName: "location.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25.0))
+    static let locationFill = UIImage(
+        systemName: "location.fill",
+        withConfiguration: UIImage.SymbolConfiguration(
+            pointSize: 25.0
+        )
+    )
+    static let address = UIImage(
+        systemName: "figure.walk",
+        withConfiguration: UIImage.SymbolConfiguration(
+            pointSize: 20.0
+        )
+    )
     static let cart = UIImage(systemName: "cart", withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
     static let personFill = UIImage(systemName: "person.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0))
     static let flagCircleFill = UIImage(systemName: "flag.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0))

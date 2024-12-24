@@ -1,5 +1,5 @@
-
-"ingredients": [
+{
+    "ingredients": [
         {"id": 2001, "image": "cheese-board", "name": "Сырный бортик", "price": 189},
         {"id": 2002, "image": "mozarella", "name": "Сливочная моцарелла", "price": 79},
         {"id": 2003, "image": "cucumber", "name": "Маринованные огурчики", "price": 59},
@@ -9,12 +9,12 @@
         {"id": 2007, "image": "mash", "name": "Шампиньоны", "price": 59},
         {"id": 2008, "image": "italian-herbs", "name": "Итальянские травы", "price": 39}
     ],
-"sizes": ["Маленькая", "Средняя", "Большая"],
-"dough": ["Традиционное", "Тонкое"],
-"products": [
+    "sizes": ["Маленькая", "Средняя", "Большая"],
+    "dough": ["Традиционное", "Тонкое"],
+    "products": [
         {
-          "id": 3001,
-          "name": "Гавайская",
+            "id": 3001,
+            "name": "Гавайская",
             "detail": "Ананасы, Курица, Сыр",
             "description": "Пицца, приготовленнаяая с использованием белого соуса, сыра, ананасов, курицы и морепродуктов.",
             "weight": 350,
@@ -24,13 +24,14 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "pizza",
-           "isPromo": true
+            "count": 1,
+            "category": "pizza",
+            "isPromo": true,
+            "energyValue": "320 ккал/100 г"
         },
         {
-           "id": 3002,
-          "name": "Маргарита",
+            "id": 3002,
+            "name": "Маргарита",
             
             "detail": "Помидоры, Базилик, Моцарелла",
             "description": "Классическая итальянская пицца: сочетание расплавленного сыра, помидоров и пикантный аромат базилика.",
@@ -41,13 +42,14 @@
             "size": null,
             "dough": null,
             "isOnSale": true,
-"count": 1,
-"category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
         {
-         "id": 3003,
-          "name": "Пепперони",
-        
+            "id": 3003,
+            "name": "Пепперони",
+            
             "detail": "Пепперони, Болгарский перец, Сыр",
             "description": "Классический состав пиццы в котором нет ничего лишнего: пряные колбаски пепперони с легкой перчинкой, сыр моцарелла со сливочным вкусом и нежный томатный соус",
             "weight": 400,
@@ -58,12 +60,13 @@
             "size": "Средняя",
             "dough": "Традиционное",
             "isOnSale": true,
-"count": 1,
-"category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
         {
-          "id": 3004,
-          "name": "Мясная с аджикой",
+            "id": 3004,
+            "name": "Мясная с аджикой",
             "detail": "Баварские колбаски , острый соус аджика",
             "description": "Баварские колбаски , острый соус аджика, острые колбаски чоризо , цыпленок , пикантная пепперони , моцарелла, фирменный томатный соус",
             "weight": 350,
@@ -73,12 +76,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
         {
-          "id": 3005,
-          "name": "Креветки со сладким чили",
+            "id": 3005,
+            "name": "Креветки со сладким чили",
             "detail": "Креветки , ананасы , соус сладкий чили",
             "description": "Креветки , ананасы , соус сладкий чили, сладкий перец , моцарелла, фирменный соус альфредо",
             "weight": 350,
@@ -88,12 +92,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
         {
-          "id": 3006,
-          "name": "Карбонара",
+            "id": 3006,
+            "name": "Карбонара",
             "detail": "Бекон , сыры чеддер и пармезан",
             "description": "Бекон , сыры чеддер и пармезан , моцарелла, томаты , красный лук , чеснок , фирменный соус альфредо, итальянские травы",
             "weight": 350,
@@ -103,12 +108,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
         {
-          "id": 3007,
-          "name": "Четыре сезона",
+            "id": 3007,
+            "name": "Четыре сезона",
             "detail": "Моцарелла, ветчина , пикантная пепперони",
             "description": "Увеличенная порция моцареллы, ветчина , пикантная пепперони , кубики брынзы , томаты , шампиньоны , итальянские травы , фирменный томатный соус",
             "weight": 350,
@@ -118,12 +124,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3008,
-          "name": "Диабло",
+        {
+            "id": 3008,
+            "name": "Диабло",
             "detail": "Острые колбаски чоризо , острый перец халапеньо",
             "description": "Острые колбаски чоризо , острый перец халапеньо , соус барбекю, митболы из говядины , томаты , сладкий перец , красный лук , моцарелла, фирменный томатный соус",
             "weight": 680,
@@ -133,12 +140,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "pizza"
+            "count": 1,
+            "category": "pizza",
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3009,
-          "name": "Додо Бокс",
+        {
+            "id": 3009,
+            "name": "Додо Бокс",
             "detail": "Закуска, десерт и напиток",
             "description": "Яркая коробочка и полный набор для детского обеда: закуска, десерт и напиток. Игрушечный Додозаврик составит компанию",
             "weight": 680,
@@ -148,12 +156,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "combo",
-           "isPromo": true
+            "count": 1,
+            "category": "combo",
+            "isPromo": true,
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3010,
-          "name": "10 пицц",
+            "id": 3010,
+            "name": "10 пицц",
             "detail": "10 средних пицц на любой вкус",
             "description": "Великолепная десятка. 10 средних пицц на любой вкус. Для компании из 20-30 человек. Цена комбо зависит от выбранных пицц и может быть увеличена",
             "weight": 680,
@@ -163,12 +172,13 @@
             "size": null,
             "dough": null,
             "isOnSale": true,
-           "count": 1,
-           "category": "combo"
+            "count": 1,
+            "category": "combo",
+            "energyValue": "320 ккал/100 г"
         },
         {
-          "id": 3011,
-          "name": "4 Закуски",
+            "id": 3011,
+            "name": "4 Закуски",
             "detail": "Квартет для маленькой компании",
             "description": "Сытный квартет для маленькой компании. Комбо из четырех закусок на выбор",
             "weight": 680,
@@ -178,12 +188,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "combo"
+            "count": 1,
+            "category": "combo",
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3012,
-          "name": "Дэнвич ветчина и сыр",
+        {
+            "id": 3012,
+            "name": "Дэнвич ветчина и сыр",
             "detail": "Чиабатта и ветчина",
             "description": "Поджаристая чиабатта и знакомое сочетание ветчины, цыпленка, моцареллы со свежими томатами, соусом ранч и чесноком",
             "weight": 210,
@@ -193,13 +204,14 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "snack",
-           "isPromo": true
+            "count": 1,
+            "category": "snack",
+            "isPromo": true,
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3013,
-          "name": "Паста Карбонара",
+        {
+            "id": 3013,
+            "name": "Паста Карбонара",
             "detail": "Паста из печи с беконом",
             "description": "Паста из печи с беконом, сырами чеддер и пармезан, томатами, моцареллой, фирменным соусом альфредо и чесноком",
             "weight": 350,
@@ -209,12 +221,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "snack"
+            "count": 1,
+            "category": "snack",
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3014,
-          "name": "Додстер",
+        {
+            "id": 3014,
+            "name": "Додстер",
             "detail": "Легендарная горячая закуска с цыпленком",
             "description": "Легендарная горячая закуска с цыпленком, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке",
             "weight": 210,
@@ -224,12 +237,13 @@
             "size": null,
             "dough": null,
             "isOnSale": true,
-           "count": 1,
-           "category": "snack"
+            "count": 1,
+            "category": "snack",
+            "energyValue": "320 ккал/100 г"
         },
         {
-          "id": 3015,
-          "name": "Картофель из печи",
+            "id": 3015,
+            "name": "Картофель из печи",
             "detail": "Запеченная в печи картошечка и пряные специи",
             "description": "Запеченная в печи картошечка — привычный вкус и мало масла. В составе пряные специи",
             "weight": 150,
@@ -239,12 +253,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "snack"
+            "count": 1,
+            "category": "snack",
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3016,
-          "name": "Добрый Кола",
+        {
+            "id": 3016,
+            "name": "Добрый Кола",
             "detail": "",
             "description": "",
             "weight": 500,
@@ -254,13 +269,14 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "drink",
-           "isPromo": true
+            "count": 1,
+            "category": "drink",
+            "isPromo": true,
+            "energyValue": "320 ккал/100 г"
         },
-         {
-          "id": 3017,
-          "name": "Добрый Кола без сахара",
+        {
+            "id": 3017,
+            "name": "Добрый Кола без сахара",
             "detail": "",
             "description": "",
             "weight": 500,
@@ -270,11 +286,12 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "drink"
+            "count": 1,
+            "category": "drink",
+            "energyValue": "320 ккал/100 г"
         }, {
-          "id": 3018,
-          "name": "Вода",
+            "id": 3018,
+            "name": "Вода",
             "detail": "Вода BonaAqua негазированная",
             "description": "",
             "weight": 500,
@@ -284,11 +301,12 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "drink"
+            "count": 1,
+            "category": "drink",
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3019,
-          "name": "Чай",
+            "id": 3019,
+            "name": "Чай",
             "detail": "Таежный чай",
             "description": "На случай приятных разговоров и чтобы побыть наедине с собой. Одного саше хватит не только на чашку, но и на целый чайник",
             "weight": 250,
@@ -298,11 +316,12 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "drink"
+            "count": 1,
+            "category": "drink",
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3020,
-          "name": "Сорбет Лимонный фреш",
+            "id": 3020,
+            "name": "Сорбет Лимонный фреш",
             "detail": "",
             "description": "Цитрусовая свежесть в стаканчике. Сладкий вкус с приятной кислинкой",
             "weight": 90,
@@ -312,12 +331,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "desert",
-           "isPromo": true
+            "count": 1,
+            "category": "desert",
+            "isPromo": true,
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3021,
-          "name": "Чизкейк Нью-Йорк с кокосом",
+            "id": 3021,
+            "name": "Чизкейк Нью-Йорк с кокосом",
             "detail": "",
             "description": "Это не классический творожный чизкейк, а похож! Это его нежный брат близнец с новым кокосовым вкусом",
             "weight": 100,
@@ -327,11 +347,12 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "desert"
+            "count": 1,
+            "category": "desert",
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3022,
-          "name": "Маффин Соленая карамель",
+            "id": 3022,
+            "name": "Маффин Соленая карамель",
             "detail": "",
             "description": "Раз откусить — навсегда полюбить! Оцените яркое сочетание соленой карамели и арахиса",
             "weight": 120,
@@ -341,11 +362,12 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "desert"
+            "count": 1,
+            "category": "desert",
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3023,
-          "name": "Сладкий чили",
+            "id": 3023,
+            "name": "Сладкий чили",
             "detail": "",
             "description": "Фирменный соус сладкий чили с легкой пряностью для бортиков пиццы и горячих закусок",
             "weight": 25,
@@ -355,12 +377,13 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "souce",
-           "isPromo": true
+            "count": 1,
+            "category": "souce",
+            "isPromo": true,
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3024,
-          "name": "Сырный соус",
+            "id": 3024,
+            "name": "Сырный соус",
             "detail": "",
             "description": "Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок",
             "weight": 25,
@@ -370,11 +393,12 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "souce"
+            "count": 1,
+            "category": "souce",
+            "energyValue": "320 ккал/100 г"
         },{
-          "id": 3025,
-          "name": "Чесночный соус",
+            "id": 3025,
+            "name": "Чесночный соус",
             "detail": "",
             "description": "Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок",
             "weight": 25,
@@ -384,8 +408,9 @@
             "size": null,
             "dough": null,
             "isOnSale": false,
-           "count": 1,
-           "category": "souce"
+            "count": 1,
+            "category": "souce",
+            "energyValue": "320 ккал/100 г"
         }
-        ]
+    ]
 }

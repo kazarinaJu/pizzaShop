@@ -18,9 +18,11 @@ final class StoriesCell: UITableViewCell {
         }
     }
     
+    var onStorieCellSeclected: ((Int) -> ())?
+    
     private var containerView: UIView = {
         let containerView = UIView()
-        containerView.backgroundColor = .white
+        containerView.backgroundColor = Colors.white
         containerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
@@ -81,5 +83,12 @@ extension StoriesCell: UICollectionViewDelegate, UICollectionViewDataSource {
         let storie = stories[indexPath.row]
         cell.update(storie)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedStorie = stories[indexPath.row]
+        let storieIndex = indexPath.row
+        onStorieCellSeclected?(storieIndex)
+        
     }
 }

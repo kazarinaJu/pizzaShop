@@ -65,7 +65,7 @@ class FeatureToggleVC: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         view.addSubview(mainHorizontalStackView)
         mainHorizontalStackView.addArrangedSubview(createStackWithTitle(remoteTitleLabel, stackView: remoteVerticalStackView))
         mainHorizontalStackView.addArrangedSubview(createStackWithTitle(localTitleLabel, stackView: localVerticalStackView))

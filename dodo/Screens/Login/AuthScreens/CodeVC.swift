@@ -20,20 +20,13 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     
     var onUserLoggedIn: ((Bool)->())?
     
-    private var titleLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Login.codeTitle,
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
+    private var titleLabel = CustomLabel.centerRoundedBold22
     
     var codeTextField: UITextField = {
         var textField = UITextField()
         textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.textColor = UIColor.label
-        textField.backgroundColor = UIColor.secondarySystemBackground
+        textField.backgroundColor = Colors.gray
         textField.clearButtonMode = .whileEditing
         textField.autocorrectionType = .no
         textField.borderStyle = .roundedRect
@@ -45,10 +38,10 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     
     private var enterButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.backgroundColor = .orange
+        button.backgroundColor = Colors.orange
         button.setTitle("Войти", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(Colors.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
@@ -81,8 +74,6 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     
     @objc private func textFieldDidChange() {
         guard let text = codeTextField.text else { return }
-        
-        // Проверка, что строка состоит из ровно 6 цифр
         let isSixDigits = text.range(of: "^[0-9]{6}$", options: .regularExpression) != nil
         
         if isSixDigits {
@@ -101,23 +92,18 @@ final class CodeVC: UIViewController, CodeVCProtocol {
     @objc private func enterButtonTapped() {
         presenter?.getEnterButtonTapped()
         UserDefaults.standard.set(true, forKey: "isFirstAuthCompleted")
-        
-       
-        
-        
-        //presentingViewController?.dismiss(animated: true) { [weak self] in
-            self.onUserLoggedIn?(true)
-        //}
+        self.onUserLoggedIn?(true)
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(codeTextField)
         view.addSubview(enterButton)
         
+        titleLabel.text = Texts.Login.codeTitle
     }
     
     private func setupConstraints() {

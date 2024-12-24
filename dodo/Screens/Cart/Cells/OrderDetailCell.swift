@@ -20,21 +20,12 @@ final class OrderDetailCell: UITableViewCell {
         return stackView
     }()
     
-    private var countLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            textAlignment: .left
-        )
-        return label
-    }()
-    
-    private var orderPriceLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            textAlignment: .right
-        )
-        return label
-    }()
+    private var countLabel = CustomLabel.leftRegular15
+    private var orderPriceLabel = CustomLabel.rightRegular15
+    private var coinLabel = CustomLabel.leftRegular15
+    private var coinCountLabel = CustomLabel.rightRegular15
+    private var deliveryLabel = CustomLabel.leftRegular15
+    private var deliveryDetailLabel = CustomLabel.rightRegular15
     
     private var coinStackView: UIStackView = {
         var stackView = UIStackView.init()
@@ -44,48 +35,12 @@ final class OrderDetailCell: UITableViewCell {
         return stackView
     }()
     
-    private var coinLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Coins.title,
-            textAlignment: .left
-        )
-        return label
-    }()
-    
-    private var coinCountLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Coins.description,
-            textAlignment: .right
-        )
-        return label
-    }()
-    
     private var deliveryStackView: UIStackView = {
         var stackView = UIStackView.init()
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
-    }()
-    
-    private var deliveryLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Coins.delivery,
-            textAlignment: .left
-        )
-        return label
-    }()
-    
-    private var deliveryDetailLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Coins.deliveryPrice,
-            textAlignment: .right
-        )
-        return label
     }()
     
     private var infoButtonContainer: UIView = {
@@ -97,10 +52,9 @@ final class OrderDetailCell: UITableViewCell {
         var button = UIButton(type: .system)
         let image = Images.infoCircle
         button.setImage(image, for: .normal)
-        button.tintColor = .black
+        button.tintColor = Colors.black
         return button
     }()
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -136,6 +90,11 @@ final class OrderDetailCell: UITableViewCell {
         deliveryStackView.addArrangedSubview(deliveryDetailLabel)
         
         infoButtonContainer.addSubview(infoButton)
+        
+        coinLabel.text = Texts.Coins.title
+        coinCountLabel.text = Texts.Coins.description
+        deliveryLabel.text = Texts.Coins.delivery
+        deliveryDetailLabel.text = Texts.Coins.deliveryPrice
     }
     
     private func setupConstraints() {

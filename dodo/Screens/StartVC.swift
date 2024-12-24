@@ -33,7 +33,7 @@ final class StartVC: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         view.addSubview(splashImageView)
     }
     

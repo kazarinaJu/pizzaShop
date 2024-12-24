@@ -29,7 +29,6 @@ final class DetailVC: UIViewController, DetailVCProtocol {
     var presenter: DetailPresenterProtocol?
     var product: Product?
     
-    
     private var ingredients: [Ingredient] = []
     private var sizes: [String] = []
     private var dough: [String] = []
@@ -96,7 +95,7 @@ extension DetailVC {
 extension DetailVC {
     private func setupViews() {
         addToCartButtonView.accessibilityIdentifier = "Button"
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         view.addSubview(tableView)
         view.addSubview(addToCartButtonView)
     }
@@ -197,6 +196,7 @@ extension DetailVC {
 extension DetailVC: ImageCellDelegate {
     func showPopover(from sourceView: UIView) {
         let popoverViewController = PopoverVC()
+        popoverViewController.label.text = product?.energyValue
         popoverViewController.preferredContentSize = CGSize(width: 200, height: 100)
         popoverViewController.modalPresentationStyle = .popover
         

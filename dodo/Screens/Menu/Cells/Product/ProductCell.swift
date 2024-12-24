@@ -18,7 +18,7 @@ final class ProductCell: UITableViewCell {
     
     private var containerView: UIView = {
         var view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         view.applyShadow(cornerRadius: 10)
         return view
     }()
@@ -33,31 +33,15 @@ final class ProductCell: UITableViewCell {
         return stackView
     }()
     
-    private var nameLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold22,
-            textAlignment: .left
-        )
-        return label
-    }()
-    
-    private var detailLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15,
-            textColor: .darkGray,
-            textAlignment: .left
-        )
-        return label
-    }()
+    private var nameLabel = CustomLabel.leftRoundedBold22
+    private var detailLabel = CustomLabel.leftRoundedBold15
     
     private var priceButton: UIButton = {
         var button = UIButton.init(type: .system)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.backgroundColor = .orange.withAlphaComponent(0.2)
+        button.backgroundColor = Colors.orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
-        button.setTitleColor(.brown, for: .normal)
+        button.setTitleColor(Colors.brown, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.addTarget(nil, action: #selector(priceButtonTapped(_:)), for: .touchUpInside)
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -108,6 +92,8 @@ extension ProductCell {
         verticalStackView.addArrangedSubview(nameLabel)
         verticalStackView.addArrangedSubview(detailLabel)
         verticalStackView.addArrangedSubview(priceButton)
+        
+        detailLabel.textColor = Colors.gray
     }
     
     private func setupConstraints() {

@@ -23,22 +23,14 @@ final class BannerCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    private var bannerLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15,
-            textAlignment: .left
-        )
-        label.lineBreakMode = .byWordWrapping
-        return label
-    }()
+    private var bannerLabel = CustomLabel.leftRoundedBold15
     
     private var bannerPriceButton: UIButton = {
         let button = UIButton.init(type: .system)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.backgroundColor = .orange.withAlphaComponent(0.2)
+        button.backgroundColor = Colors.orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
-        button.setTitleColor(.brown, for: .normal)
+        button.setTitleColor(Colors.brown, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.addTarget(nil, action: #selector(priceButtonTapped(_:)), for: .touchUpInside)
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -73,8 +65,10 @@ final class BannerCollectionCell: UICollectionViewCell {
         contentView.addSubview(bannerLabel)
         contentView.addSubview(bannerPriceButton)
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Colors.white
         contentView.applyShadow(cornerRadius: 10)
+        
+        bannerLabel.lineBreakMode = .byWordWrapping
     }
     
     private func setupConstraints() {

@@ -9,14 +9,7 @@ import UIKit
 import SnapKit
 
 final class  PopoverVC: UIViewController {
-    
-    private lazy var label: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: "Здесь будет текст"
-        )
-        return label
-    }()
+    lazy var label = CustomLabel.centerRegular15
 
     override  func  viewDidLoad () {
         super .viewDidLoad()
@@ -26,7 +19,7 @@ final class  PopoverVC: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        view.backgroundColor = Colors.gray.withAlphaComponent(0.2)
         view.addSubview(label)
     }
     

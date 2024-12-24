@@ -20,7 +20,7 @@ final class CloseButton: UIButton {
     
     private func setup() {
         setImage(Images.xmark, for: .normal)
-        tintColor = .darkGray
+        tintColor = Colors.gray
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: 44).isActive = true
         heightAnchor.constraint(equalToConstant: 44).isActive = true

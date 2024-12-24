@@ -14,10 +14,10 @@ final class CustomBigButton: UIView {
     
     var customBigtButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.backgroundColor = .orange
+        button.backgroundColor = Colors.orange
         button.setTitle("В корзину за 300 ₽", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(Colors.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
@@ -37,7 +37,7 @@ final class CustomBigButton: UIView {
     }
     
     private func setupViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = Colors.white
         self.addSubview(customBigtButton)
     }
     

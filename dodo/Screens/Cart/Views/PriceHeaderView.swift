@@ -10,15 +10,7 @@ import UIKit
 final class PriceHeaderView: UIView {
     
     private var products: [Product]?
-    
-    lazy var priceLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15,
-            textAlignment: .left
-        )
-        return label
-    }()
+    lazy var priceLabel = CustomLabel.leftRoundedBold15
     
     override init(frame: CGRect) {
         super.init(frame: frame)

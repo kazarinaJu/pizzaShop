@@ -32,7 +32,7 @@ final class CartVC: UIViewController, CartVCProtocol {
     
     private lazy var cartTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Colors.white
         tableView.separatorStyle = .none
         let priceHeaderView = PriceHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
         tableView.tableHeaderView = priceHeaderView
@@ -93,7 +93,7 @@ extension CartVC {
 //MARK: - Layout
 extension CartVC {
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         
         view.addSubview(cartTableView)
         view.addSubview(priceOrderButton)

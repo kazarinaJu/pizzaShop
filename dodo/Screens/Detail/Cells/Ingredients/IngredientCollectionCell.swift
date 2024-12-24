@@ -14,7 +14,7 @@ final class IngredientCollectionCell: UICollectionViewCell {
     
     private var containerView: UIView = {
         let containerView = UIView()
-        containerView.backgroundColor = .white
+        containerView.backgroundColor = Colors.white
         containerView.applyShadow(cornerRadius: 20)
         return containerView
     }()
@@ -24,27 +24,14 @@ final class IngredientCollectionCell: UICollectionViewCell {
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = Colors.white
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    private var nameLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            numberOfLines: 2
-        )
-        return label
-    }()
-    
-    private var priceLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15
-        )
-        return label
-    }()
+    private var nameLabel = CustomLabel.centerRegular15
+    private var priceLabel = CustomLabel.centerRoundedBold15
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,6 +58,8 @@ final class IngredientCollectionCell: UICollectionViewCell {
         containerView.addSubview(photoImageView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(priceLabel)
+       
+       nameLabel.numberOfLines = 2
     }
     
     private func setupConstraints() {

@@ -11,7 +11,7 @@ import SnapKit
 final class ProductPromoCell: UITableViewCell {
     
     var onPriceButtonTapped: ((Product)->())?
-
+    
     private var product: Product?
     
     static let reuseId = "ProductPromoCell"
@@ -26,29 +26,15 @@ final class ProductPromoCell: UITableViewCell {
         return stackView
     }()
     
-    private var nameLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
-    
-    private var detailLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15,
-            textColor: .darkGray
-        )
-        return label
-    }()
+    private var nameLabel = CustomLabel.centerRoundedBold22
+    private var detailLabel = CustomLabel.centerRoundedBold15
     
     private var priceButton: UIButton = {
         var button = UIButton.init(type: .system)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.backgroundColor = .orange.withAlphaComponent(0.2)
+        button.backgroundColor = Colors.orange.withAlphaComponent(0.2)
         button.layer.cornerRadius = 15
-        button.setTitleColor(.brown, for: .normal)
+        button.setTitleColor(Colors.brown, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.addTarget(nil, action: #selector(priceButtonTapped(_:)), for: .touchUpInside)
         
@@ -93,12 +79,14 @@ extension ProductPromoCell {
     
     private func setupViews() {
         selectionStyle = .none
-    
+        
         contentView.addSubview(verticalStackView)
         contentView.addSubview(priceButton)
         verticalStackView.addArrangedSubview(productImageView)
         verticalStackView.addArrangedSubview(nameLabel)
         verticalStackView.addArrangedSubview(detailLabel)
+        
+        detailLabel.textColor = Colors.gray
     }
     
     private func setupConstraints() {

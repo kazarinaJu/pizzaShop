@@ -23,37 +23,16 @@ final class EmptyCart: UIView {
         return imageView
     }()
     
-    private var titleLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Cart.emptyCartTitle,
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
-    
-    private var descriptionLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Cart.emptyCartDescription
-        )
-        return label
-    }()
-    
-    private var priceLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Cart.emptyCartPrice
-        )
-        return label
-    }()
+    private var titleLabel = CustomLabel.centerRoundedBold22
+    private var descriptionLabel = CustomLabel.centerRegular15
+    private var priceLabel = CustomLabel.centerRegular15
     
     private var goToMenuButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.backgroundColor = .orange
+        button.backgroundColor = Colors.orange
         button.setTitle("Перейти в меню", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(Colors.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
@@ -79,13 +58,17 @@ final class EmptyCart: UIView {
     }
 
     private func setupViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = Colors.white
         
         self.addSubview(emptyCartImageView)
         self.addSubview(titleLabel)
         self.addSubview(descriptionLabel)
         self.addSubview(priceLabel)
         self.addSubview(goToMenuButton)
+        
+        titleLabel.text = Texts.Cart.emptyCartTitle
+        descriptionLabel.text = Texts.Cart.emptyCartDescription
+        priceLabel.text = Texts.Cart.emptyCartPrice
     }
     
     private func setupConstraints() {

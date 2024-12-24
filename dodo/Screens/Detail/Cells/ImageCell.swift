@@ -16,7 +16,7 @@ final class ImageCell: UITableViewCell {
     
     var product: Product?
     weak var delegate: ImageCellDelegate?
-  
+    
     static let reuseID = "DetailCell"
     
     private var verticalStackView: UIStackView = {
@@ -45,49 +45,27 @@ final class ImageCell: UITableViewCell {
         return stackView
     }()
     
-    private var nameLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
+    private var nameLabel = CustomLabel.centerRoundedBold22
     
     private var detailButton: UIButton = {
         var button = UIButton(type: .system)
         let image = Images.infoCircle
         button.setImage(image, for: .normal)
-        button.tintColor = .black
+        button.tintColor = Colors.black
         button.widthAnchor.constraint(equalToConstant: 20).isActive = true
         button.heightAnchor.constraint(equalToConstant: 20).isActive = true
         button.addTarget(self, action: #selector(showPopover(_:)), for: .touchUpInside)
         return button
     }()
     
-    private var weightLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            textColor: .gray
-        )
-        return label
-    }()
-    
-    private var descriptionLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15,
-            textColor: .darkGray,
-            textAlignment: .left
-        )
-        return label
-    }()
+    private var weightLabel = CustomLabel.centerRegular15
+    private var descriptionLabel = CustomLabel.leftRoundedBold15
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()
         setupConstraints()
-     
     }
     
     required init?(coder: NSCoder) {
@@ -95,9 +73,7 @@ final class ImageCell: UITableViewCell {
     }
     
     func update(_ product: Product?) {
-        
         guard let product = product else { return }
-        
         detailImageView.image = UIImage(named: product.image)
         nameLabel.text = product.name
         weightLabel.text = "\(product.weight) г."
@@ -115,6 +91,9 @@ final class ImageCell: UITableViewCell {
         
         verticalStackView.addArrangedSubview(weightLabel)
         verticalStackView.addArrangedSubview(descriptionLabel)
+        
+        weightLabel.textColor = Colors.gray
+        descriptionLabel.textColor = Colors.gray
     }
     
     private func setupConstraints() {

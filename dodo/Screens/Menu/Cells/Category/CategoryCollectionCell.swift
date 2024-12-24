@@ -11,13 +11,7 @@ import SnapKit
 class CategoryCollectionCell: UICollectionViewCell {
     static let reuseId = "CategoryCollectionCell"
     
-    private var categoryLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            numberOfLines: 1
-        )
-        return label
-    }()
+    private var categoryLabel = CustomLabel.centerRegular15
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +30,10 @@ class CategoryCollectionCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.addSubview(categoryLabel)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Colors.white
         contentView.applyShadow(cornerRadius: 20)
+        
+        categoryLabel.numberOfLines = 1
     }
     
     private func setupConstraints() {

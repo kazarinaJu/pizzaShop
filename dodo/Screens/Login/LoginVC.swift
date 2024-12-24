@@ -18,6 +18,9 @@ final class LoginVC: UIViewController, LoginVCProtocol {
     
     var onPhoneButtonTapped: (()->())?
     
+    private var titleLabel = CustomLabel.centerRoundedBold22
+    private var descriptionLabel = CustomLabel.centerRegular15
+    
     private var loginImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Images.login
@@ -29,31 +32,12 @@ final class LoginVC: UIViewController, LoginVCProtocol {
         return imageView
     }()
     
-    private var titleLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Login.loginTitle,
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
-    
-    private var descriptionLabel: UILabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Login.loginDescription
-        )
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        return label
-    }()
-    
     private var loginButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.backgroundColor = .orange
+        button.backgroundColor = Colors.orange
         button.setTitle("Указать телефон", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(Colors.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
@@ -74,10 +58,11 @@ final class LoginVC: UIViewController, LoginVCProtocol {
         
         setupViews()
         setupConstraints()
+        setupUI()
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         
         view.addSubview(closeButton)
         view.addSubview(loginImageView)
@@ -110,6 +95,13 @@ final class LoginVC: UIViewController, LoginVCProtocol {
             make.left.right.equalTo(view).inset(50)
             make.centerX.equalTo(view)
         }
+    }
+    
+    private func setupUI() {
+        titleLabel.text = Texts.Login.loginTitle
+        descriptionLabel.text = Texts.Login.loginDescription
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     @objc private func phoneButtonTapped() {

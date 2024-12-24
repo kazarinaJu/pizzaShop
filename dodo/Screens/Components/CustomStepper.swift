@@ -19,27 +19,21 @@ final class CustomStepper: UIControl {
     
     private lazy var decreaseButton: UIButton = {
         let button = UIButton()
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(Colors.black, for: .normal)
         button.setTitle("-", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
     
-    private lazy var currentStepValueLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: "\(currentValue)"
-        )
-        return label
-    }()
+    private lazy var currentStepValueLabel = CustomLabel.centerRegular15
     
     private lazy var increaseButton: UIButton = {
         let button = UIButton()
         button.setTitle("+", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(Colors.black, for: .normal)
         return button
     }()
     
@@ -62,13 +56,15 @@ final class CustomStepper: UIControl {
     }
     
     private func setupViews() {
-        backgroundColor = .systemGray6
+        backgroundColor = Colors.gray
         layer.cornerRadius = 20
         
         addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(decreaseButton)
         horizontalStackView.addArrangedSubview(currentStepValueLabel)
         horizontalStackView.addArrangedSubview(increaseButton)
+        
+        currentStepValueLabel.text = "\(currentValue)"
     }
     
     private func setupContraints() {

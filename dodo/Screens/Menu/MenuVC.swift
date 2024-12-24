@@ -20,6 +20,7 @@ protocol MenuVCProtocol: AnyObject {
     func navigateToLoginScreen()
     func navigateToCartScreen()
     func navigateToMapScreen()
+    func updateAddress(_ address: String)
 }
 
 final class MenuVC: UIViewController, MenuVCProtocol {
@@ -28,6 +29,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     var onMapButtonTapped: (()->())?
     var onLoginButtonTapped: (()->())?
     var onDetailCellTapped: ((Product)->())?
+    var onStorieSelected: (([Storie], Int) -> ())?
     
     var presenter: MenuPresenterProtocol?
     
@@ -46,7 +48,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Colors.white
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -64,7 +66,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     
     var flagButton: UIButton = {
         let button = UIButton()
-        let symbol = Images.flagCircleFill?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let symbol = Images.flagCircleFill?.withTintColor(Colors.black, renderingMode: .alwaysOriginal)
         button.setImage(symbol, for: .normal)
         button.addTarget(self, action: #selector(flagButtonTapped), for: .touchUpInside)
         return button
@@ -72,7 +74,7 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     
     var loginButton: UIButton = {
         let button = UIButton()
-        let symbol = Images.personFill?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let symbol = Images.personFill?.withTintColor(Colors.black, renderingMode: .alwaysOriginal)
         button.setImage(symbol, for: .normal)
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         return button
@@ -80,9 +82,9 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     
     var cartButton: UIButton = {
         let button = UIButton()
-        let image = Images.cart?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        let image = Images.cart?.withTintColor(Colors.white, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.backgroundColor = .orange
+        button.backgroundColor = Colors.orange
         button.layer.cornerRadius = 25
         button.titleLabel?.font = Fonts.proRoundedRegular15
         button.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
@@ -91,9 +93,26 @@ final class MenuVC: UIViewController, MenuVCProtocol {
     
     var mapButton: UIButton = {
         let button = UIButton()
-        let image = Images.locationFill?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let image = Images.locationFill?.withTintColor(Colors.black, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+        button.isHidden = false
+        return button
+    }()
+    
+    var addressButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.subtitle = "бесплатная доставка около 37 мин"
+        let image = Images.address?.withTintColor(Colors.black, renderingMode: .alwaysOriginal)
+        configuration.image = image
+        configuration.imagePadding = 10
+        configuration.titlePadding = 4
+        configuration.baseForegroundColor = Colors.black
+        
+        let button = UIButton(configuration: configuration, primaryAction: nil)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+        
         return button
     }()
     
@@ -127,11 +146,12 @@ extension MenuVC {
 //MARK: - Layout
 extension MenuVC {
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         view.addSubview(tableView)
         view.addSubview(loginButton)
         view.addSubview(cartButton)
         view.addSubview(mapButton)
+        view.addSubview(addressButton)
     }
     
     private func setupConstraints() {
@@ -152,6 +172,12 @@ extension MenuVC {
         }
         
         mapButton.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left).inset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(50)
+        }
+        
+        addressButton.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left).inset(20)
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(50)
@@ -193,6 +219,11 @@ extension MenuVC: UITableViewDataSource {
         switch section {
         case .stories:
             let cell = tableView.dequeuCell(indexPath) as StoriesCell
+            
+            cell.onStorieCellSeclected = { [weak self] storyIndex in
+                self?.navigateToStoriesScreen(storyIndex)
+            }
+            
             cell.update(stories)
             return cell
         case .banners:
@@ -278,6 +309,10 @@ extension MenuVC {
     func navigateToMapScreen() {
         onMapButtonTapped?()
     }
+    
+    func navigateToStoriesScreen(_ storieIndex: Int) {
+        onStorieSelected?(stories, storieIndex)
+    }
 }
 
 //MARK: - Pass Event
@@ -319,5 +354,11 @@ extension MenuVC {
     
     @objc private func mapButtonTapped() {
         presenter?.mapButtonTapped()
+    }
+    
+    func updateAddress(_ address: String) {
+        addressButton.setTitle(address, for: .normal)
+        addressButton.isHidden = false
+        mapButton.isHidden = true
     }
 }

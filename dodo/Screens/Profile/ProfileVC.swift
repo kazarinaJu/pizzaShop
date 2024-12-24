@@ -13,14 +13,7 @@ final class ProfileVC: UIViewController {
     
     var onUserLogsOut: ((Bool)->())?
     
-    private var titleLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Login.profileText,
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
+    private var titleLabel = CustomLabel.centerRoundedBold22
     
     private var logoutButton: UIButton = {
         let button = UIButton(type: .system)
@@ -53,11 +46,13 @@ final class ProfileVC: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(logoutButton)
+        
+        titleLabel.text = Texts.Login.profileText
     }
     
     private func setupConstraints() {

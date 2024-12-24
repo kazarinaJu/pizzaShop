@@ -23,20 +23,13 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
     
     var onContinueButtonTapped: (()->())?
     
-    private var titleLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Login.phoneTitle,
-            font: Fonts.proRoundedBold22
-        )
-        return label
-    }()
+    private var titleLabel = CustomLabel.centerRoundedBold22
     
-     var phoneTextField: UITextField = {
+    var phoneTextField: UITextField = {
         var textField = UITextField()
         textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.textColor = UIColor.label
-        textField.backgroundColor = UIColor.secondarySystemBackground
+        textField.backgroundColor = Colors.lightGray
         textField.clearButtonMode = .whileEditing
         textField.autocorrectionType = .no
         textField.borderStyle = .roundedRect
@@ -48,10 +41,10 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
     
     private var continueButton: UIButton = {
         var button = UIButton.init(type: .system)
-        button.backgroundColor = .orange
+        button.backgroundColor = Colors.orange
         button.setTitle("Продолжить", for: .normal)
         button.titleLabel?.font = Fonts.proRoundedRegular15
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(Colors.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         button.layer.cornerRadius = 20
@@ -106,18 +99,18 @@ final class PhoneVC: UIViewController, PhoneVCProtocol {
     }
     
     func navigateToCodeScreen() {
-        //dismiss(animated: true) { [weak self] in
-            self.onContinueButtonTapped?()
-        //}
+        self.onContinueButtonTapped?()
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white
         
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(phoneTextField)
         view.addSubview(continueButton)
+        
+        titleLabel.text = Texts.Login.phoneTitle
     }
     
     private func setupConstraints() {

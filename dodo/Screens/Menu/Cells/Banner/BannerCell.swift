@@ -19,25 +19,17 @@ final class BannerCell: UITableViewCell {
             collectionView.reloadData()
         }
     }
-    var ordersService: OrdersServiceProtocol?
+    var ordersService: OrdersStorageProtocol?
     
     private var containerView: UIView = {
         let containerView = UIView()
-        containerView.backgroundColor = .white
+        containerView.backgroundColor = Colors.white
         containerView.heightAnchor.constraint(equalToConstant: 160).isActive = true
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
     }()
     
-    var bannerLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Menu.bannerTitle,
-            font: Fonts.proRoundedBold22,
-            textAlignment: .left
-        )
-        return label
-    }()
+    var bannerLabel = CustomLabel.leftRoundedBold22
     
     lazy private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -69,12 +61,14 @@ final class BannerCell: UITableViewCell {
     func update(_ products: [Product]) {
         self.products = products.filter { $0.isOnSale }
     }
-
+    
     private func setupViews() {
         self.selectionStyle = .none
         contentView.addSubview(containerView)
         containerView.addSubview(bannerLabel)
         containerView.addSubview(collectionView)
+        
+        bannerLabel.text = Texts.Menu.bannerTitle
     }
     
     private func setupConstraints() {

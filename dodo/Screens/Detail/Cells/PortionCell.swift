@@ -17,15 +17,7 @@ final class PortionCell: UITableViewCell {
     }
     
     static let reuseID = "PortionCell"
-    
-    private var portionLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.backgroundColor = .lightGray
-        label.layer.cornerRadius = 8
-        label.clipsToBounds = true
-        label.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        return label
-    }()
+    private var portionLabel = CustomLabel.centerRegular15
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +32,11 @@ final class PortionCell: UITableViewCell {
     
     private func setupViews() {
         contentView.addSubview(portionLabel)
+        
+        portionLabel.backgroundColor = Colors.lightGray
+        portionLabel.layer.cornerRadius = 8
+        portionLabel.clipsToBounds = true
+        portionLabel.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
     private func setupConstraints() {

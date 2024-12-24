@@ -35,14 +35,14 @@ final class StoriesCollectionCell: UICollectionViewCell {
         if !storie.readability {
             contentView.layer.cornerRadius = 10
             contentView.layer.borderWidth = 4
-            contentView.layer.borderColor = UIColor.orange.cgColor
+            contentView.layer.borderColor = Colors.orange.cgColor
         } 
     }
 
     private func setupViews() {
         contentView.addSubview(storiesImageView)
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Colors.white
         storiesImageView.layer.cornerRadius = 15
     }
     

@@ -9,44 +9,76 @@ import UIKit
 
 final class CustomLabel: UILabel {
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        setupDefaultStyle()
+    static var centerRoundedThin11: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedThin11
+        label.textColor = Colors.black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    static var centerRegular15: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedRegular15
+        label.textColor = Colors.black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }
     
-    private func setupDefaultStyle() {
-        self.font = Fonts.proRoundedRegular15
-        self.textColor = .black
-        self.textAlignment = .center
-        self.numberOfLines = 0
+    static var centerRoundedBold15: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedBold15
+        label.textColor = Colors.black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }
     
-    func configure(
-        text: String? = nil,
-        font: UIFont? = nil,
-        textColor: UIColor? = nil,
-        textAlignment: NSTextAlignment? = nil,
-        numberOfLines: Int? = nil
-    ) {
-        if let text = text {
-            self.text = text
-        }
-        if let font = font {
-            self.font = font
-        }
-        if let textColor = textColor {
-            self.textColor = textColor
-        }
-        if let textAlignment = textAlignment {
-            self.textAlignment = textAlignment
-        }
-        if let numberOfLines = numberOfLines {
-            self.numberOfLines = numberOfLines
-        }
+    static var centerRoundedBold22: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedBold22
+        label.textColor = Colors.black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }
+    
+    static var leftRoundedBold22: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedBold22
+        label.textColor = Colors.black
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }
+    
+    static var leftRoundedBold15: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedBold15
+        label.textColor = Colors.black
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }
+    
+    static var leftRegular15: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedRegular15
+        label.textColor = Colors.black
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }
+    
+    static var rightRegular15: CustomLabel {
+        let label = CustomLabel()
+        label.font = Fonts.proRoundedRegular15
+        label.textColor = Colors.black
+        label.textAlignment = .right
+        label.numberOfLines = 0
+        return label
     }
 }
 

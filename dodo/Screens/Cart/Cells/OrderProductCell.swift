@@ -34,23 +34,9 @@ final class OrderProductCell: UITableViewCell {
         return imageView
     }()
     
-    private var nameLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            font: Fonts.proRoundedBold15,
-            textAlignment: .left
-        )
-        return label
-    }()
-    
-    private var detailLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            textColor: .darkGray,
-            textAlignment: .left
-        )
-        return label
-    }()
+    private var nameLabel = CustomLabel.leftRoundedBold15
+    private var detailLabel = CustomLabel.leftRegular15
+    private var priceLabel = CustomLabel.leftRegular15
     
     private var priceStackView: UIStackView = {
         var stackView = UIStackView.init()
@@ -60,14 +46,6 @@ final class OrderProductCell: UITableViewCell {
         stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 12, trailing: 0)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
-    }()
-    
-    private var priceLabel: UILabel = {
-        var label = CustomLabel()
-        label.configure(
-            textAlignment: .left
-        )
-        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -113,6 +91,7 @@ final class OrderProductCell: UITableViewCell {
         priceStackView.addArrangedSubview(priceLabel)
         priceStackView.addArrangedSubview(stepperView)
         
+        detailLabel.textColor = Colors.gray
     }
     
     private func setupConstraints() {

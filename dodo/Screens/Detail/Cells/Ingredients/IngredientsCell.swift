@@ -47,15 +47,7 @@ final class IngredientsCell: UITableViewCell {
         return collectionView
     }()
     
-    private var titleLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Menu.ingredientsTitle,
-            font: Fonts.proRoundedBold22,
-            textAlignment: .left
-        )
-        return label
-    }()
+    private var titleLabel = CustomLabel.leftRoundedBold22
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -88,6 +80,8 @@ final class IngredientsCell: UITableViewCell {
         //selectionStyle = .none
         contentView.addSubview(titleLabel)
         contentView.addSubview(collectionView)
+        
+        titleLabel.text = Texts.Menu.ingredientsTitle
     }
     
     private func setupConstraints() {
@@ -109,7 +103,7 @@ extension IngredientsCell: UICollectionViewDataSource, UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(indexPath) as IngredientCollectionCell
-        cell.backgroundColor = .white
+        cell.backgroundColor = Colors.white
         let ingredient = ingredients[indexPath.row]
         cell.update(ingredient)
         return cell

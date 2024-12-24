@@ -10,14 +10,7 @@ import SnapKit
 
 final class AddressView: UIView {
     
-    private var discriptionLabel: CustomLabel = {
-        let label = CustomLabel()
-        label.configure(
-            text: Texts.Map.mapDescription,
-            font: Fonts.proRoundedThin11
-        )
-        return label
-    }()
+    private var discriptionLabel = CustomLabel.centerRoundedThin11
     
     var addressTextField: UITextField = {
         let textField = UITextField()
@@ -33,7 +26,7 @@ final class AddressView: UIView {
         stack.alignment = .leading
         
         stack.layer.borderWidth = 2
-        stack.layer.borderColor = UIColor.lightGray.cgColor
+        stack.layer.borderColor = Colors.lightGray.cgColor
         stack.layer.cornerRadius = 16
         
         stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 8)
@@ -56,6 +49,8 @@ final class AddressView: UIView {
         self.addSubview(stackView)
         stackView.addArrangedSubview(discriptionLabel)
         stackView.addArrangedSubview(addressTextField)
+        
+        discriptionLabel.text = Texts.Map.mapDescription
     }
     
     func setupConstraints() {
