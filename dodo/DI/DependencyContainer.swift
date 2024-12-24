@@ -14,7 +14,7 @@ final class DependencyContainer {
     let networkClient: NetworkClient
     let productsService: ProductsService
     let storiesService: StoriesService
-    let ordersService: OrdersService
+    let ordersService: OrdersStorage
     let phoneAuthService: PhoneAuthService
     
     init() {
@@ -23,7 +23,7 @@ final class DependencyContainer {
         networkClient = NetworkClient()
         productsService = ProductsService(networkClient: networkClient)
         storiesService = StoriesService(networkClient: networkClient)
-        ordersService = OrdersService(networkClient: networkClient)
+        ordersService = OrdersStorage(networkClient: networkClient)
         phoneAuthService = PhoneAuthService.shared
         
         screenFactory.di = self

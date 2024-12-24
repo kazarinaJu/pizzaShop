@@ -40,7 +40,6 @@ class LoginCoordinator: Coordinator {
         phoneScreen.onContinueButtonTapped = {
             self.showCodeVC()
         }
-        
         router.present(phoneScreen, animated: true, onRoot: false)
     }
     
@@ -48,15 +47,9 @@ class LoginCoordinator: Coordinator {
         let codeScreen = screenFactory.makeCodeScreen()
         
         codeScreen.onUserLoggedIn = { isLoaded in
-            //guard let self = self else { return }
-            
             self.router.dismissModule()
-            
             self.finishAuth?(true)
-            
-            
         }
-        
         router.present(codeScreen, animated: true, onRoot: false)
     }
 }

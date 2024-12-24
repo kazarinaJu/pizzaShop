@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import UIKit
 
 class MenuCoordinator: Coordinator {
     
@@ -40,6 +41,10 @@ class MenuCoordinator: Coordinator {
             self.runLoginFlow()
         }
         
+        menuScreen.onStorieSelected = { stories, index in
+            self.runStorieFlow(stories, index)
+        }
+        
         router.setRootModule(menuScreen, hideBar: true)
     }
     
@@ -55,6 +60,23 @@ class MenuCoordinator: Coordinator {
     
     func showMap() {
         let mapScreen = screenFactory.makeMapScreen()
+        
+        mapScreen.addressPanelView.onAddressSaved = { address in
+           
+            let navVC = mapScreen.presentingViewController as! UINavigationController
+            
+            print(navVC.viewControllers.first)
+           if let menuVC = navVC.viewControllers.first as? MenuVC {
+                print(menuVC)
+               menuVC.updateAddress(address)
+               mapScreen.dismiss(animated: true)
+            }
+            
+            
+            print(mapScreen.presentingViewController)
+            print(mapScreen.presentationController)
+        }
+        
         router.present(mapScreen, animated: true, onRoot: true)
     }
     
@@ -90,5 +112,11 @@ class MenuCoordinator: Coordinator {
             
             self.runLoginFlow()
         }
+    }
+    
+    func runStorieFlow(_ stories: [Storie], _ currentIndex: Int ) {
+        let coordinator = coordinatorFactory.makeStorieCoordinator(router: router)
+        self.addDependency(coordinator)
+        coordinator.start(stories, currentIndex)
     }
 }

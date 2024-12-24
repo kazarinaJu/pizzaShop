@@ -9,13 +9,15 @@ import UIKit
 import SnapKit
 
 final class AddressPanelView: UIView {
-    var onAddressChanged: ((String) -> Void)?
+    var onAddressChanged: ((String) -> ())?
+    var onAddressSaved: ((String) -> ())?
     
     var timer: Timer?
     var delayValue : Double = 2.0
     
     var addressView = AddressView()
     var saveButton = CustomBigButton()
+    let adressStorage = AddressStorage()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -29,6 +31,7 @@ final class AddressPanelView: UIView {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        setupSaveButton()
         observe()
     }
     
@@ -60,12 +63,23 @@ extension AddressPanelView {
             onAddressChanged?(addressText)
         }
     }
+    
+    func setupSaveButton() {
+        saveButton.customBigtButton.setTitle("Сохранить", for: .normal)
+        saveButton.customBigtButton.addTarget(self, action: #selector(saveButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    @objc func saveButtonTapped(_ sender: UIButton) {
+        if let addressText = addressView.addressTextField.text {
+            onAddressSaved?(addressText)
+            adressStorage.add(addressText)
+        }
+    }
 }
 
 //MARK: - Layout
 extension AddressPanelView {
     func setupViews() {
-        saveButton.customBigtButton.setTitle("Сохранить", for: .normal)
         self.addSubview(stackView)
         stackView.addArrangedSubview(addressView)
         stackView.addArrangedSubview(saveButton)

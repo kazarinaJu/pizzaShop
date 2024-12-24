@@ -30,7 +30,7 @@ final class CartPresenter: CartPresenterProtocol {
     var totalPrice: Int = 0
     
     //MARK: Services
-    var ordersService: OrdersServiceProtocol?
+    var ordersService: OrdersStorageProtocol?
     var productsService: ProductsServiceProtocol?
     
     func viewWillAppear() {

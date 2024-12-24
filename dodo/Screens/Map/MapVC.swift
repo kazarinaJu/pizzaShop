@@ -11,12 +11,15 @@ import MapKit
 
 final class MapVC: UIViewController {
     
+    var onAddressSelected: ((String) -> ())?
+    
     var bottomConstraint: NSLayoutConstraint?
     var originalConstant: CGFloat = 0
     var keyboardFrame: CGRect = .zero
     
     var locationService = LocationService()
     var geocodeService = GeocodeService()
+    let adressStorage = AddressStorage()
     
     let addressPanelView = AddressPanelView()
     
@@ -47,12 +50,22 @@ final class MapVC: UIViewController {
         setupViews()
         setupConstraints()
         setupKeyboardNotifications()
-        showCurrentLocationOnMap()
+        checkupLocation()
         observe()
+        observeCloseButton()
     }
     
     @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func checkupLocation() {
+        let address = adressStorage.fetchLastAddress()
+        if address.isEmpty {
+            showCurrentLocationOnMap()
+        } else {
+            showAddressOnMap(address)
+        }
     }
 }
 
@@ -62,6 +75,14 @@ extension MapVC {
         addressPanelView.onAddressChanged = { [weak self] addressText in
             guard let self else { return }
             self.showAddressOnMap(addressText)
+        }
+    }
+    
+    func observeCloseButton() {
+        addressPanelView.onAddressChanged = { [weak self] addressText in
+            guard let self else { return }
+            self.onAddressSelected?(addressText)
+            dismiss(animated: true)
         }
     }
 }
