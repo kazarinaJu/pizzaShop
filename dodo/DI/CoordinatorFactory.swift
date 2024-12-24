@@ -13,7 +13,7 @@ protocol CoordinatorFactoryProtocol {
     func makeLoginCoordinator(router: Router) -> LoginCoordinator
     func makeMenuCoordinator(router: Router) -> MenuCoordinator
     func makeProfileCoordinator(router: Router) -> ProfileCoordinator
-    
+    func makeStorieCoordinator(router: Router) -> StorieCoordinator
 }
 
 final class CoordinatorFactory: CoordinatorFactoryProtocol {
@@ -44,5 +44,7 @@ final class CoordinatorFactory: CoordinatorFactoryProtocol {
         return ProfileCoordinator(router: router, screenFactory: screenFactory)
     }
     
-    
+    func makeStorieCoordinator(router: Router) -> StorieCoordinator {
+        return StorieCoordinator(router: router, screenFactory: screenFactory)
+    }
 }

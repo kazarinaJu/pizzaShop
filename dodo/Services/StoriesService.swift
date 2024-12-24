@@ -27,6 +27,7 @@ class StoriesService: StoriesServiceProtocol {
         return url
     }
     
+    private let readStoriesKey = "ReadStories"
     
     func fetchStories(completion: @escaping ([Storie]) -> Void) {
         
@@ -50,8 +51,32 @@ class StoriesService: StoriesServiceProtocol {
             }
         }
     }
+    
+    func saveReadStories(_ readStories: Set<UInt>) {
+        if let data = try? JSONEncoder().encode(readStories) {
+            UserDefaults.standard.set(data, forKey: readStoriesKey)
+        }
+    }
+    
+    func getReadStories() -> Set<UInt> {
+        guard let data = UserDefaults.standard.data(forKey: readStoriesKey),
+              let readStories = try? JSONDecoder().decode(Set<UInt>.self, from: data) else {
+            return []
+        }
+        return readStories
+    }
+    
+    func isStoryRead(storyID: UInt) -> Bool {
+        return getReadStories().contains(storyID)
+    }
+    
+    func markAsRead(storyID: UInt) {
+        var readStories = getReadStories()
+        readStories.insert(storyID)
+        saveReadStories(readStories)
+    }
 }
-     
+
 
 
 
