@@ -26,6 +26,7 @@ struct Product: Codable {
     var count: Int = 1
     let category: ProductSection
     let isPromo: Bool?
+    let energyValue: String?
     
     func sizeIndex(_ size: String) -> Int {
         switch size {
@@ -54,7 +55,9 @@ struct Product: Codable {
             portion: 0,
             isOnSale: false,
             category: .pizza,
-            isPromo: false)
+            isPromo: false,
+            energyValue: ""
+        )
     }
 }
 
@@ -87,6 +90,25 @@ enum ProductSection: String, Codable, CaseIterable {
 extension ProductSection {
     static func from(description: String) -> ProductSection? {
         return ProductSection.allCases.first { $0.description == description }
+    }
+}
+
+extension Product: Equatable {
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.detail == rhs.detail &&
+        lhs.description == rhs.description &&
+        lhs.weight == rhs.weight &&
+        lhs.price == rhs.price &&
+        lhs.image == rhs.image &&
+        lhs.portion == rhs.portion &&
+        lhs.size == rhs.size &&
+        lhs.dough == rhs.dough &&
+        lhs.isOnSale == rhs.isOnSale &&
+        lhs.count == rhs.count &&
+        lhs.category == rhs.category &&
+        lhs.isPromo == rhs.isPromo
     }
 }
 
