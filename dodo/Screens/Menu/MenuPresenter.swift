@@ -33,7 +33,7 @@ final class MenuPresenter: MenuPresenterProtocol {
 //MARK: Services
     var storiesService: StoriesServiceProtocol?
     var productsService: ProductsServiceProtocol?
-    var ordersService: OrdersServiceProtocol?
+    var ordersService: OrdersStorageProtocol?
   
     func viewDidLoad() {
         fetchProducts()
@@ -70,6 +70,10 @@ extension MenuPresenter {
     
     func mapButtonTapped() {
         view?.navigateToMapScreen()
+    }
+    
+    func addressSelected(_ address: String) {
+        view?.updateAddress(address)
     }
 }
 

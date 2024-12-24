@@ -11,7 +11,7 @@ import Foundation
 
 final class OrdersServiceTests: XCTestCase {
     
-    class OrdersServiceSpy: OrdersServiceProtocol {
+    class OrdersServiceSpy: OrdersStorageProtocol {
         
         func save(_ products: [dodo.Product]) {
 

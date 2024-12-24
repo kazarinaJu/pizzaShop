@@ -32,7 +32,7 @@ final class DetailPresenter: DetailPresenterProtocol {
     
 //MARK: Services
     var productsService: ProductsServiceProtocol?
-    var ordersService: OrdersServiceProtocol?
+    var ordersService: OrdersStorageProtocol?
     
     func viewDidLoad() {
         
@@ -50,7 +50,6 @@ extension DetailPresenter {
     func sizeControlTapped(_ size: String) {
         self.product?.size = size
         view?.showProduct(self.product)
-        
     }
     
     func doughControlTapped(_ dough: String) {
@@ -62,15 +61,12 @@ extension DetailPresenter {
 //MARK: - Business Logic
 extension DetailPresenter {
     func fetchIngredients() {
-        
         productsService?.fetchIngredients { [weak self] ingredients in
-            
             self?.view?.showIngredients(ingredients)
         }
     }
     
     func fetchSizesAndDough() {
-        
         productsService?.fetchSizesAndDough { [weak self] sizes, dough in
             if let sizes = sizes, let dough = dough {
                 self?.view?.showSizes(sizes)

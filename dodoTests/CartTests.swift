@@ -60,7 +60,7 @@ final class CartTests: XCTestCase {
     func testViewControllerShowProductsCalled() {
     
         let networkClientStub = NetworkClientStub(domainType: .order, emulateError: false)
-        let orderService = OrdersService(networkClient: networkClientStub)
+        let orderService = OrdersStorage(networkClient: networkClientStub)
         let cartVCSpy = CartViewControllerSpy()
         let cartPresenter = CartPresenter()
         
@@ -83,7 +83,7 @@ final class CartTests: XCTestCase {
     func testViewControllerShowCartCalled() {
     
         let networkClientStub = NetworkClientStub(domainType: .order, emulateError: false)
-        let orderService = OrdersService(networkClient: networkClientStub)
+        let orderService = OrdersStorage(networkClient: networkClientStub)
         let cartVCSpy = CartViewControllerSpy()
         let cartPresenter = CartPresenter()
         
