@@ -11,7 +11,7 @@ protocol MenuPresenterProtocol: AnyObject {
     var view: MenuVCProtocol? { get set }
     
     //User Event & View Event
-    func viewDidLoad()
+    func viewWillAppear()
     func bannerPriceButtonTapped(_ product: Product)
     func productPriceButtonTapped(_ product: Product)
     func productCellSelected(_ selectedProduct: Product)
@@ -27,15 +27,15 @@ protocol MenuPresenterProtocol: AnyObject {
 }
 
 final class MenuPresenter: MenuPresenterProtocol {
-
+    
     weak var view: MenuVCProtocol?
     
-//MARK: Services
+    //MARK: Services
     var storiesService: StoriesServiceProtocol?
     var productsService: ProductsServiceProtocol?
     var ordersService: OrdersStorageProtocol?
-  
-    func viewDidLoad() {
+    
+    func viewWillAppear() {
         fetchProducts()
         fetchStories()
         fetchCategories()
@@ -85,7 +85,7 @@ extension MenuPresenter {
             view?.showProducts(products)
         }
     }
-
+    
     func fetchStories() {
         storiesService?.fetchStories { [self] stories in
             view?.showStories(stories)

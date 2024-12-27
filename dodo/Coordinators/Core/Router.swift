@@ -14,16 +14,13 @@ protocol Presentable: AnyObject {
 }
 
 extension UIViewController: Presentable {
-    
     func toPresent() -> UIViewController? {
         return self
     }
 }
 
 protocol Router: Presentable {
-    
-    //func presentOn(_ module: Presentable?)
-    func present(_ module: Presentable?, animated: Bool, onRoot: Bool)
+    func present(_ module: Presentable?, animated: Bool, onRoot: Bool, fullScreen: Bool)
     
     func push(_ module: Presentable?)
     func push(_ module: Presentable?, hideBottomBar: Bool)
@@ -60,38 +57,44 @@ final class RouterImpl: Router {
         return rootController
     }
     
-    func present(_ module: Presentable?, animated: Bool, onRoot: Bool = false) {
+    func present(_ module: Presentable?, animated: Bool, onRoot: Bool = false, fullScreen: Bool) {
         if onRoot {
-            presentOnContainer(module, animated: animated)
+            presentOnContainer(module, animated, fullScreen)
         } else {
-            presentOnController(module)
+            presentOnController(module, fullScreen)
         }
     }
     
-    private func presentOnController(_ module: Presentable?) {
+    private func presentOnController(_ module: Presentable?, _ fullScreen: Bool) {
         guard let controller = module?.toPresent() else { return }
+        
+        if fullScreen {
+            controller.modalPresentationStyle = .fullScreen
+        }
         
         if presentControllers.isEmpty {
             rootController?.present(controller, animated: true, completion: nil)
             return
         }
-         
+        
         let presentController = presentControllers[presentControllers.count - 1]
-        
         presentControllers.append(controller)
-        
         presentController.present(controller, animated: true, completion: nil)
     }
     
-    private func presentOnContainer(_ module: Presentable?, animated: Bool) {
+    private func presentOnContainer(_ module: Presentable?, _ animated: Bool, _ fullScreen: Bool) {
         guard let controller = module?.toPresent() else { return }
+        
+        if fullScreen {
+            controller.modalPresentationStyle = .fullScreen
+        }
+        
         presentControllers.append(controller)
         rootController?.present(controller, animated: animated, completion: nil)
     }
     
     func dismissContainer() {
         let presentContorller = presentControllers[0]
-        
         presentContorller.dismiss(animated: true)
     }
     
@@ -101,7 +104,6 @@ final class RouterImpl: Router {
     }
     
     func dismissModule(animated: Bool, completion: (() -> Void)?) {
-        
         rootController?.dismiss(animated: animated, completion: completion)
     }
     

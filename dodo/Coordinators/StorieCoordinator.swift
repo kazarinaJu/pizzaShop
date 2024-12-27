@@ -23,11 +23,10 @@ class StorieCoordinator: Coordinator {
     
     private func showStorie(_ stories: [Storie], _ currentIndex: Int) {
         let storieScreen = screenFactory.makeStoriesScreen(stories, currentIndex)
-        router.setRootModule(storieScreen, hideBar: true)
+        router.push(storieScreen, animated: false)
         
-//        storieScreen.onStoriesUpdated = { [weak self] updatedStories in
-//            self?.stories = updatedStories
-//            self?.tableView.reloadData()
-//        }
+        storieScreen.onStorieWatched = {
+            self.router.popModule(animated: false)
+        }
     }
 }

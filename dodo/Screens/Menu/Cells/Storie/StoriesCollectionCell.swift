@@ -36,7 +36,10 @@ final class StoriesCollectionCell: UICollectionViewCell {
             contentView.layer.cornerRadius = 10
             contentView.layer.borderWidth = 4
             contentView.layer.borderColor = Colors.orange.cgColor
-        } 
+        } else {
+            contentView.layer.cornerRadius = 0
+            contentView.layer.borderWidth = 0
+        }
     }
 
     private func setupViews() {

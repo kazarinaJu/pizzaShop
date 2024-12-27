@@ -22,8 +22,8 @@ final class AppProgressView: UIProgressView {
     
     private func setupUI() {
         progress = 0.0
-        trackTintColor = Colors.lightGray
-        progressTintColor = Colors.white
+        trackTintColor = Colors.white
+        progressTintColor = Colors.gray
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: progressViewHeight).isActive = true
     }

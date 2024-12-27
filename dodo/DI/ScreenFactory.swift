@@ -22,7 +22,6 @@ protocol ScreenFactoryProtocol {
 }
 
 final class ScreenFactory: ScreenFactoryProtocol {
-    
     weak var di: DependencyContainer!
     
     init(){}
@@ -63,6 +62,6 @@ final class ScreenFactory: ScreenFactoryProtocol {
     }
     
     func makeStoriesScreen(_ stories: [Storie], _ currentIndex: Int) -> StorieVC {
-        return StorieVC(stories: stories, currentIndex: currentIndex)
+        return StorieConfigurator().configure(stories, di, currentIndex)
     }
 }

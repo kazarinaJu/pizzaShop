@@ -108,11 +108,9 @@ final class MenuVC: UIViewController, MenuVCProtocol {
         configuration.imagePadding = 10
         configuration.titlePadding = 4
         configuration.baseForegroundColor = Colors.black
-        
         let button = UIButton(configuration: configuration, primaryAction: nil)
         button.isHidden = true
         button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
-        
         return button
     }()
     
@@ -121,8 +119,11 @@ final class MenuVC: UIViewController, MenuVCProtocol {
         setupViews()
         setupConstraints()
         setUpFeatureToggles()
-        
-        presenter?.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
     }
 }
 //MARK: - Update View
@@ -197,7 +198,6 @@ extension MenuVC {
 
 //MARK: - UITableViewDataSource
 extension MenuVC: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return MenuSection.allCases.count
     }
@@ -219,11 +219,9 @@ extension MenuVC: UITableViewDataSource {
         switch section {
         case .stories:
             let cell = tableView.dequeuCell(indexPath) as StoriesCell
-            
             cell.onStorieCellSeclected = { [weak self] storyIndex in
                 self?.navigateToStoriesScreen(storyIndex)
             }
-            
             cell.update(stories)
             return cell
         case .banners:
@@ -233,11 +231,8 @@ extension MenuVC: UITableViewDataSource {
                 self?.bannerCellPriceButtonTapped(product)
             }
             return cell
-            
         case .products:
-            
             let product = products[indexPath.row]
-            
             if product.isPromo != nil {
                 let cell = tableView.dequeuCell(indexPath) as ProductPromoCell
                 cell.update(product)
@@ -245,7 +240,6 @@ extension MenuVC: UITableViewDataSource {
                     self?.productCellPriceButtonTapped(product)
                 }
                 return cell
-                
             } else {
                 let cell = tableView.dequeuCell(indexPath) as ProductCell
                 cell.update(product)
@@ -254,7 +248,6 @@ extension MenuVC: UITableViewDataSource {
                 }
                 return cell
             }
-            
         default:
             return UITableViewCell()
         }
@@ -279,7 +272,6 @@ extension MenuVC: UITableViewDataSource {
 extension MenuVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = MenuSection.init(rawValue: indexPath.section)
-        
         if section == .products {
             let selectedProduct = products[indexPath.row]
             productSelectedTapped(selectedProduct)
@@ -331,7 +323,6 @@ extension MenuVC {
     
     func scrollToCategory(_ categoryDescription: String) {
         guard let category = ProductSection.from(description: categoryDescription) else { return }
-        
         if let productIndex = products.firstIndex(where: { $0.category == category }) {
             let indexPath = IndexPath(row: productIndex, section: MenuSection.products.rawValue)
             tableView.scrollToRow(at: indexPath, at: .top, animated: true)

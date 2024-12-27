@@ -25,16 +25,13 @@ class ProfileCoordinator: Coordinator {
     
     private func showProfileVC() {
         let profileScreen = screenFactory.makeProfileScreen()
-        router.present(profileScreen, animated: true, onRoot: false)
+        router.present(profileScreen, animated: true, onRoot: false, fullScreen: false)
         
         profileScreen.onUserLogsOut = { isLoaded in
             UserDefaults.standard.set(false, forKey: "isFirstAuthCompleted")
-            
-            
             self.router.dismissModule(animated: true) {
                 self.logsOut?(true)
             }
-            
         }
     }
 }

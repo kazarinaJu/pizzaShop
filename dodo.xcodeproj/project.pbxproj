@@ -19,6 +19,8 @@
 		050728312D11A34800E55EB2 /* AppProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050728302D11A34500E55EB2 /* AppProgressView.swift */; };
 		050728332D144F8900E55EB2 /* StorieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050728322D144F7E00E55EB2 /* StorieCoordinator.swift */; };
 		050728352D145CB900E55EB2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050728342D145CB300E55EB2 /* Colors.swift */; };
+		050728372D1C1F0000E55EB2 /* StoriePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050728362D1C1EF500E55EB2 /* StoriePresenter.swift */; };
+		050728392D1C27CE00E55EB2 /* StorieConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050728382D1C27BF00E55EB2 /* StorieConfigurator.swift */; };
 		050FDFA12CB656B800D56C17 /* PhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA02CB656B500D56C17 /* PhoneVC.swift */; };
 		050FDFA32CB6570000D56C17 /* CodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA22CB656F400D56C17 /* CodeVC.swift */; };
 		050FDFA52CB6572500D56C17 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA42CB6572000D56C17 /* ProfileVC.swift */; };
@@ -165,6 +167,8 @@
 		050728302D11A34500E55EB2 /* AppProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressView.swift; sourceTree = "<group>"; };
 		050728322D144F7E00E55EB2 /* StorieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorieCoordinator.swift; sourceTree = "<group>"; };
 		050728342D145CB300E55EB2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		050728362D1C1EF500E55EB2 /* StoriePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriePresenter.swift; sourceTree = "<group>"; };
+		050728382D1C27BF00E55EB2 /* StorieConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorieConfigurator.swift; sourceTree = "<group>"; };
 		050FDFA02CB656B500D56C17 /* PhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC.swift; sourceTree = "<group>"; };
 		050FDFA22CB656F400D56C17 /* CodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVC.swift; sourceTree = "<group>"; };
 		050FDFA42CB6572000D56C17 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -643,7 +647,9 @@
 		05B008952B83B13F00FC2821 /* Storie */ = {
 			isa = PBXGroup;
 			children = (
+				050728382D1C27BF00E55EB2 /* StorieConfigurator.swift */,
 				05CD03622D09A92700DD8C2D /* StorieVC.swift */,
+				050728362D1C1EF500E55EB2 /* StoriePresenter.swift */,
 				05B008962B83B15F00FC2821 /* StoriesCell.swift */,
 				05B008982B83B17100FC2821 /* StoriesCollectionCell.swift */,
 			);
@@ -1147,6 +1153,7 @@
 				05B008A02B86201000FC2821 /* CategoryHeader.swift in Sources */,
 				05B0086E2B6B9DD800FC2821 /* MainTabVC.swift in Sources */,
 				05C0DBC62B8CF19D00546F01 /* OrderProductCell.swift in Sources */,
+				050728372D1C1F0000E55EB2 /* StoriePresenter.swift in Sources */,
 				052FDA7F2CC91EB80016E637 /* MapCoordinator.swift in Sources */,
 				058340182CAEC4BC0060305C /* StartVC.swift in Sources */,
 				052FDA7B2CBFF4E20016E637 /* Router.swift in Sources */,
@@ -1164,6 +1171,7 @@
 				055D6C202B69542700989B70 /* Product.swift in Sources */,
 				05C0DBC32B8CD77F00546F01 /* OrdersStorage.swift in Sources */,
 				05B4B2232BB2E0BE00AA4802 /* DetailPresenter.swift in Sources */,
+				050728392D1C27CE00E55EB2 /* StorieConfigurator.swift in Sources */,
 				05B441D22CAE7BD6008B3F79 /* LoginCoordinator.swift in Sources */,
 				05B441D42CAE7C0C008B3F79 /* MenuCoordinator.swift in Sources */,
 				055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */,

@@ -30,8 +30,7 @@ class LoginCoordinator: Coordinator {
         loginScreen.onPhoneButtonTapped = {
             self.showPhoneVC()
         }
-        
-        router.present(loginScreen, animated: true, onRoot: true)
+        router.present(loginScreen, animated: true, onRoot: true, fullScreen: false)
     }
     
     func showPhoneVC() {
@@ -40,7 +39,7 @@ class LoginCoordinator: Coordinator {
         phoneScreen.onContinueButtonTapped = {
             self.showCodeVC()
         }
-        router.present(phoneScreen, animated: true, onRoot: false)
+        router.present(phoneScreen, animated: true, onRoot: false, fullScreen: false)
     }
     
     func showCodeVC() {
@@ -50,6 +49,6 @@ class LoginCoordinator: Coordinator {
             self.router.dismissModule()
             self.finishAuth?(true)
         }
-        router.present(codeScreen, animated: true, onRoot: false)
+        router.present(codeScreen, animated: true, onRoot: false, fullScreen: false)
     }
 }

@@ -9,6 +9,8 @@ import Foundation
 
 protocol StoriesServiceProtocol: AnyObject {
     func fetchStories(completion: @escaping ([Storie]) -> Void)
+    func markAsRead(storyID: UInt)
+    func fetchReadStories() -> Set<UInt>
 }
 
 class StoriesService: StoriesServiceProtocol {
@@ -30,7 +32,6 @@ class StoriesService: StoriesServiceProtocol {
     private let readStoriesKey = "ReadStories"
     
     func fetchStories(completion: @escaping ([Storie]) -> Void) {
-        
         networkClient.fetch(url: storiesUrl) { [weak self] result in
             guard let self else { return }
             switch result {
@@ -38,7 +39,15 @@ class StoriesService: StoriesServiceProtocol {
                 
                 do {
                     let storieResponse = try decoder.decode(StorieResponse.self, from: data)
-                    let stories = storieResponse.stories
+                    var stories = storieResponse.stories
+                    
+                    let readStories = fetchReadStories()
+                    
+                    for index in stories.indices {
+                        if readStories.contains(stories[index].id) {
+                            stories[index].readability = true
+                        }
+                    }
                     
                     DispatchQueue.main.async {
                         completion(stories)
@@ -58,22 +67,18 @@ class StoriesService: StoriesServiceProtocol {
         }
     }
     
-    func getReadStories() -> Set<UInt> {
+    func markAsRead(storyID: UInt) {
+        var readStories = fetchReadStories()
+        readStories.insert(storyID)
+        saveReadStories(readStories)
+    }
+    
+    func fetchReadStories() -> Set<UInt> {
         guard let data = UserDefaults.standard.data(forKey: readStoriesKey),
               let readStories = try? JSONDecoder().decode(Set<UInt>.self, from: data) else {
             return []
         }
         return readStories
-    }
-    
-    func isStoryRead(storyID: UInt) -> Bool {
-        return getReadStories().contains(storyID)
-    }
-    
-    func markAsRead(storyID: UInt) {
-        var readStories = getReadStories()
-        readStories.insert(storyID)
-        saveReadStories(readStories)
     }
 }
 

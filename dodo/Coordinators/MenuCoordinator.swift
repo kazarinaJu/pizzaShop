@@ -22,7 +22,6 @@ class MenuCoordinator: Coordinator {
     }
     
     override func start() {
-        
         let menuScreen = screenFactory.makeMenuScreen()
         
         menuScreen.onDetailCellTapped = { product in
@@ -44,60 +43,45 @@ class MenuCoordinator: Coordinator {
         menuScreen.onStorieSelected = { stories, index in
             self.runStorieFlow(stories, index)
         }
-        
         router.setRootModule(menuScreen, hideBar: true)
     }
     
     func showDetail(_ product: Product) {
         let detailScreen = screenFactory.makeDetailScreen(with: product)
-        router.present(detailScreen, animated: true, onRoot: true )
+        router.present(detailScreen, animated: true, onRoot: true, fullScreen: false)
     }
     
     func showCart() {
         let cartScreen = screenFactory.makeCartScreen()
-        router.present(cartScreen, animated: true, onRoot: true)
+        router.present(cartScreen, animated: true, onRoot: true, fullScreen: false)
     }
     
     func showMap() {
         let mapScreen = screenFactory.makeMapScreen()
         
         mapScreen.addressPanelView.onAddressSaved = { address in
-           
             let navVC = mapScreen.presentingViewController as! UINavigationController
             
-            print(navVC.viewControllers.first)
-           if let menuVC = navVC.viewControllers.first as? MenuVC {
-                print(menuVC)
-               menuVC.updateAddress(address)
-               mapScreen.dismiss(animated: true)
+            if let menuVC = navVC.viewControllers.first as? MenuVC {
+                menuVC.updateAddress(address)
+                mapScreen.dismiss(animated: true)
             }
-            
-            
-            print(mapScreen.presentingViewController)
-            print(mapScreen.presentationController)
         }
-        
-        router.present(mapScreen, animated: true, onRoot: true)
+        router.present(mapScreen, animated: true, onRoot: true, fullScreen: false)
     }
     
     func runLoginFlow() {
-        
         let isFirstAuth = UserDefaults.standard.bool(forKey: "isFirstAuthCompleted")
         
         if Auth.auth().currentUser != nil && isFirstAuth {
-            print("Пользователь авторизован")
             runProfileFlow()
         } else {
-            print("Первая авторизация")
             let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
-            
             self.addDependency(coordinator)
             coordinator.start()
             
             coordinator.finishAuth = { isLoaded in
-                
                 self.runProfileFlow()
-                
                 self.removeDependency(coordinator)
             }
         }
@@ -109,7 +93,6 @@ class MenuCoordinator: Coordinator {
         coordinator.start()
         
         coordinator.logsOut = { isLoaded in
-            
             self.runLoginFlow()
         }
     }
