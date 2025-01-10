@@ -28,6 +28,7 @@
 		050FDFA92CB65F0E00D56C17 /* AuthConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFA82CB65F0400D56C17 /* AuthConfigurator.swift */; };
 		050FDFAB2CB65F2300D56C17 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FDFAA2CB65F1D00D56C17 /* AuthPresenter.swift */; };
 		050FDFB12CB6A60D00D56C17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 050FDFB02CB6A60D00D56C17 /* GoogleService-Info.plist */; };
+		051938592D2FF45700855AD1 /* DodoNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 051938582D2FF45700855AD1 /* DodoNetworkLayer */; };
 		05197E322BE0CD9200BEB946 /* DetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05197E312BE0CD9200BEB946 /* DetailTests.swift */; };
 		051DD9F32BD131D6007E1136 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DD9F22BD131D6007E1136 /* MenuTests.swift */; };
 		052194CD2C7CC9D000B19019 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052194CC2C7CC9D000B19019 /* Feature.swift */; };
@@ -59,8 +60,6 @@
 		055D6C072B6952A400989B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055D6C062B6952A400989B70 /* Assets.xcassets */; };
 		055D6C0A2B6952A400989B70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055D6C082B6952A400989B70 /* LaunchScreen.storyboard */; };
 		055D6C1E2B6953EB00989B70 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C1D2B6953EB00989B70 /* ProductCell.swift */; };
-		055D6C202B69542700989B70 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C1F2B69542700989B70 /* Product.swift */; };
-		055D6C222B69544800989B70 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C212B69544800989B70 /* ProductsService.swift */; };
 		055D6C252B6A74D500989B70 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C242B6A74D500989B70 /* UIView+Shadow.swift */; };
 		055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D6C262B6A85CB00989B70 /* UITableView + dequeueCell.swift */; };
 		05781A042CD3BFCA00864D56 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05781A032CD3BFC100864D56 /* ProfileCoordinator.swift */; };
@@ -69,7 +68,6 @@
 		0588DC052C9075C200A12D8E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588DC042C9075C200A12D8E /* LoginVC.swift */; };
 		0597E39A2C94627700573C8A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0597E3992C94627700573C8A /* FirebaseAuth */; };
 		0597E39C2C94627700573C8A /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0597E39B2C94627700573C8A /* FirebaseAuthCombine-Community */; };
-		05AB8BF12BD68BBF00A95765 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */; };
 		05B0086E2B6B9DD800FC2821 /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0086D2B6B9DD800FC2821 /* MainTabVC.swift */; };
 		05B008702B6B9F8900FC2821 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0086F2B6B9F8900FC2821 /* CartVC.swift */; };
 		05B008782B74C7FA00FC2821 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B008772B74C7FA00FC2821 /* DetailVC.swift */; };
@@ -83,8 +81,6 @@
 		05B008922B81162500FC2821 /* BannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B008912B81162500FC2821 /* BannerCollectionCell.swift */; };
 		05B008972B83B15F00FC2821 /* StoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B008962B83B15F00FC2821 /* StoriesCell.swift */; };
 		05B008992B83B17100FC2821 /* StoriesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B008982B83B17100FC2821 /* StoriesCollectionCell.swift */; };
-		05B0089B2B84F99000FC2821 /* Storie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0089A2B84F99000FC2821 /* Storie.swift */; };
-		05B0089D2B84FA0900FC2821 /* StoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0089C2B84FA0900FC2821 /* StoriesService.swift */; };
 		05B008A02B86201000FC2821 /* CategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0089F2B86201000FC2821 /* CategoryHeader.swift */; };
 		05B008A22B86204600FC2821 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B008A12B86204600FC2821 /* CategoryCollectionCell.swift */; };
 		05B21B502CD8B2A60071B95E /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05B21B4F2CD8B2A60071B95E /* PhoneNumberKit */; };
@@ -210,15 +206,12 @@
 		055D6C092B6952A400989B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		055D6C0B2B6952A400989B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055D6C1D2B6953EB00989B70 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		055D6C1F2B69542700989B70 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		055D6C212B69544800989B70 /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		055D6C242B6A74D500989B70 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		055D6C262B6A85CB00989B70 /* UITableView + dequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + dequeueCell.swift"; sourceTree = "<group>"; };
 		05781A032CD3BFC100864D56 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		058340172CAEC4BC0060305C /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		0588DBE92C88812E00A12D8E /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		0588DC042C9075C200A12D8E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		05B0086D2B6B9DD800FC2821 /* MainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
 		05B0086F2B6B9F8900FC2821 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		05B008772B74C7FA00FC2821 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
@@ -232,8 +225,6 @@
 		05B008912B81162500FC2821 /* BannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionCell.swift; sourceTree = "<group>"; };
 		05B008962B83B15F00FC2821 /* StoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCell.swift; sourceTree = "<group>"; };
 		05B008982B83B17100FC2821 /* StoriesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionCell.swift; sourceTree = "<group>"; };
-		05B0089A2B84F99000FC2821 /* Storie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storie.swift; sourceTree = "<group>"; };
-		05B0089C2B84FA0900FC2821 /* StoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesService.swift; sourceTree = "<group>"; };
 		05B0089F2B86201000FC2821 /* CategoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeader.swift; sourceTree = "<group>"; };
 		05B008A12B86204600FC2821 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		05B441C02CAD8C2D008B3F79 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
@@ -334,6 +325,7 @@
 				05DB973A2C6E16F400E9DB93 /* SnapKit in Frameworks */,
 				05B21B502CD8B2A60071B95E /* PhoneNumberKit in Frameworks */,
 				0597E39A2C94627700573C8A /* FirebaseAuth in Frameworks */,
+				051938592D2FF45700855AD1 /* DodoNetworkLayer in Frameworks */,
 				1D2F1B2A9AEB342902186970 /* Pods_dodo.framework in Frameworks */,
 				0597E39C2C94627700573C8A /* FirebaseAuthCombine-Community in Frameworks */,
 			);
@@ -470,7 +462,6 @@
 				05B441BF2CAD8C11008B3F79 /* DI */,
 				05B441C62CAE742F008B3F79 /* Coordinators */,
 				055D6C132B6952ED00989B70 /* Screens */,
-				055D6C142B69530300989B70 /* Models */,
 				055D6C152B69530A00989B70 /* Services */,
 				055D6C232B6A749800989B70 /* Extensions */,
 				052194CB2C7CC9B000B19019 /* FeatureToggle */,
@@ -525,25 +516,13 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		055D6C142B69530300989B70 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				055D6C1F2B69542700989B70 /* Product.swift */,
-				05B0089A2B84F99000FC2821 /* Storie.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		055D6C152B69530A00989B70 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				05CD03642D0B1DC300DD8C2D /* AddressStorage.swift */,
-				055D6C212B69544800989B70 /* ProductsService.swift */,
-				05B0089C2B84FA0900FC2821 /* StoriesService.swift */,
 				05C0DBC22B8CD77F00546F01 /* OrdersStorage.swift */,
 				0502F0902BBC3F6500556C33 /* LocationService.swift */,
 				0502F0922BBC6DD500556C33 /* GeocodeService.swift */,
-				05AB8BF02BD68BBF00A95765 /* NetworkClient.swift */,
 				050FDFA62CB65E3400D56C17 /* PhoneAuthService.swift */,
 			);
 			path = Services;
@@ -877,6 +856,7 @@
 				0597E3992C94627700573C8A /* FirebaseAuth */,
 				0597E39B2C94627700573C8A /* FirebaseAuthCombine-Community */,
 				05B21B4F2CD8B2A60071B95E /* PhoneNumberKit */,
+				051938582D2FF45700855AD1 /* DodoNetworkLayer */,
 			);
 			productName = dodo;
 			productReference = 055D6BFA2B6952A300989B70 /* dodo.app */;
@@ -923,6 +903,7 @@
 				05DB97382C6E16F400E9DB93 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0597E3982C94627700573C8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				05B21B4E2CD8B2A60071B95E /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+				051938572D2FF45700855AD1 /* XCRemoteSwiftPackageReference "PizzaShopNetworkLayer" */,
 			);
 			productRefGroup = 055D6BFB2B6952A300989B70 /* Products */;
 			projectDirPath = "";
@@ -1119,11 +1100,9 @@
 				05D4CA962CFF539300C20F00 /* UICollectionView + dequeue.swift in Sources */,
 				05B008702B6B9F8900FC2821 /* CartVC.swift in Sources */,
 				050728312D11A34800E55EB2 /* AppProgressView.swift in Sources */,
-				05B0089D2B84FA0900FC2821 /* StoriesService.swift in Sources */,
 				05B008972B83B15F00FC2821 /* StoriesCell.swift in Sources */,
 				05D4CA992D005F0C00C20F00 /* CustomLabel.swift in Sources */,
 				05B008992B83B17100FC2821 /* StoriesCollectionCell.swift in Sources */,
-				05AB8BF12BD68BBF00A95765 /* NetworkClient.swift in Sources */,
 				05C0DBCB2B8E46C500546F01 /* PriceHeaderView.swift in Sources */,
 				05564C252C64E21B000CE78E /* ProductPromoCell.swift in Sources */,
 				0588DC052C9075C200A12D8E /* LoginVC.swift in Sources */,
@@ -1162,13 +1141,11 @@
 				05CD03632D09A93100DD8C2D /* StorieVC.swift in Sources */,
 				0502F0912BBC3F6500556C33 /* LocationService.swift in Sources */,
 				0502F08F2BBADE8F00556C33 /* MapVC.swift in Sources */,
-				05B0089B2B84F99000FC2821 /* Storie.swift in Sources */,
 				05B008842B79EF6E00FC2821 /* IngredientsCell.swift in Sources */,
 				05781A042CD3BFCA00864D56 /* ProfileCoordinator.swift in Sources */,
 				052194D72C80889400B19019 /* RemoteTogglesService.swift in Sources */,
 				05D4CA752CF6098000C20F00 /* PopoverVC.swift in Sources */,
 				05B008922B81162500FC2821 /* BannerCollectionCell.swift in Sources */,
-				055D6C202B69542700989B70 /* Product.swift in Sources */,
 				05C0DBC32B8CD77F00546F01 /* OrdersStorage.swift in Sources */,
 				05B4B2232BB2E0BE00AA4802 /* DetailPresenter.swift in Sources */,
 				050728392D1C27CE00E55EB2 /* StorieConfigurator.swift in Sources */,
@@ -1193,7 +1170,6 @@
 				055D6C002B6952A300989B70 /* SceneDelegate.swift in Sources */,
 				050FDFA52CB6572500D56C17 /* ProfileVC.swift in Sources */,
 				05B0087A2B74CCCC00FC2821 /* ImageCell.swift in Sources */,
-				055D6C222B69544800989B70 /* ProductsService.swift in Sources */,
 				05D4CA902CFE03C600C20F00 /* Texts.swift in Sources */,
 				05B0088C2B7E130700FC2821 /* CustomBigButton.swift in Sources */,
 			);
@@ -1489,6 +1465,7 @@
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1522,6 +1499,7 @@
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1618,6 +1596,7 @@
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1768,6 +1747,7 @@
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1923,6 +1903,7 @@
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2073,6 +2054,7 @@
 				DEVELOPMENT_TEAM = 9XFJYF5H6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dodo/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2225,6 +2207,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		051938572D2FF45700855AD1 /* XCRemoteSwiftPackageReference "PizzaShopNetworkLayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kazarinaJu/PizzaShopNetworkLayer.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		0597E3982C94627700573C8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -2252,6 +2242,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		051938582D2FF45700855AD1 /* DodoNetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 051938572D2FF45700855AD1 /* XCRemoteSwiftPackageReference "PizzaShopNetworkLayer" */;
+			productName = DodoNetworkLayer;
+		};
 		0597E3992C94627700573C8A /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0597E3982C94627700573C8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

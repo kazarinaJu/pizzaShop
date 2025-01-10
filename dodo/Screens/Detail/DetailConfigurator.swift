@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 final class DetailConfigurator {
     func configure(_ product: Product, _ di: DependencyContainer) -> DetailVC {

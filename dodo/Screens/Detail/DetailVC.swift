@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import DodoNetworkLayer
 
 protocol DetailVCProtocol: AnyObject {
     var presenter: DetailPresenterProtocol? { get set }

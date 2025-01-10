@@ -7,6 +7,7 @@
 
 import Foundation
 @testable import dodo
+import DodoNetworkLayer
 
 final class NetworkClientStub: NetworkClientProtocol {
     

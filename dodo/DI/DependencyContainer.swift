@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import DodoNetworkLayer
 
 final class DependencyContainer {
     fileprivate let coordinatorFactory: CoordinatorFactory
@@ -23,7 +24,7 @@ final class DependencyContainer {
         networkClient = NetworkClient()
         productsService = ProductsService(networkClient: networkClient)
         storiesService = StoriesService(networkClient: networkClient)
-        ordersService = OrdersStorage(networkClient: networkClient)
+        ordersService = OrdersStorage()
         phoneAuthService = PhoneAuthService.shared
         
         screenFactory.di = self

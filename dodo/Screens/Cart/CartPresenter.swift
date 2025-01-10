@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 protocol CartPresenterProtocol: AnyObject {
     var view: CartVCProtocol? { get set }

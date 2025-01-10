@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import DodoNetworkLayer
 
 final class StoriesCollectionCell: UICollectionViewCell {
     static let reuseId = "StoriesCollectionCell"

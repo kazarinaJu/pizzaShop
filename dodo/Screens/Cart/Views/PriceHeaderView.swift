@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 final class PriceHeaderView: UIView {
     

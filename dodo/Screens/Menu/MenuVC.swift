@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import DodoNetworkLayer
 
 protocol MenuVCProtocol: AnyObject {
     var presenter: MenuPresenterProtocol? { get set }

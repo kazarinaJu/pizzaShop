@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 final class StorieConfigurator {
     func configure(_ stories: [Storie], _ di: DependencyContainer, _ currentIndex: Int) -> StorieVC {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 protocol StoriePresenterProtocol: AnyObject {
     var view: StorieVCProtocol? { get set }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DodoNetworkLayer
 
 protocol OrdersStorageProtocol: AnyObject {
     func save(_ products: [Product])
@@ -17,11 +18,11 @@ protocol OrdersStorageProtocol: AnyObject {
 }
 
 class OrdersStorage: OrdersStorageProtocol {
-    private let networkClient: NetworkClientProtocol
+    //private let networkClient: NetworkClientProtocol
     private let decoder: JSONDecoder
     
-    init(networkClient: NetworkClientProtocol, decoder: JSONDecoder = JSONDecoder()) {
-        self.networkClient = networkClient
+    init(decoder: JSONDecoder = JSONDecoder()) {
+        //self.networkClient = networkClient
         self.decoder = decoder
     }
     

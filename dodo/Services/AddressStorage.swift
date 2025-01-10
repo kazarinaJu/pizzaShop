@@ -45,7 +45,6 @@ class AddressStorage {
     }
     
     func fetchLastAddress() -> String {
-        var adresses = fetch()
-        return adresses.last ?? ""
+        return fetch().last ?? ""
     }
 }

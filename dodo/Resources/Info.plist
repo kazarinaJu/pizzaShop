@@ -19,8 +19,6 @@
 		<string>SF-Pro-Rounded-Regular.otf</string>
 		<string>SF-Pro-Rounded-Thin.otf</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

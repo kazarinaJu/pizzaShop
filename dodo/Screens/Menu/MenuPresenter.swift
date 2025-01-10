@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 protocol MenuPresenterProtocol: AnyObject {
     var view: MenuVCProtocol? { get set }

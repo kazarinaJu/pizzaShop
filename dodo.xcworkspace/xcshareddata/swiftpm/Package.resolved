@@ -1,5 +1,5 @@
 {
-  "originHash" : "2cebfff80d288f2d21fd13b1a71c4a3002b078b1538cddda0a808095dc7f068f",
+  "originHash" : "2f94c7b094b6357c10c967c6cb3d5729a3cd82262edd6cee029dd3a56b7d5fb0",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/app-check.git",
       "state" : {
-        "revision" : "21fe1af9be463a359aaf8d96789ef73fc3760d09",
-        "version" : "11.0.1"
+        "revision" : "61b85103a1aeed8218f17c794687781505fbbef5",
+        "version" : "11.2.0"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
       "state" : {
-        "revision" : "1fc52ab0e172e7c5a961f975a76c2611f4f22852",
-        "version" : "11.2.0"
+        "revision" : "2e02253fd1ce99145bcbf1bb367ccf61bd0ca46b",
+        "version" : "11.6.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "07a2f57d147d2bf368a0d2dcb5579ff082d9e44f",
-        "version" : "11.1.0"
+        "revision" : "4f234bcbdae841d7015258fbbf8e7743a39b8200",
+        "version" : "11.4.0"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/gtm-session-fetcher.git",
       "state" : {
-        "revision" : "a2ab612cb980066ee56d90d60d8462992c07f24b",
-        "version" : "3.5.0"
+        "revision" : "5cfe5f090c982de9c58605d2a82a4fc77b774fbd",
+        "version" : "4.1.0"
       }
     },
     {
@@ -105,8 +105,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit.git",
       "state" : {
-        "revision" : "28aee1bd9d4a8fa46304c598b73231b043161e63",
-        "version" : "4.0.0"
+        "revision" : "4ca759e952bb62162afb8448b3240a63becddd86",
+        "version" : "4.0.1"
+      }
+    },
+    {
+      "identity" : "pizzashopnetworklayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kazarinaJu/PizzaShopNetworkLayer.git",
+      "state" : {
+        "revision" : "8cea6a21b84af4707495f38b34ede2fd092516f0",
+        "version" : "1.0.5"
       }
     },
     {
@@ -132,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "edb6ed4919f7756157fe02f2552b7e3850a538e5",
-        "version" : "1.28.1"
+        "revision" : "ebc7251dd5b37f627c93698e4374084d98409633",
+        "version" : "1.28.2"
       }
     }
   ],

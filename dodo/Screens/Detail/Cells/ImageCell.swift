@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import DodoNetworkLayer
 
 protocol ImageCellDelegate: AnyObject {
     func showPopover(from sourceView: UIView)

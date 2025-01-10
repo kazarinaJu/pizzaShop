@@ -5,6 +5,7 @@
 //  Created by Юлия Ястребова on 01.02.2024.
 //
 import UIKit
+import DodoNetworkLayer
 
 protocol CartVCProtocol: AnyObject {
     var presenter: CartPresenterProtocol? { get set }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DodoNetworkLayer
 
 protocol DetailPresenterProtocol: AnyObject {
     var view: DetailVCProtocol? { get set }
