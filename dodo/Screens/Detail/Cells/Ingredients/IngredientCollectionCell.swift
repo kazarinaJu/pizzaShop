@@ -45,9 +45,14 @@ final class IngredientCollectionCell: UICollectionViewCell {
     }
     
     func update(_ ingredient: Ingredient) {
-        photoImageView.image = UIImage(named: ingredient.image)
         nameLabel.text = ingredient.name
         priceLabel.text = "\(ingredient.price)"
+        
+        if let url = URL.init(string: ingredient.image) {
+            photoImageView.kf.setImage(with: url, placeholder: UIImage(named: "default"))
+        } else {
+            photoImageView.image = UIImage(named: "default")
+        }
     }
     
    private  func setupViews() {

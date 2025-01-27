@@ -27,7 +27,6 @@ class StartCoordinator: Coordinator {
         let startScreen = screenFactory.makeStartScreen()
         
         startScreen.onTogglesPreloaded = {  isLoaded in
-            //guard let self else { return }
             self.finishFlow?(true)
         }
         

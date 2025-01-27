@@ -97,6 +97,9 @@
 		05B4B2212BAC38AC00AA4802 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4B2202BAC38AC00AA4802 /* MenuPresenter.swift */; };
 		05B4B2232BB2E0BE00AA4802 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4B2222BB2E0BE00AA4802 /* DetailPresenter.swift */; };
 		05B4B2252BB2E0E000AA4802 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4B2242BB2E0E000AA4802 /* CartPresenter.swift */; };
+		05BEA7B92D4270C60001C4B6 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 05BEA7B82D4270C60001C4B6 /* Nuke */; };
+		05BEA7BB2D4271280001C4B6 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BEA7BA2D42711D0001C4B6 /* ImagesService.swift */; };
+		05BEA7BE2D4279A90001C4B6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 05BEA7BD2D4279A90001C4B6 /* Kingfisher */; };
 		05C0DBC12B88FB2900546F01 /* EmptyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C0DBC02B88FB2900546F01 /* EmptyCart.swift */; };
 		05C0DBC32B8CD77F00546F01 /* OrdersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C0DBC22B8CD77F00546F01 /* OrdersStorage.swift */; };
 		05C0DBC62B8CF19D00546F01 /* OrderProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C0DBC52B8CF19D00546F01 /* OrderProductCell.swift */; };
@@ -242,6 +245,7 @@
 		05B4B2202BAC38AC00AA4802 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
 		05B4B2222BB2E0BE00AA4802 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		05B4B2242BB2E0E000AA4802 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		05BEA7BA2D42711D0001C4B6 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		05C0DBC02B88FB2900546F01 /* EmptyCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCart.swift; sourceTree = "<group>"; };
 		05C0DBC22B8CD77F00546F01 /* OrdersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStorage.swift; sourceTree = "<group>"; };
 		05C0DBC52B8CF19D00546F01 /* OrderProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductCell.swift; sourceTree = "<group>"; };
@@ -324,7 +328,9 @@
 			files = (
 				05DB973A2C6E16F400E9DB93 /* SnapKit in Frameworks */,
 				05B21B502CD8B2A60071B95E /* PhoneNumberKit in Frameworks */,
+				05BEA7B92D4270C60001C4B6 /* Nuke in Frameworks */,
 				0597E39A2C94627700573C8A /* FirebaseAuth in Frameworks */,
+				05BEA7BE2D4279A90001C4B6 /* Kingfisher in Frameworks */,
 				051938592D2FF45700855AD1 /* DodoNetworkLayer in Frameworks */,
 				1D2F1B2A9AEB342902186970 /* Pods_dodo.framework in Frameworks */,
 				0597E39C2C94627700573C8A /* FirebaseAuthCombine-Community in Frameworks */,
@@ -519,6 +525,7 @@
 		055D6C152B69530A00989B70 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				05BEA7BA2D42711D0001C4B6 /* ImagesService.swift */,
 				05CD03642D0B1DC300DD8C2D /* AddressStorage.swift */,
 				05C0DBC22B8CD77F00546F01 /* OrdersStorage.swift */,
 				0502F0902BBC3F6500556C33 /* LocationService.swift */,
@@ -857,6 +864,8 @@
 				0597E39B2C94627700573C8A /* FirebaseAuthCombine-Community */,
 				05B21B4F2CD8B2A60071B95E /* PhoneNumberKit */,
 				051938582D2FF45700855AD1 /* DodoNetworkLayer */,
+				05BEA7B82D4270C60001C4B6 /* Nuke */,
+				05BEA7BD2D4279A90001C4B6 /* Kingfisher */,
 			);
 			productName = dodo;
 			productReference = 055D6BFA2B6952A300989B70 /* dodo.app */;
@@ -904,6 +913,8 @@
 				0597E3982C94627700573C8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				05B21B4E2CD8B2A60071B95E /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				051938572D2FF45700855AD1 /* XCRemoteSwiftPackageReference "PizzaShopNetworkLayer" */,
+				05BEA7B72D4270C60001C4B6 /* XCRemoteSwiftPackageReference "Nuke" */,
+				05BEA7BC2D4279A90001C4B6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 055D6BFB2B6952A300989B70 /* Products */;
 			projectDirPath = "";
@@ -1139,6 +1150,7 @@
 				050728352D145CB900E55EB2 /* Colors.swift in Sources */,
 				05B4B2182BA4985200AA4802 /* Data+PrettyJSON.swift in Sources */,
 				05CD03632D09A93100DD8C2D /* StorieVC.swift in Sources */,
+				05BEA7BB2D4271280001C4B6 /* ImagesService.swift in Sources */,
 				0502F0912BBC3F6500556C33 /* LocationService.swift in Sources */,
 				0502F08F2BBADE8F00556C33 /* MapVC.swift in Sources */,
 				05B008842B79EF6E00FC2821 /* IngredientsCell.swift in Sources */,
@@ -2231,6 +2243,22 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		05BEA7B72D4270C60001C4B6 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+		05BEA7BC2D4279A90001C4B6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.3;
+			};
+		};
 		05DB97382C6E16F400E9DB93 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -2261,6 +2289,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 05B21B4E2CD8B2A60071B95E /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
 			productName = PhoneNumberKit;
+		};
+		05BEA7B82D4270C60001C4B6 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05BEA7B72D4270C60001C4B6 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		05BEA7BD2D4279A90001C4B6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05BEA7BC2D4279A90001C4B6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		05DB97392C6E16F400E9DB93 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

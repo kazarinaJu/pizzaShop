@@ -63,11 +63,16 @@ final class OrderProductCell: UITableViewCell {
     func update(_ product: Product) {
         self.product = product
         
-        productImageView.image = UIImage(named: product.image)
         nameLabel.text = product.name
         detailLabel.text = "\(product.size ?? ""), \(product.dough ?? "")"
         stepperView.currentValue = product.count
         priceLabel.text = String(product.price * product.count)
+        
+        if let url = URL.init(string: product.image) {
+            productImageView.kf.setImage(with: url, placeholder: UIImage(named: "default"))
+        } else {
+            productImageView.image = UIImage(named: "default")
+        }
     }
     
     private func setupStepper() {

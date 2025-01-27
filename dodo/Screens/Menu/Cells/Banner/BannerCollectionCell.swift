@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import DodoNetworkLayer
+import Kingfisher
 
 final class BannerCollectionCell: UICollectionViewCell {
     
@@ -51,9 +52,18 @@ final class BannerCollectionCell: UICollectionViewCell {
     
     func update(_ product: Product) {
         self.product = product
-        bannerImageView.image = UIImage(named: product.image)
+        //bannerImageView.image = UIImage(named: product.image)
         bannerLabel.text = product.name
         bannerPriceButton.setTitle("от \(product.price) ₽", for: .normal)
+        
+        //        let url = URL(string: "https://i.postimg.cc/GtZGw6q5/temp-Image-UEe31j.avif")
+        //        bannerImageView.kf.setImage(with: url)
+        
+        if let url = URL.init(string: product.image) {
+            bannerImageView.kf.setImage(with: url, placeholder: UIImage(named: "default"))
+        } else {
+            bannerImageView.image = UIImage(named: "default")
+        }
     }
     
     @objc func priceButtonTapped(_ sender: UIButton) {

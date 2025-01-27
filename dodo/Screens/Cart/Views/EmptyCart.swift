@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class EmptyCart: UIView {
     
@@ -14,7 +15,7 @@ final class EmptyCart: UIView {
     
     private var emptyCartImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = Images.emptyCart
+        imageView.kf.setImage(with: Images.emptyCartUrl)
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true

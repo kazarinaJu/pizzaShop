@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import MapKit
+import Kingfisher
 
 final class MapVC: UIViewController {
     
@@ -25,7 +26,7 @@ final class MapVC: UIViewController {
     
     var pinImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = Images.pin
+        imageView.kf.setImage(with: Images.pinUrl)
         imageView.contentMode = .scaleAspectFit
         imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true

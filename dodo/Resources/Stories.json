@@ -2,27 +2,26 @@
 "stories": [
     {
       "id": 4001,
-      "image": "stories1",
+      "image": "https://f.uguu.se/XMzxJSwS.png",
       "readability": false
 }
     ,
     {
       "id": 4002,
-      "image": "stories",
-      "readability": true
+      "image": "https://f.uguu.se/quZfBDRv.png",
+      "readability": false
 }
     ,
     {
       "id": 4003,
-      "image": "stories2",
-      "readability": true
+      "image": "https://d.uguu.se/VORwPcJA.png",
+      "readability": false
 }
     ,
     {
       "id": 4004,
-      "image": "stories3",
-      "readability": true
+      "image": "https://d.uguu.se/RbWMYwyQ.png",
+      "readability": false
     }
   ]
 }
-

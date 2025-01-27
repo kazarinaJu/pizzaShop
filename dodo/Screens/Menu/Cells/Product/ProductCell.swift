@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import DodoNetworkLayer
+import Kingfisher
 
 final class ProductCell: UITableViewCell {
     
@@ -73,7 +74,12 @@ final class ProductCell: UITableViewCell {
         nameLabel.text = product.name
         detailLabel.text = product.detail
         priceButton.setTitle("от \(product.price) ₽", for: .normal)
-        productImageView.image = UIImage(named: product.image)
+        
+        if let url = URL.init(string: product.image) {
+            productImageView.kf.setImage(with: url, placeholder: UIImage(named: "default"))
+        } else {
+            productImageView.image = UIImage(named: "default")
+        }
     }
     
     @objc func priceButtonTapped(_ sender: UIButton) {

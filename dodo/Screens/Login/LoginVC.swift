@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 protocol LoginVCProtocol: AnyObject {
     var presenter: AuthPresenterProtocol? { get set }
@@ -23,7 +24,7 @@ final class LoginVC: UIViewController, LoginVCProtocol {
     
     private var loginImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = Images.login
+        imageView.kf.setImage(with: Images.loginUrl)
         imageView.contentMode = .scaleAspectFill
         imageView.heightAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 0.6 * ScreenSize.width).isActive = true

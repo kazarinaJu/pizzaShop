@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class StartVC: UIViewController {
     
@@ -18,7 +19,7 @@ final class StartVC: UIViewController {
     
     private var splashImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = Images.splash
+        imageView.kf.setImage(with: Images.splashUrl)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

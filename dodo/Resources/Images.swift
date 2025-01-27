@@ -26,10 +26,11 @@ struct Images {
     static let personFill = UIImage(systemName: "person.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0))
     static let flagCircleFill = UIImage(systemName: "flag.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0))
     
-    static let emptyCart = UIImage(named: "emptyCart")
-    static let pin = UIImage(named: "pin")
-    static let login = UIImage(named: "login")
-    static let splash = UIImage(named: "splash")
+    
+    static let pinUrl = URL(string: "https://f.uguu.se/daYCEAyz.png")
+    static let emptyCartUrl = URL(string: "https://d.uguu.se/hCKrDNhL.jpg")
+    static let loginUrl = URL(string: "https://f.uguu.se/uxrkzwVG.jpeg")
+    static let splashUrl = URL(string: "https://example.com/image.png")
 }
 
 

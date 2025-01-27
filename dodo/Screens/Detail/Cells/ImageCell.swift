@@ -75,10 +75,15 @@ final class ImageCell: UITableViewCell {
     
     func update(_ product: Product?) {
         guard let product = product else { return }
-        detailImageView.image = UIImage(named: product.image)
         nameLabel.text = product.name
         weightLabel.text = "\(product.weight) г."
         descriptionLabel.text = product.description
+        
+        if let url = URL.init(string: product.image) {
+            detailImageView.kf.setImage(with: url, placeholder: UIImage(named: "default"))
+        } else {
+            detailImageView.image = UIImage(named: "default")
+        }
     }
     
     private func setupViews() {

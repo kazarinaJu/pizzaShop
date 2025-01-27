@@ -31,7 +31,11 @@ final class StoriesCollectionCell: UICollectionViewCell {
     }
     
     func update(_ storie: Storie) {
-        storiesImageView.image = UIImage(named: storie.image)
+        if let url = URL.init(string: storie.image) {
+            storiesImageView.kf.setImage(with: url, placeholder: UIImage(named: "default"))
+        } else {
+            storiesImageView.image = UIImage(named: "default")
+        }
         
         if !storie.readability {
             contentView.layer.cornerRadius = 10
