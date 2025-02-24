@@ -11,6 +11,7 @@ import SnapKit
 final class AddressPanelView: UIView {
     var onAddressChanged: ((String) -> ())?
     var onAddressSaved: ((String) -> ())?
+    var onAddressTap: (() -> ())?
     
     var timer: Timer?
     var delayValue : Double = 2.0
@@ -33,6 +34,7 @@ final class AddressPanelView: UIView {
         setupConstraints()
         setupSaveButton()
         observe()
+        addressView.addressTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -89,5 +91,12 @@ extension AddressPanelView {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+}
+
+extension AddressPanelView: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        onAddressTap?()
+        return false
     }
 }

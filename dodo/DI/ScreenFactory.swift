@@ -20,6 +20,7 @@ protocol ScreenFactoryProtocol {
     func makeCartScreen() -> CartVC
     func makeMapScreen() -> MapVC
     func makeStoriesScreen(_ stories: [Storie], _ currentIndex: Int) -> StorieVC
+    func makeAddressScreen() -> AddressVC
 }
 
 final class ScreenFactory: ScreenFactoryProtocol {
@@ -60,6 +61,10 @@ final class ScreenFactory: ScreenFactoryProtocol {
     
     func makeMapScreen() -> MapVC {
         return MapVC()
+    }
+    
+    func makeAddressScreen() -> AddressVC {
+        return AddressVC()
     }
     
     func makeStoriesScreen(_ stories: [Storie], _ currentIndex: Int) -> StorieVC {

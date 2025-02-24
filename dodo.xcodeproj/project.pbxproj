@@ -122,6 +122,9 @@
 		05D4CA962CFF539300C20F00 /* UICollectionView + dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D4CA952CFF539000C20F00 /* UICollectionView + dequeue.swift */; };
 		05D4CA992D005F0C00C20F00 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D4CA982D005F0300C20F00 /* CustomLabel.swift */; };
 		05DB973A2C6E16F400E9DB93 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05DB97392C6E16F400E9DB93 /* SnapKit */; };
+		05E1F0042D5E2EB000D2D95E /* DadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1F0032D5E2EA700D2D95E /* DadataService.swift */; };
+		05E1F0222D6382FA00D2D95E /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1F0212D6382E200D2D95E /* AddressVC.swift */; };
+		05E1F0242D63831100D2D95E /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1F0232D63830D00D2D95E /* AddressCell.swift */; };
 		1D2F1B2A9AEB342902186970 /* Pods_dodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53223F0561903148EB2CF35A /* Pods_dodo.framework */; };
 		2F65DB37F1DF86C18431D4A8 /* Pods_dodo_dodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E4510138A1FD43EB3C2F54 /* Pods_dodo_dodoUITests.framework */; };
 		4869C8102E9CB29031A1144C /* Pods_dodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9440D9CB358DB812A22AC9E /* Pods_dodoTests.framework */; };
@@ -267,6 +270,9 @@
 		05D4CA922CFF532F00C20F00 /* UITableViewHeaderFooterView + dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView + dequeue.swift"; sourceTree = "<group>"; };
 		05D4CA952CFF539000C20F00 /* UICollectionView + dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + dequeue.swift"; sourceTree = "<group>"; };
 		05D4CA982D005F0300C20F00 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		05E1F0032D5E2EA700D2D95E /* DadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadataService.swift; sourceTree = "<group>"; };
+		05E1F0212D6382E200D2D95E /* AddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
+		05E1F0232D63830D00D2D95E /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		1148F8687976309A7797B6F7 /* Pods-dodoTests.debugqa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodoTests.debugqa.xcconfig"; path = "Target Support Files/Pods-dodoTests/Pods-dodoTests.debugqa.xcconfig"; sourceTree = "<group>"; };
 		2D2B8195629DC535E0C000EC /* Pods-dodo.debugprod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.debugprod.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.debugprod.xcconfig"; sourceTree = "<group>"; };
 		31CAA04447872ADAA713B076 /* Pods-dodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dodo.debug.xcconfig"; path = "Target Support Files/Pods-dodo/Pods-dodo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -361,6 +367,8 @@
 		0502F0952BBD814700556C33 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				05E1F0232D63830D00D2D95E /* AddressCell.swift */,
+				05E1F0212D6382E200D2D95E /* AddressVC.swift */,
 				0502F0962BBD816600556C33 /* AddressView.swift */,
 				0502F0982BBDB74600556C33 /* AddressPanelView.swift */,
 			);
@@ -525,6 +533,7 @@
 		055D6C152B69530A00989B70 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				05E1F0032D5E2EA700D2D95E /* DadataService.swift */,
 				05BEA7BA2D42711D0001C4B6 /* ImagesService.swift */,
 				05CD03642D0B1DC300DD8C2D /* AddressStorage.swift */,
 				05C0DBC22B8CD77F00546F01 /* OrdersStorage.swift */,
@@ -1101,6 +1110,7 @@
 			files = (
 				05B008A22B86204600FC2821 /* CategoryCollectionCell.swift in Sources */,
 				0502F08D2BB5701300556C33 /* CartConfigurator.swift in Sources */,
+				05E1F0042D5E2EB000D2D95E /* DadataService.swift in Sources */,
 				0502F0992BBDB74600556C33 /* AddressPanelView.swift in Sources */,
 				052194CD2C7CC9D000B19019 /* Feature.swift in Sources */,
 				0502F0932BBC6DD500556C33 /* GeocodeService.swift in Sources */,
@@ -1164,6 +1174,7 @@
 				05B441D22CAE7BD6008B3F79 /* LoginCoordinator.swift in Sources */,
 				05B441D42CAE7C0C008B3F79 /* MenuCoordinator.swift in Sources */,
 				055D6C272B6A85CB00989B70 /* UITableView + dequeueCell.swift in Sources */,
+				05E1F0242D63831100D2D95E /* AddressCell.swift in Sources */,
 				052194D52C7F5C0700B19019 /* FeatureToggleVC.swift in Sources */,
 				05B441C32CAD8FFE008B3F79 /* DependencyContainer.swift in Sources */,
 				050FDFA32CB6570000D56C17 /* CodeVC.swift in Sources */,
@@ -1171,6 +1182,7 @@
 				05B4B21F2BAC387300AA4802 /* MenuConfigurator.swift in Sources */,
 				052FDA7D2CC91EA40016E637 /* CartCoordinator.swift in Sources */,
 				0502F08B2BB55DBB00556C33 /* DetailConfigurator.swift in Sources */,
+				05E1F0222D6382FA00D2D95E /* AddressVC.swift in Sources */,
 				05CD03652D0B1DCA00DD8C2D /* AddressStorage.swift in Sources */,
 				05B441C52CAD9117008B3F79 /* CoordinatorFactory.swift in Sources */,
 				05D4CA8C2CF8953200C20F00 /* Images.swift in Sources */,

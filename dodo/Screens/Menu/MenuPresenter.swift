@@ -35,11 +35,13 @@ final class MenuPresenter: MenuPresenterProtocol {
     var storiesService: StoriesServiceProtocol?
     var productsService: ProductsServiceProtocol?
     var ordersService: OrdersStorageProtocol?
+    var addressStorage: AddressStorageProtocol?
     
     func viewWillAppear() {
         fetchProducts()
         fetchStories()
         fetchCategories()
+        fetchLastAddress()
     }
 }
 
@@ -96,5 +98,12 @@ extension MenuPresenter {
     func fetchCategories() {
         guard let categories = productsService?.fetchCategories() else { return }
         view?.showCategories(categories)
+    }
+    
+    func fetchLastAddress() {
+        let savedAddress = addressStorage?.fetchLastAddress()
+        
+        guard let address = savedAddress else { return }
+        view?.updateAddress(address)
     }
 }

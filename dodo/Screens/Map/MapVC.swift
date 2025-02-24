@@ -53,7 +53,6 @@ final class MapVC: UIViewController {
         setupKeyboardNotifications()
         checkupLocation()
         observe()
-        observeCloseButton()
     }
     
     @objc private func closeButtonTapped() {
@@ -76,14 +75,6 @@ extension MapVC {
         addressPanelView.onAddressChanged = { [weak self] addressText in
             guard let self else { return }
             self.showAddressOnMap(addressText)
-        }
-    }
-    
-    func observeCloseButton() {
-        addressPanelView.onAddressChanged = { [weak self] addressText in
-            guard let self else { return }
-            self.onAddressSelected?(addressText)
-            dismiss(animated: true)
         }
     }
 }
@@ -128,8 +119,10 @@ extension MapVC {
     }
     
     func showAddressOnMap(_ addressText: String) {
+        
         geocodeService.fetchLocationFromAddress(addressText) { [weak self] location in
             guard let self else { return }
+            
             self.showLocationOnMap(location)
         }
     }
@@ -184,7 +177,7 @@ extension MapVC {
 
 //MARK: - MKMapViewDelegate
 extension MapVC: MKMapViewDelegate {
-
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.centerCoordinate
         let location = CLLocation(latitude: center.latitude, longitude: center.longitude)

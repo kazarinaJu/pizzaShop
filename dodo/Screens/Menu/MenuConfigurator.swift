@@ -20,6 +20,7 @@ final class MenuConfigurator {
         menuPresenter.productsService = di.productsService
         menuPresenter.storiesService = di.storiesService
         menuPresenter.ordersService = di.ordersService
+        menuPresenter.addressStorage = di.addressStorage
 
         return menuVC
     }

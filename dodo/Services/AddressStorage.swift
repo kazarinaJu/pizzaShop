@@ -7,7 +7,14 @@
 
 import Foundation
 
-class AddressStorage {
+protocol AddressStorageProtocol: AnyObject {
+    func save(_ adresses: [String])
+    func fetch() -> [String]
+    func add(_ address: String) -> [String]
+    func fetchLastAddress() -> String
+}
+
+class AddressStorage: AddressStorageProtocol {
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     
@@ -35,16 +42,19 @@ class AddressStorage {
     
     func add(_ address: String) -> [String] {
         var addresses = fetch()
-        if !addresses.contains(address) {
-            addresses.append(address)
-            save(addresses)
-        } else {
-            return addresses
+        
+        if let index = addresses.firstIndex(where: { $0 == address }) {
+            addresses.remove(at: index)
         }
+        
+        addresses.append(address)
+        save(addresses)
+
         return addresses
     }
     
     func fetchLastAddress() -> String {
-        return fetch().last ?? ""
+        let address = fetch().last ?? ""
+        return address
     }
 }

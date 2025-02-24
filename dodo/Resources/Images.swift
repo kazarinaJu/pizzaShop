@@ -27,7 +27,7 @@ struct Images {
     static let flagCircleFill = UIImage(systemName: "flag.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30.0))
     
     
-    static let pinUrl = URL(string: "https://f.uguu.se/daYCEAyz.png")
+    static let pinUrl = URL(string: "https://f.uguu.se/sUaJJerX.png")
     static let emptyCartUrl = URL(string: "https://d.uguu.se/hCKrDNhL.jpg")
     static let loginUrl = URL(string: "https://f.uguu.se/uxrkzwVG.jpeg")
     static let splashUrl = URL(string: "https://example.com/image.png")

@@ -34,7 +34,7 @@ class MenuCoordinator: Coordinator {
         }
         
         menuScreen.onMapButtonTapped = {
-            self.showMap()
+            self.runMapFlow()
         }
         
         menuScreen.onLoginButtonTapped = {
@@ -57,18 +57,10 @@ class MenuCoordinator: Coordinator {
         router.present(cartScreen, animated: true, onRoot: true, fullScreen: false)
     }
     
-    func showMap() {
-        let mapScreen = screenFactory.makeMapScreen()
-        
-        mapScreen.addressPanelView.onAddressSaved = { address in
-            let navVC = mapScreen.presentingViewController as! UINavigationController
-            
-            if let menuVC = navVC.viewControllers.first as? MenuVC {
-                menuVC.updateAddress(address)
-                mapScreen.dismiss(animated: true)
-            }
-        }
-        router.present(mapScreen, animated: true, onRoot: true, fullScreen: false)
+    func runMapFlow() {
+        let coordinator = coordinatorFactory.makeMapCoordinator(router: router)
+        self.addDependency(coordinator)
+        coordinator.start()
     }
     
     func runLoginFlow() {
